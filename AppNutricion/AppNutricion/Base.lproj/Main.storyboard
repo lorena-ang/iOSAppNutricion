@@ -167,7 +167,7 @@
         <!--Perfil-->
         <scene sceneID="Zlt-ZX-ELc">
             <objects>
-                <viewController id="YpR-Gu-aDb" sceneMemberID="viewController">
+                <viewController id="YpR-Gu-aDb" customClass="ViewControllerPerfil" customModule="AppNutricion" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KE3-QN-1JA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -307,6 +307,10 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Página principal" image="house.fill" catalog="system" id="4tr-kk-9rf"/>
+                    <connections>
+                        <outlet property="btnAgregar" destination="oZd-zK-ydO" id="aaf-52-XZ4"/>
+                        <outlet property="collectionView" destination="k4p-dX-Msk" id="r4H-tu-O57"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wsn-rX-zAm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -315,7 +319,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="PAj-SD-Dfk">
             <objects>
-                <tabBarController id="9wf-iw-nR4" sceneMemberID="viewController">
+                <tabBarController id="9wf-iw-nR4" customClass="TabBarController" customModule="AppNutricion" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="UhI-hh-99K">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
