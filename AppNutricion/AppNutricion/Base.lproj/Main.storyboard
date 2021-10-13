@@ -942,10 +942,10 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00:00.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OSP-pI-ITh">
-                                <rect key="frame" x="157" y="527" width="60" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00 : 00 : 00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OSP-pI-ITh">
+                                <rect key="frame" x="120" y="527" width="132" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -956,6 +956,9 @@
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Iniciar"/>
+                                <connections>
+                                    <action selector="btnStart:" destination="wNC-Lf-wvl" eventType="touchUpInside" id="2CZ-Pl-sQe"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="K1u-Ha-6GE"/>
@@ -965,6 +968,7 @@
                     <connections>
                         <outlet property="btnGuardar" destination="cV4-9o-tFe" id="yDQ-FB-Fre"/>
                         <outlet property="btnIniciar" destination="oSw-vZ-MwQ" id="lI0-Ic-Fhi"/>
+                        <outlet property="lbCronometro" destination="OSP-pI-ITh" id="65s-p8-rXF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SHt-yt-tcm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
