@@ -19,22 +19,17 @@ class ViewController: UIViewController {
         
     }
     
-    /*
-    override func viewWillDisappear(_ animated: Bool) {
-        habitosSeleccionados = collectionView.habitosSeleccionados
-    }
-    */
-    
     // MARK: - Navigation
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-        //vistaPrincipal.habitosSeleccionados = habitosSeleccionados;
         habitosSeleccionados = collectionView.habitosSeleccionados
         let vistaTab = segue.destination as! TabBarController
         vistaTab.habitosSeleccionados = habitosSeleccionados
+        // Enviar a perfil
+        let vistaPerfil = vistaTab.viewControllers?[0] as! ViewControllerPerfil
+        vistaPerfil.habitosSeleccionados = habitosSeleccionados
+        // Enviar a página principal
+        let vistaPaginaPrincipal = vistaTab.viewControllers?[1] as! ViewControllerPaginaPrincipal
+        vistaPaginaPrincipal.habitosSeleccionados = habitosSeleccionados
     }
 }
-

@@ -9,13 +9,14 @@ import UIKit
 
 class ViewControllerPerfil: UIViewController {
 
+    var habitosSeleccionados = [Habito]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        print(habitosSeleccionados)
     }
     
-
     /*
     // MARK: - Navigation
 

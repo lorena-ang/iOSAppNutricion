@@ -10,6 +10,7 @@ import UIKit
 class SeleccionCollectionView: UICollectionView, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     var habitosSeleccionados = [Habito]()
+    var viewControllerPadre: ViewControllerPaginaPrincipal!
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath as IndexPath) as! SeleccionCollectionViewCell
@@ -41,15 +42,33 @@ class SeleccionCollectionView: UICollectionView, UICollectionViewDataSource, UIC
     // Seleccionar celda
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let cell = collectionView.cellForItem(at: indexPath) as? SeleccionCollectionViewCell {
-            cell.layer.cornerRadius = 5.0
-            cell.backgroundColor = UIColor(red: 131/255, green: 60/255, blue: 223/255, alpha: 0.06)
-        }
-    }
-    
-    // Deseleccionar celda
-    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        if let cell = collectionView.cellForItem(at: indexPath) as? SeleccionCollectionViewCell {
-            cell.backgroundColor = UIColor.white
+            
+            // Hacer que se ejecute el segue dependiendo de la celda seleccionada
+            var identifier: String!
+            let id = habitosSeleccionados[indexPath.item].id
+            switch id {
+            case 1:
+                identifier = "segEjercicio"
+            case 2:
+                identifier = "segSinCelular"
+            case 3:
+                identifier = "segComidas"
+            case 4:
+                identifier = "segBreaks"
+            case 5:
+                identifier = "segRaciones"
+            case 6:
+                identifier = "segMeditacion"
+            case 7:
+                identifier = "segVasos"
+            case 8:
+                identifier = "segSueno"
+            case 9:
+                identifier = "segPasos"
+            default:
+                identifier = "nada"
+            }
+            viewControllerPadre.ejecutarSegue(identifier: identifier)
         }
     }
 }
