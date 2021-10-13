@@ -1,5 +1,5 @@
 //
-//  ViewControllerPasos.swift
+//  ViewControllerMeditacion.swift
 //  AppNutricion
 //
 //  Created by Chut on 13/10/21.
@@ -7,15 +7,16 @@
 
 import UIKit
 
-class ViewControllerPasos: UIViewController {
-    
-    @IBOutlet weak var tfPasos: UITextField!
-    @IBOutlet weak var btnGuardar: UIButton!
-    
+class ViewControllerMeditacion: UIViewController {
 
+    @IBOutlet weak var btnGuardar: UIButton!
+    @IBOutlet weak var btnIniciar: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         btnGuardar.layer.cornerRadius = 6
+        btnIniciar.layer.cornerRadius = 6
 
         // Do any additional setup after loading the view.
     }

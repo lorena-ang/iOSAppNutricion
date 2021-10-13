@@ -24,6 +24,8 @@
 		17A0D1FE271538A400A57412 /* CustomCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A0D1FD271538A400A57412 /* CustomCollectionView.swift */; };
 		17A0D201271538CD00A57412 /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A0D200271538CD00A57412 /* CustomCollectionViewCell.swift */; };
 		3BD3D4BE2716D24C00494094 /* ViewControllerPasos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD3D4BD2716D24C00494094 /* ViewControllerPasos.swift */; };
+		3BD3D4C1271749AC00494094 /* ViewControllerFrutas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD3D4C0271749AB00494094 /* ViewControllerFrutas.swift */; };
+		3BD3D4C427174B9E00494094 /* ViewControllerMeditacion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD3D4C327174B9D00494094 /* ViewControllerMeditacion.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +48,8 @@
 		17A0D1FD271538A400A57412 /* CustomCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionView.swift; sourceTree = "<group>"; };
 		17A0D200271538CD00A57412 /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
 		3BD3D4BD2716D24C00494094 /* ViewControllerPasos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewControllerPasos.swift; path = Habitos/ViewControllerPasos.swift; sourceTree = "<group>"; };
+		3BD3D4C0271749AB00494094 /* ViewControllerFrutas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewControllerFrutas.swift; path = Habitos/ViewControllerFrutas.swift; sourceTree = "<group>"; };
+		3BD3D4C327174B9D00494094 /* ViewControllerMeditacion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewControllerMeditacion.swift; path = Habitos/ViewControllerMeditacion.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +118,8 @@
 				17A0D1EA2715322E00A57412 /* SceneDelegate.swift */,
 				178FDD4827164D0D003B851E /* TabBar */,
 				17A0D1EE2715322E00A57412 /* Main.storyboard */,
+				3BD3D4C327174B9D00494094 /* ViewControllerMeditacion.swift */,
+				3BD3D4C0271749AB00494094 /* ViewControllerFrutas.swift */,
 				3BD3D4BD2716D24C00494094 /* ViewControllerPasos.swift */,
 				178FDD4927164D65003B851E /* PantallasIniciales */,
 				172CE52D27153D72002D26C2 /* Habito.swift */,
@@ -195,9 +201,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				17A0D1ED2715322E00A57412 /* ViewController.swift in Sources */,
+				3BD3D4C1271749AC00494094 /* ViewControllerFrutas.swift in Sources */,
 				178FDD4D27165D06003B851E /* TabBarController.swift in Sources */,
 				17A0D201271538CD00A57412 /* CustomCollectionViewCell.swift in Sources */,
 				172CE52E27153D72002D26C2 /* Habito.swift in Sources */,
+				3BD3D4C427174B9E00494094 /* ViewControllerMeditacion.swift in Sources */,
 				178FDD452716442C003B851E /* ViewControllerComidas.swift in Sources */,
 				17A0D1E92715322E00A57412 /* AppDelegate.swift in Sources */,
 				1736434B27157FF000E3D8A5 /* SeleccionCollectionView.swift in Sources */,
