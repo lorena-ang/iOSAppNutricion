@@ -29,6 +29,7 @@
 		FD38BA1B2717C36C00D93202 /* Comidas.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD38BA1A2717C36C00D93202 /* Comidas.swift */; };
 		FD38BA202717CFEE00D93202 /* Frutas.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD38BA1F2717CFEE00D93202 /* Frutas.swift */; };
 		FD38BA232717DB4A00D93202 /* Agua.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD38BA222717DB4A00D93202 /* Agua.swift */; };
+		FD38BA2B2717F56200D93202 /* Pasos.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD38BA2A2717F56200D93202 /* Pasos.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,7 @@
 		FD38BA1A2717C36C00D93202 /* Comidas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comidas.swift; sourceTree = "<group>"; };
 		FD38BA1F2717CFEE00D93202 /* Frutas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Frutas.swift; sourceTree = "<group>"; };
 		FD38BA222717DB4A00D93202 /* Agua.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Agua.swift; sourceTree = "<group>"; };
+		FD38BA2A2717F56200D93202 /* Pasos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pasos.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +129,7 @@
 				17A0D1EA2715322E00A57412 /* SceneDelegate.swift */,
 				178FDD4827164D0D003B851E /* TabBar */,
 				17A0D1EE2715322E00A57412 /* Main.storyboard */,
+				FD38BA2A2717F56200D93202 /* Pasos.swift */,
 				FD38BA222717DB4A00D93202 /* Agua.swift */,
 				FD38BA1F2717CFEE00D93202 /* Frutas.swift */,
 				FD38BA1A2717C36C00D93202 /* Comidas.swift */,
@@ -217,6 +220,7 @@
 				17A0D201271538CD00A57412 /* CustomCollectionViewCell.swift in Sources */,
 				172CE52E27153D72002D26C2 /* Habito.swift in Sources */,
 				3BD3D4C427174B9E00494094 /* ViewControllerMeditacion.swift in Sources */,
+				FD38BA2B2717F56200D93202 /* Pasos.swift in Sources */,
 				178FDD452716442C003B851E /* ViewControllerComidas.swift in Sources */,
 				FD38BA202717CFEE00D93202 /* Frutas.swift in Sources */,
 				17A0D1E92715322E00A57412 /* AppDelegate.swift in Sources */,
