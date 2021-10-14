@@ -21,6 +21,8 @@ class ViewControllerAgua: UIViewController {
     @IBOutlet weak var btnGuardar: UIButton!
     
     var numVaso = 0
+    var cant = 0
+    var listaVasos = [Agua]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +30,15 @@ class ViewControllerAgua: UIViewController {
         btnGuardar.layer.cornerRadius = 6
 
         // Do any additional setup after loading the view.
+        let app = UIApplication.shared
+                
+                NotificationCenter.default.addObserver(self, selector: #selector(guardarDatos), name: UIApplication.didEnterBackgroundNotification, object: app)
+                
+                if FileManager.default.fileExists(atPath: dataFileURL().path){
+                    obtenerDatos()
+                }
+                
+                actualiza()
     }
     
     @IBAction func btnMas(_ sender: UIButton) {
@@ -93,6 +104,105 @@ class ViewControllerAgua: UIViewController {
             numVaso-=1
         }
     }
+    func dataFileURL() -> URL {
+            let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+            let pathArchivo = documentsDirectory.appendingPathComponent("Agua").appendingPathExtension("plist")
+            //print(pathArchivo.path)
+            return pathArchivo
+    }
+        
+        @IBAction func guardarDatos(){
+            do{
+                let data = try PropertyListEncoder().encode(listaVasos)
+                try data.write(to: dataFileURL())
+            }
+            catch{
+                print("Error al guardar los datos")
+            }
+        }
+        
+        func actualiza(){
+            let v = listaVasos.first?.vaso
+            if v == 1 {
+                imgVaso1.image = UIImage(named: "p12_vaso.png")
+                lbCantVasos.text = String("7")
+                numVaso = 1
+            }else if v == 2{
+                imgVaso1.image = UIImage(named: "p12_vaso.png")
+                imgVaso2.image = UIImage(named: "p12_vaso.png")
+                lbCantVasos.text = String("6")
+                numVaso = 2
+            }else if v == 3{
+                imgVaso1.image = UIImage(named: "p12_vaso.png")
+                imgVaso2.image = UIImage(named: "p12_vaso.png")
+                imgVaso3.image = UIImage(named: "p12_vaso.png")
+                lbCantVasos.text = String("5")
+                numVaso = 3
+            }else if v == 4{
+                imgVaso1.image = UIImage(named: "p12_vaso.png")
+                imgVaso2.image = UIImage(named: "p12_vaso.png")
+                imgVaso3.image = UIImage(named: "p12_vaso.png")
+                imgVaso4.image = UIImage(named: "p12_vaso.png")
+                lbCantVasos.text = String("4")
+                numVaso = 4
+            }else if v == 5{
+                imgVaso1.image = UIImage(named: "p12_vaso.png")
+                imgVaso2.image = UIImage(named: "p12_vaso.png")
+                imgVaso3.image = UIImage(named: "p12_vaso.png")
+                imgVaso4.image = UIImage(named: "p12_vaso.png")
+                imgVaso5.image = UIImage(named: "p12_vaso.png")
+                lbCantVasos.text = String("3")
+                numVaso = 5
+            }else if v == 6{
+                imgVaso1.image = UIImage(named: "p12_vaso.png")
+                imgVaso2.image = UIImage(named: "p12_vaso.png")
+                imgVaso3.image = UIImage(named: "p12_vaso.png")
+                imgVaso4.image = UIImage(named: "p12_vaso.png")
+                imgVaso5.image = UIImage(named: "p12_vaso.png")
+                imgVaso6.image = UIImage(named: "p12_vaso.png")
+                lbCantVasos.text = String("2")
+                numVaso = 6
+            }else if v == 7{
+                imgVaso1.image = UIImage(named: "p12_vaso.png")
+                imgVaso2.image = UIImage(named: "p12_vaso.png")
+                imgVaso3.image = UIImage(named: "p12_vaso.png")
+                imgVaso4.image = UIImage(named: "p12_vaso.png")
+                imgVaso5.image = UIImage(named: "p12_vaso.png")
+                imgVaso6.image = UIImage(named: "p12_vaso.png")
+                imgVaso7.image = UIImage(named: "p12_vaso.png")
+                lbCantVasos.text = String("1")
+                numVaso = 7
+            }else if v == 8{
+                imgVaso1.image = UIImage(named: "p12_vaso.png")
+                imgVaso2.image = UIImage(named: "p12_vaso.png")
+                imgVaso3.image = UIImage(named: "p12_vaso.png")
+                imgVaso4.image = UIImage(named: "p12_vaso.png")
+                imgVaso5.image = UIImage(named: "p12_vaso.png")
+                imgVaso6.image = UIImage(named: "p12_vaso.png")
+                imgVaso7.image = UIImage(named: "p12_vaso.png")
+                imgVaso8.image = UIImage(named: "p12_vaso.png")
+                lbCantVasos.text = String("0")
+                numVaso = 8
+            }
+        }
+        
+    @IBAction func obtenerDatos() {
+        listaVasos.removeAll()
+        do{
+            let data = try Data.init(contentsOf: dataFileURL())
+            listaVasos = try PropertyListDecoder().decode([Agua].self, from: data)
+        }
+        catch{
+            print("Error al cargar los datos del archivo")
+        }
+    }
+    
+    @IBAction func btGuardarA(_ sender: UIButton) {
+        //cant = 8 - Int(lbCantVasos.text!)!
+        listaVasos = [Agua(vaso: numVaso)]
+        guardarDatos()
+    }
+    
     
 
     /*

@@ -13,6 +13,9 @@ class ViewControllerFrutas: UIViewController {
     @IBOutlet weak var lbVerduras: UILabel!
     @IBOutlet weak var btnGuardar: UIButton!
     
+    var listaFrutas = [Frutas]()
+    var frutas = 0
+    var verduras = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +26,15 @@ class ViewControllerFrutas: UIViewController {
         lbVerduras.layer.cornerRadius = 6
         btnGuardar.layer.cornerRadius = 6
         // Do any additional setup after loading the view.
+        let app = UIApplication.shared
+                
+                NotificationCenter.default.addObserver(self, selector: #selector(guardarDatos), name: UIApplication.didEnterBackgroundNotification, object: app)
+                
+                if FileManager.default.fileExists(atPath: dataFileURL().path){
+                    obtenerDatos()
+                }
+                
+                actualiza()
     }
     
     @IBAction func btnMasFrutas(_ sender: UIButton) {
@@ -52,6 +64,51 @@ class ViewControllerFrutas: UIViewController {
             lbVerduras!.text = String(nuevo)
         }
     }
+    
+    func dataFileURL() -> URL {
+            let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+            let pathArchivo = documentsDirectory.appendingPathComponent("Frutas").appendingPathExtension("plist")
+            //print(pathArchivo.path)
+            return pathArchivo
+        }
+        
+        @IBAction func guardarDatos(){
+            do{
+                let data = try PropertyListEncoder().encode(listaFrutas)
+                try data.write(to: dataFileURL())
+            }
+            catch{
+                print("Error al guardar los datos")
+            }
+        }
+        
+        func actualiza(){
+            
+            let f = listaFrutas[0].fruta
+            lbNumFrutas.text =  String(f!)
+            
+            let v = listaFrutas[0].verdura
+            lbVerduras.text = String(v!)
+        }
+        
+    @IBAction func obtenerDatos() {
+        listaFrutas.removeAll()
+        do{
+            let data = try Data.init(contentsOf: dataFileURL())
+            listaFrutas = try PropertyListDecoder().decode([Frutas].self, from: data)
+        }
+        catch{
+            print("Error al cargar los datos del archivo")
+        }
+    }
+    
+    @IBAction func btGuardarA(_ sender: UIButton) {
+        frutas = Int(lbNumFrutas.text!)!
+        verduras = Int(lbVerduras.text!)!
+        listaFrutas = [Frutas(fruta: frutas, verdura: verduras)]
+        guardarDatos()
+    }
+    
     
     
     

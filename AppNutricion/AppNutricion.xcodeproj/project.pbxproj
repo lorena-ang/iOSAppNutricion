@@ -26,6 +26,9 @@
 		3BD3D4BE2716D24C00494094 /* ViewControllerPasos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD3D4BD2716D24C00494094 /* ViewControllerPasos.swift */; };
 		3BD3D4C1271749AC00494094 /* ViewControllerFrutas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD3D4C0271749AB00494094 /* ViewControllerFrutas.swift */; };
 		3BD3D4C427174B9E00494094 /* ViewControllerMeditacion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD3D4C327174B9D00494094 /* ViewControllerMeditacion.swift */; };
+		FD38BA1B2717C36C00D93202 /* Comidas.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD38BA1A2717C36C00D93202 /* Comidas.swift */; };
+		FD38BA202717CFEE00D93202 /* Frutas.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD38BA1F2717CFEE00D93202 /* Frutas.swift */; };
+		FD38BA232717DB4A00D93202 /* Agua.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD38BA222717DB4A00D93202 /* Agua.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,9 +50,12 @@
 		17A0D1F62715322F00A57412 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		17A0D1FD271538A400A57412 /* CustomCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionView.swift; sourceTree = "<group>"; };
 		17A0D200271538CD00A57412 /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
-		3BD3D4BD2716D24C00494094 /* ViewControllerPasos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewControllerPasos.swift; path = Habitos/ViewControllerPasos.swift; sourceTree = "<group>"; };
-		3BD3D4C0271749AB00494094 /* ViewControllerFrutas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewControllerFrutas.swift; path = Habitos/ViewControllerFrutas.swift; sourceTree = "<group>"; };
-		3BD3D4C327174B9D00494094 /* ViewControllerMeditacion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewControllerMeditacion.swift; path = Habitos/ViewControllerMeditacion.swift; sourceTree = "<group>"; };
+		3BD3D4BD2716D24C00494094 /* ViewControllerPasos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerPasos.swift; sourceTree = "<group>"; };
+		3BD3D4C0271749AB00494094 /* ViewControllerFrutas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerFrutas.swift; sourceTree = "<group>"; };
+		3BD3D4C327174B9D00494094 /* ViewControllerMeditacion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerMeditacion.swift; sourceTree = "<group>"; };
+		FD38BA1A2717C36C00D93202 /* Comidas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comidas.swift; sourceTree = "<group>"; };
+		FD38BA1F2717CFEE00D93202 /* Frutas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Frutas.swift; sourceTree = "<group>"; };
+		FD38BA222717DB4A00D93202 /* Agua.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Agua.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +74,9 @@
 			children = (
 				178FDD442716442C003B851E /* ViewControllerComidas.swift */,
 				178FDD412716441B003B851E /* ViewControllerAgua.swift */,
+				3BD3D4C327174B9D00494094 /* ViewControllerMeditacion.swift */,
+				3BD3D4C0271749AB00494094 /* ViewControllerFrutas.swift */,
+				3BD3D4BD2716D24C00494094 /* ViewControllerPasos.swift */,
 			);
 			path = Habitos;
 			sourceTree = "<group>";
@@ -118,9 +127,9 @@
 				17A0D1EA2715322E00A57412 /* SceneDelegate.swift */,
 				178FDD4827164D0D003B851E /* TabBar */,
 				17A0D1EE2715322E00A57412 /* Main.storyboard */,
-				3BD3D4C327174B9D00494094 /* ViewControllerMeditacion.swift */,
-				3BD3D4C0271749AB00494094 /* ViewControllerFrutas.swift */,
-				3BD3D4BD2716D24C00494094 /* ViewControllerPasos.swift */,
+				FD38BA222717DB4A00D93202 /* Agua.swift */,
+				FD38BA1F2717CFEE00D93202 /* Frutas.swift */,
+				FD38BA1A2717C36C00D93202 /* Comidas.swift */,
 				178FDD4927164D65003B851E /* PantallasIniciales */,
 				172CE52D27153D72002D26C2 /* Habito.swift */,
 				17A0D1F12715322F00A57412 /* Assets.xcassets */,
@@ -201,12 +210,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				17A0D1ED2715322E00A57412 /* ViewController.swift in Sources */,
+				FD38BA1B2717C36C00D93202 /* Comidas.swift in Sources */,
 				3BD3D4C1271749AC00494094 /* ViewControllerFrutas.swift in Sources */,
+				FD38BA232717DB4A00D93202 /* Agua.swift in Sources */,
 				178FDD4D27165D06003B851E /* TabBarController.swift in Sources */,
 				17A0D201271538CD00A57412 /* CustomCollectionViewCell.swift in Sources */,
 				172CE52E27153D72002D26C2 /* Habito.swift in Sources */,
 				3BD3D4C427174B9E00494094 /* ViewControllerMeditacion.swift in Sources */,
 				178FDD452716442C003B851E /* ViewControllerComidas.swift in Sources */,
+				FD38BA202717CFEE00D93202 /* Frutas.swift in Sources */,
 				17A0D1E92715322E00A57412 /* AppDelegate.swift in Sources */,
 				1736434B27157FF000E3D8A5 /* SeleccionCollectionView.swift in Sources */,
 				3BD3D4BE2716D24C00494094 /* ViewControllerPasos.swift in Sources */,

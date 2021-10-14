@@ -504,6 +504,9 @@
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Guardar"/>
+                                <connections>
+                                    <action selector="btGuardarA:" destination="uQ3-XX-vIt" eventType="touchUpInside" id="q6c-4y-LqT"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Para completar 2L de agua al día" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BC0-iG-SgC">
                                 <rect key="frame" x="106" y="573" width="165" height="43"/>
@@ -651,6 +654,9 @@
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Guardar"/>
+                                <connections>
+                                    <action selector="btGuardarA:" destination="3YS-9D-2hs" eventType="touchUpInside" id="YqX-0x-4tz"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="2wv-gl-Qhk"/>
@@ -658,6 +664,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="HHf-DV-10w"/>
                     <connections>
+                        <outlet property="btCheckCe" destination="rSw-Rd-WXQ" id="5eR-gf-cdW"/>
+                        <outlet property="btCheckCo" destination="pmK-Ka-liO" id="HmO-wE-cKn"/>
+                        <outlet property="btCheckD" destination="ups-ca-aB7" id="bFe-RJ-hek"/>
                         <outlet property="btnGuardar" destination="oxU-oK-PvU" id="orF-Vv-vKc"/>
                     </connections>
                 </viewController>
@@ -814,6 +823,9 @@
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Guardar"/>
+                                <connections>
+                                    <action selector="btGuardarA:" destination="qGj-E9-ldT" eventType="touchUpInside" id="Qn9-iB-9Fp"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="8UG-DT-b41"/>
