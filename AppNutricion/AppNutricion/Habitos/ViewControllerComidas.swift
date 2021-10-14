@@ -84,44 +84,35 @@ class ViewControllerComidas: UIViewController {
             }
         }
         
-        func actualiza(){
-            //Porque despues de bajar la pantalla y al volver accesar, tenias que dar doble click para activar el boton y con estos if se soluciona
-            if desayuno{
-                desayuno = false
-            }else{
-                desayuno = true
-            }
-            if comida{
-                comida = false
-            }else{
-                comida = true
-            }
-            if cena{
-                cena = false
-            }else{
-                cena = true
-            }
-            let des = listaComidas[0].desayuno
-            if des {
-                btCheckD.setImage(UIImage(named:"p8_checkV.png"), for: UIControl.State())
-            }else{
-                btCheckD.setImage(UIImage(named:"p8_checkB.png"), for: UIControl.State())
-            }
-            let com = listaComidas[0].comida
-            if com {
-                btCheckCo.setImage(UIImage(named:"p8_checkV.png"), for: UIControl.State())
-            }else{
-                btCheckCo.setImage(UIImage(named:"p8_checkB.png"), for: UIControl.State())
-            }
-            let cen = listaComidas[0].cena
-            if cen {
-                btCheckCe.setImage(UIImage(named:"p8_checkV.png"), for: UIControl.State())
-            }else{
-                btCheckCe.setImage(UIImage(named:"p8_checkB.png"), for: UIControl.State())
-            }
-            
+    func actualiza(){
+        
+        let des = listaComidas[0].desayuno
+        if des {
+            btCheckD.setImage(UIImage(named:"p8_checkV.png"), for: UIControl.State())
+            desayuno = false
+        }else{
+            btCheckD.setImage(UIImage(named:"p8_checkB.png"), for: UIControl.State())
+            desayuno = true
+        }
+        let com = listaComidas[0].comida
+        if com {
+            btCheckCo.setImage(UIImage(named:"p8_checkV.png"), for: UIControl.State())
+            comida = false
+        }else{
+            btCheckCo.setImage(UIImage(named:"p8_checkB.png"), for: UIControl.State())
+            comida = true
+        }
+        let cen = listaComidas[0].cena
+        if cen {
+            btCheckCe.setImage(UIImage(named:"p8_checkV.png"), for: UIControl.State())
+            cena = false
+        }else{
+            btCheckCe.setImage(UIImage(named:"p8_checkB.png"), for: UIControl.State())
+            cena = true
         }
         
+    }
+    
         @IBAction func obtenerDatos(){
             listaComidas.removeAll()
             do{
@@ -135,7 +126,7 @@ class ViewControllerComidas: UIViewController {
         }
     
     @IBAction func btGuardarA(_ sender: UIButton) {
-        /*if desayuno{
+        if desayuno{
             desayuno = false
         }else{
             desayuno = true
@@ -149,7 +140,7 @@ class ViewControllerComidas: UIViewController {
             cena = false
         }else{
             cena = true
-        }*/
+        }
         //listaComidas = [Comidas(desayuno: desayuno, comida: comida, cena: cena)]
         listaComidas[0].desayuno = desayuno
         listaComidas[0].comida = comida

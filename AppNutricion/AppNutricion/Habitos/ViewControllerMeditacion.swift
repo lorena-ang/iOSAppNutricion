@@ -17,7 +17,7 @@ class ViewControllerMeditacion: UIViewController {
     var count:Int = 0
     var timerCounting:Bool = false
     var tiempo = ""
-    var listaMeditacion = [Meditacion(tiempo: "00:00:00")]
+    var listaMeditacion = [Meditacion(tiempo: "00 : 00 : 00")]
     
     override func viewDidLoad() {
         super.viewDidLoad()
