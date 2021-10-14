@@ -13,7 +13,7 @@ class ViewControllerFrutas: UIViewController {
     @IBOutlet weak var lbVerduras: UILabel!
     @IBOutlet weak var btnGuardar: UIButton!
     
-    var listaFrutas = [Frutas]()
+    var listaFrutas = [Frutas(fruta: 0, verdura: 0)]
     var frutas = 0
     var verduras = 0
 

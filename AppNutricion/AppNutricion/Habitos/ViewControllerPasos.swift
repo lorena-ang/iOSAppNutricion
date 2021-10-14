@@ -12,7 +12,7 @@ class ViewControllerPasos: UIViewController {
     @IBOutlet weak var tfPasos: UITextField!
     @IBOutlet weak var btnGuardar: UIButton!
     
-    var listaPasos = [Pasos]()
+    var listaPasos = [Pasos(pasos: 0)]
     var pasos = 0
 
     override func viewDidLoad() {
