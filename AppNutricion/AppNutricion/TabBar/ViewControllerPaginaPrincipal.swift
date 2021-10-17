@@ -24,9 +24,25 @@ class ViewControllerPaginaPrincipal: UIViewController {
         collectionView.habitosSeleccionados = habitosSeleccionados
     }
     
+    // Segues de hábitos
     func ejecutarSegue(identifier: String) {
         performSegue(withIdentifier: identifier, sender: self)
     }
     
-    // funcion ejecutar segue recibiendo como parametro el segue
+    // MARK: - Navigation
+    // Segue de selección
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "segSeleccion" {
+            let vistaSeleccion = segue.destination as! ViewControllerSeleccion
+            vistaSeleccion.habitosSeleccionados = habitosSeleccionados
+        }
+    }
+    
+    @IBAction func unwindGuardarSeleccion(unwindSegue: UIStoryboardSegue)
+    {
+        if let sourceVC = unwindSegue.source as? ViewControllerSeleccion {
+            collectionView.habitosSeleccionados = sourceVC.collectionView.habitosSeleccionadosNuevos
+            collectionView.reloadData()
+        }
+    }
 }

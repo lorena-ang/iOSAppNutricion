@@ -9,12 +9,26 @@ import UIKit
 
 class ViewControllerPerfil: UIViewController {
 
+    @IBOutlet weak var tfNombre: UITextField!
     var habitosSeleccionados = [Habito]()
+    var nombre: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tfNombre.layer.cornerRadius = 5
+        let defaults = UserDefaults.standard
+        nombre = defaults.value(forKey: "nombre") as! String
+        tfNombre.text = nombre
+    }
 
-        print(habitosSeleccionados)
+    @IBAction func quitateclado() {
+        view.endEditing(true)
+        let nuevoNombre = tfNombre.text
+        // Actualizar cambio en UserDefaults si hubo
+        if nombre != nuevoNombre {
+            let defaults = UserDefaults.standard
+            defaults.setValue(tfNombre.text, forKey: "nombre")
+        }
     }
     
     /*
@@ -26,5 +40,4 @@ class ViewControllerPerfil: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
 }
