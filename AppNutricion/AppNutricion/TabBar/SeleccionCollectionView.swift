@@ -42,7 +42,6 @@ class SeleccionCollectionView: UICollectionView, UICollectionViewDataSource, UIC
     // Seleccionar celda
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let cell = collectionView.cellForItem(at: indexPath) as? SeleccionCollectionViewCell {
-            
             // Hacer que se ejecute el segue dependiendo de la celda seleccionada
             var identifier: String!
             let id = habitosSeleccionados[indexPath.item].id
