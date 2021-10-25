@@ -10,6 +10,7 @@ import UIKit
 class ViewControllerPerfil: UIViewController {
 
     @IBOutlet weak var tfNombre: UITextField!
+    
     var habitosSeleccionados = [Habito]()
     var nombre: String = ""
     

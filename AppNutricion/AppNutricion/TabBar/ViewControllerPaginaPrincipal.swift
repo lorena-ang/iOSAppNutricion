@@ -10,11 +10,10 @@ import UIKit
 class ViewControllerPaginaPrincipal: UIViewController {
     
     @IBOutlet weak var collectionView: SeleccionCollectionView!
+    @IBOutlet weak var btnAgregar: UIButton!
     
     var habitosSeleccionados = [Habito]()
     var identifier: String!
-    
-    @IBOutlet weak var btnAgregar: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()

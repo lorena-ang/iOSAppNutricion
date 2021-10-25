@@ -893,6 +893,34 @@
             </objects>
             <point key="canvasLocation" x="5588" y="311"/>
         </scene>
+        <!--View Controller Pop Over-->
+        <scene sceneID="49r-fB-mLg">
+            <objects>
+                <viewController id="9To-Bh-mUU" customClass="ViewControllerPopOver" customModule="AppNutricion" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="y3q-A3-Zyt">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="400"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Texto" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="14" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UG3-JX-87G">
+                                <rect key="frame" x="67" y="53" width="186" height="147"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Dfq-Wl-FY4"/>
+                        <color key="backgroundColor" red="0.87450981139999995" green="0.2352941036" blue="0.59607845540000004" alpha="0.140625" colorSpace="custom" customColorSpace="displayP3"/>
+                    </view>
+                    <size key="freeformSize" width="320" height="400"/>
+                    <connections>
+                        <outlet property="lbTexto" destination="UG3-JX-87G" id="nfh-Gg-nVk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ue0-Dw-oxy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6308.8000000000002" y="1074.9625187406298"/>
+        </scene>
         <!--View Controller Frutas-->
         <scene sceneID="vbI-uS-dQl">
             <objects>
@@ -1134,6 +1162,16 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MUc-QD-Ot6">
+                                <rect key="frame" x="305" y="48" width="25" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.87450980389999999" green="0.23529411759999999" blue="0.59607843140000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <segue destination="9To-Bh-mUU" kind="popoverPresentation" popoverAnchorView="MUc-QD-Ot6" id="aDM-3t-olu">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="K1u-Ha-6GE"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>

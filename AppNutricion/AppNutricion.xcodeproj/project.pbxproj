@@ -27,6 +27,7 @@
 		17A0D1F52715322F00A57412 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17A0D1F32715322F00A57412 /* LaunchScreen.storyboard */; };
 		17A0D1FE271538A400A57412 /* CustomCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A0D1FD271538A400A57412 /* CustomCollectionView.swift */; };
 		17A0D201271538CD00A57412 /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A0D200271538CD00A57412 /* CustomCollectionViewCell.swift */; };
+		17EB09DD2726965A0044673D /* ViewControllerPopOver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EB09DC2726965A0044673D /* ViewControllerPopOver.swift */; };
 		3BD3D4BE2716D24C00494094 /* ViewControllerPasos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD3D4BD2716D24C00494094 /* ViewControllerPasos.swift */; };
 		3BD3D4C1271749AC00494094 /* ViewControllerFrutas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD3D4C0271749AB00494094 /* ViewControllerFrutas.swift */; };
 		3BD3D4C427174B9E00494094 /* ViewControllerMeditacion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD3D4C327174B9D00494094 /* ViewControllerMeditacion.swift */; };
@@ -60,6 +61,7 @@
 		17A0D1F62715322F00A57412 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		17A0D1FD271538A400A57412 /* CustomCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionView.swift; sourceTree = "<group>"; };
 		17A0D200271538CD00A57412 /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
+		17EB09DC2726965A0044673D /* ViewControllerPopOver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerPopOver.swift; sourceTree = "<group>"; };
 		3BD3D4BD2716D24C00494094 /* ViewControllerPasos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerPasos.swift; sourceTree = "<group>"; };
 		3BD3D4C0271749AB00494094 /* ViewControllerFrutas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerFrutas.swift; sourceTree = "<group>"; };
 		3BD3D4C327174B9D00494094 /* ViewControllerMeditacion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerMeditacion.swift; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 				17A0D1EA2715322E00A57412 /* SceneDelegate.swift */,
 				17A0D1F12715322F00A57412 /* Assets.xcassets */,
 				17A0D1EE2715322E00A57412 /* Main.storyboard */,
+				17EB09DC2726965A0044673D /* ViewControllerPopOver.swift */,
 				1750FAB4271B8CCB00B458D0 /* ViewControllerNombre.swift */,
 				178FDD4727164CCF003B851E /* Habitos */,
 				178FDD4827164D0D003B851E /* TabBar */,
@@ -235,6 +238,7 @@
 				178FDD4D27165D06003B851E /* TabBarController.swift in Sources */,
 				1750FAA7271B6C3400B458D0 /* ViewControllerSeleccion.swift in Sources */,
 				1750FAB5271B8CCB00B458D0 /* ViewControllerNombre.swift in Sources */,
+				17EB09DD2726965A0044673D /* ViewControllerPopOver.swift in Sources */,
 				1750FAB1271B76B700B458D0 /* SeleccionEditarCollectionViewCell.swift in Sources */,
 				17A0D201271538CD00A57412 /* CustomCollectionViewCell.swift in Sources */,
 				172CE52E27153D72002D26C2 /* Habito.swift in Sources */,
