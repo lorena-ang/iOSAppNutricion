@@ -41,7 +41,12 @@ class ViewControllerPaginaPrincipal: UIViewController {
     @IBAction func unwindGuardarSeleccion(unwindSegue: UIStoryboardSegue)
     {
         if let sourceVC = unwindSegue.source as? ViewControllerSeleccion {
-            collectionView.habitosSeleccionados = sourceVC.collectionView.habitosSeleccionadosNuevos
+            habitosSeleccionados = sourceVC.collectionView.habitosSeleccionados
+            // Ordenar hábitos por id
+            habitosSeleccionados.sort { (h1, h2) in
+                h1.id < h2.id
+            }
+            collectionView.habitosSeleccionados = habitosSeleccionados
             collectionView.reloadData()
         }
     }

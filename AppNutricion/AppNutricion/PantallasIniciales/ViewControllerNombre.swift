@@ -14,8 +14,8 @@ class ViewControllerNombre: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         btnComenzar.layer.cornerRadius = 5
-        // Do any additional setup after loading the view.
     }
     
     override func viewWillDisappear(_ animated: Bool) {

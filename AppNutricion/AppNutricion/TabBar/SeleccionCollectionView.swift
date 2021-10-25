@@ -13,6 +13,7 @@ class SeleccionCollectionView: UICollectionView, UICollectionViewDataSource, UIC
     var viewControllerPadre: ViewControllerPaginaPrincipal!
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath as IndexPath) as! SeleccionCollectionViewCell
         
         cell.setHabito(label: habitosSeleccionados[indexPath.row].nombre, img: habitosSeleccionados[indexPath.row].imgHabito)

@@ -21,12 +21,21 @@ class SeleccionEditarCollectionView: UICollectionView, UICollectionViewDataSourc
         Habito(id: 9, nombre: "Mil pasos", imgHabito: UIImage(named: "pasos")!)
     ]
     var habitosSeleccionados = [Habito]()
-    var habitosSeleccionadosNuevos = [Habito]()
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+                
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath as IndexPath) as! SeleccionEditarCollectionViewCell
         
         cell.setHabito(label: listaHabitos[indexPath.row].nombre, img: listaHabitos[indexPath.row].imgHabito)
+
+        for habito in habitosSeleccionados {
+            if listaHabitos[indexPath.row].nombre == habito.nombre {
+                cell.isHighlighted = true
+                cell.layer.cornerRadius = 5.0
+                cell.backgroundColor = UIColor(red: 131/255, green: 60/255, blue: 223/255, alpha: 0.06)
+            }
+        }
+        
         return cell
     }
     
@@ -53,21 +62,33 @@ class SeleccionEditarCollectionView: UICollectionView, UICollectionViewDataSourc
     // Seleccionar celdas
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let cell = collectionView.cellForItem(at: indexPath) as? SeleccionEditarCollectionViewCell {
-            cell.layer.cornerRadius = 5.0
-            cell.backgroundColor = UIColor(red: 131/255, green: 60/255, blue: 223/255, alpha: 0.06)
-            let selected = listaHabitos[indexPath.item]
-            habitosSeleccionadosNuevos.append(selected)
+            // Improvisación para deseleccionar celdas seleccionadas con .isSelected
+            if cell.backgroundColor == UIColor(red: 131/255, green: 60/255, blue: 223/255, alpha: 0.06) {
+                for (index, habito) in habitosSeleccionados.enumerated() {
+                    if listaHabitos[indexPath.row].nombre == habito.nombre {
+                        habitosSeleccionados.remove(at: index)
+                    }
+                }
+                cell.isSelected = false
+                cell.backgroundColor = UIColor.white
+            }
+            else {
+                cell.layer.cornerRadius = 5.0
+                cell.backgroundColor = UIColor(red: 131/255, green: 60/255, blue: 223/255, alpha: 0.06)
+                let selected = listaHabitos[indexPath.item]
+                habitosSeleccionados.append(selected)
+            }
         }
     }
     
     // Deseleccionar celdas y almacenar indices
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        if let cell = collectionView.cellForItem(at: indexPath) as? SeleccionEditarCollectionViewCell {
-            cell.backgroundColor = UIColor.white
-            if let indexValue = habitosSeleccionadosNuevos.firstIndex(of: listaHabitos[indexPath.item]) {
-                habitosSeleccionadosNuevos.remove(at: indexValue)
-            }
-        }
-    }
+         if let cell = collectionView.cellForItem(at: indexPath) as? SeleccionEditarCollectionViewCell {
+             cell.backgroundColor = UIColor.white
+             if let indexValue = habitosSeleccionados.firstIndex(of: listaHabitos[indexPath.item]) {
+                 habitosSeleccionados.remove(at: indexValue)
+             }
+         }
+     }
 }
 
