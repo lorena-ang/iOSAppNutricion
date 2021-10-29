@@ -715,12 +715,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Rutina de Ejercicio" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hvy-oe-awe">
-                                <rect key="frame" x="83" y="119" width="191" height="80"/>
+                                <rect key="frame" x="92" y="20" width="191" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ejercicio" translatesAutoresizingMaskIntoConstraints="NO" id="hyP-QE-LwL">
+                                <rect key="frame" x="67" y="108" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="JiV-lS-BgA"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -852,12 +856,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Horas antes de dormir sin celular" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8FK-Ai-V2p">
-                                <rect key="frame" x="83" y="93" width="231" height="80"/>
+                                <rect key="frame" x="72" y="36" width="231" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="celular" translatesAutoresizingMaskIntoConstraints="NO" id="M9g-tb-Xzu">
+                                <rect key="frame" x="63" y="137" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Q7G-tQ-TMs"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -877,12 +885,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Breaks de actividades" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hVv-aU-Ccs">
-                                <rect key="frame" x="83" y="119" width="243" height="80"/>
+                                <rect key="frame" x="66" y="20" width="243" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="breaks" translatesAutoresizingMaskIntoConstraints="NO" id="ip0-21-R3x">
+                                <rect key="frame" x="67" y="108" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="gdI-uq-Ph0"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1196,12 +1208,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Horas de sueño" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ky4-bz-5AW">
-                                <rect key="frame" x="83" y="93" width="231" height="80"/>
+                                <rect key="frame" x="72" y="30" width="231" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sueno" translatesAutoresizingMaskIntoConstraints="NO" id="tQo-dc-zIR">
+                                <rect key="frame" x="67" y="118" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="OHI-ma-2NF"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1217,7 +1233,10 @@
         <image name="agua" width="312" height="262"/>
         <image name="arrowtriangle.down.fill" catalog="system" width="128" height="124"/>
         <image name="arrowtriangle.up.fill" catalog="system" width="128" height="124"/>
+        <image name="breaks" width="312" height="276"/>
+        <image name="celular" width="309" height="276"/>
         <image name="comidas" width="305" height="276"/>
+        <image name="ejercicio" width="312" height="276"/>
         <image name="esquina" width="454" height="379"/>
         <image name="flechaL" width="1153" height="845"/>
         <image name="flechaR" width="1153" height="845"/>
@@ -1234,6 +1253,7 @@
         <image name="plus.circle.fill" catalog="system" width="128" height="121"/>
         <image name="profile" width="1323" height="978"/>
         <image name="raciones" width="300" height="278"/>
+        <image name="sueno" width="307" height="244"/>
         <image name="titulo" width="468" height="367"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
