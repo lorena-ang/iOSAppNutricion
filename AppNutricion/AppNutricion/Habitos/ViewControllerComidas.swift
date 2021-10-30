@@ -145,8 +145,8 @@ class ViewControllerComidas: UIViewController {
         listaComidas[0].desayuno = desayuno
         listaComidas[0].comida = comida
         listaComidas[0].cena = cena
-        
         guardarDatos()
+        dismiss(animated: true, completion: nil)
     }
     
   

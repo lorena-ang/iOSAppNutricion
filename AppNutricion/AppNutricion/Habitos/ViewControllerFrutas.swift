@@ -107,6 +107,7 @@ class ViewControllerFrutas: UIViewController {
         verduras = Int(lbVerduras.text!)!
         listaFrutas = [Frutas(fruta: frutas, verdura: verduras)]
         guardarDatos()
+        dismiss(animated: true, completion: nil)
     }
     
     

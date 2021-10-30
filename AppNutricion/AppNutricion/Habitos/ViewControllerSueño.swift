@@ -155,6 +155,7 @@ class ViewControllerSuen_o: UIViewController {
         hora = tfSueno.text!
         listaSueno = [Sueno(hora: hora)]
         guardarDatos()
+        dismiss(animated: true, completion: nil)
     }
     
 

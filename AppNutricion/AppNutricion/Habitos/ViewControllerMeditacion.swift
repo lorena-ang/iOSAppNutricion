@@ -111,6 +111,7 @@ class ViewControllerMeditacion: UIViewController, UIPopoverPresentationControlle
         //tiempo = lbCronometro.text!
         listaMeditacion = [Meditacion(tiempo: t)]
         guardarDatos()
+        dismiss(animated: true, completion: nil)
     }
     
     // Para que no se adapte al tamaño de diferentes pantallas

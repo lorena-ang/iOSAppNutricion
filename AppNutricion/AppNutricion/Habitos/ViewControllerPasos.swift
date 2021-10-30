@@ -72,6 +72,7 @@ class ViewControllerPasos: UIViewController {
         }
         listaPasos = [Pasos(pasos: pasos)]
         guardarDatos()
+        dismiss(animated: true, completion: nil)
     }
     
     /*

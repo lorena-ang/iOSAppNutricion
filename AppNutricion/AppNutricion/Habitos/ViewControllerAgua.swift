@@ -201,6 +201,7 @@ class ViewControllerAgua: UIViewController {
         //cant = 8 - Int(lbCantVasos.text!)!
         listaVasos = [Agua(vaso: numVaso)]
         guardarDatos()
+        dismiss(animated: true, completion: nil)
     }
     
     

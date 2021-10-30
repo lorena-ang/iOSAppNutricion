@@ -121,9 +121,9 @@ class ViewControllerCelular: UIViewController {
         hrsSinCel = Int(lbHrsSinCel.text!)!
         listaCelular = [Celular(hora: hora, hrsSin: hrsSinCel)]
         guardarDatos()
+        dismiss(animated: true, completion: nil)
     }
     
-
     /*
     // MARK: - Navigation
 
