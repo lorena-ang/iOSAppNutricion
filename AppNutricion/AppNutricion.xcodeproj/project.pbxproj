@@ -38,6 +38,8 @@
 		FD38BA232717DB4A00D93202 /* Agua.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD38BA222717DB4A00D93202 /* Agua.swift */; };
 		FD38BA2B2717F56200D93202 /* Pasos.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD38BA2A2717F56200D93202 /* Pasos.swift */; };
 		FD4DA74B2718A37A00455845 /* Meditacion.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4DA74A2718A37A00455845 /* Meditacion.swift */; };
+		FD77B893272DD7D40055F1F0 /* ViewControllerCelular.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD77B892272DD7D40055F1F0 /* ViewControllerCelular.swift */; };
+		FD77B897272DDE8E0055F1F0 /* Celular.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD77B896272DDE8E0055F1F0 /* Celular.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,6 +76,8 @@
 		FD38BA222717DB4A00D93202 /* Agua.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Agua.swift; sourceTree = "<group>"; };
 		FD38BA2A2717F56200D93202 /* Pasos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pasos.swift; sourceTree = "<group>"; };
 		FD4DA74A2718A37A00455845 /* Meditacion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meditacion.swift; sourceTree = "<group>"; };
+		FD77B892272DD7D40055F1F0 /* ViewControllerCelular.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerCelular.swift; sourceTree = "<group>"; };
+		FD77B896272DDE8E0055F1F0 /* Celular.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Celular.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,13 +99,15 @@
 				FD38BA222717DB4A00D93202 /* Agua.swift */,
 				FD38BA1F2717CFEE00D93202 /* Frutas.swift */,
 				FD38BA1A2717C36C00D93202 /* Comidas.swift */,
+				3B8FE289272CD3D500AAC41A /* Sueno.swift */,
+				FD77B896272DDE8E0055F1F0 /* Celular.swift */,
+				FD77B892272DD7D40055F1F0 /* ViewControllerCelular.swift */,
 				178FDD442716442C003B851E /* ViewControllerComidas.swift */,
 				178FDD412716441B003B851E /* ViewControllerAgua.swift */,
 				3BD3D4C327174B9D00494094 /* ViewControllerMeditacion.swift */,
 				3BD3D4C0271749AB00494094 /* ViewControllerFrutas.swift */,
 				3BD3D4BD2716D24C00494094 /* ViewControllerPasos.swift */,
 				3B8FE281272CC36B00AAC41A /* ViewControllerSueño.swift */,
-				3B8FE289272CD3D500AAC41A /* Sueno.swift */,
 			);
 			path = Habitos;
 			sourceTree = "<group>";
@@ -241,8 +247,10 @@
 				FD38BA1B2717C36C00D93202 /* Comidas.swift in Sources */,
 				3B8FE282272CC36B00AAC41A /* ViewControllerSueño.swift in Sources */,
 				3BD3D4C1271749AC00494094 /* ViewControllerFrutas.swift in Sources */,
+				FD77B893272DD7D40055F1F0 /* ViewControllerCelular.swift in Sources */,
 				FD38BA232717DB4A00D93202 /* Agua.swift in Sources */,
 				178FDD4D27165D06003B851E /* TabBarController.swift in Sources */,
+				FD77B897272DDE8E0055F1F0 /* Celular.swift in Sources */,
 				1750FAA7271B6C3400B458D0 /* ViewControllerSeleccion.swift in Sources */,
 				1750FAB5271B8CCB00B458D0 /* ViewControllerNombre.swift in Sources */,
 				17EB09DD2726965A0044673D /* ViewControllerPopOver.swift in Sources */,
