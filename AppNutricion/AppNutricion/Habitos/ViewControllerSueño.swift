@@ -11,9 +11,17 @@ class ViewControllerSuen_o: UIViewController {
     
     @IBOutlet weak var tfSueno: UITextField!
     @IBOutlet weak var btnGuardar: UIButton!
+    @IBOutlet weak var lbDespertar: UILabel!
     
     var listaSueno = [Sueno(hora: "00:00")]
     var hora = "00:00"
+    var str : String!
+    var str2 : String!
+    var enteros2 : Int!
+    var enteros : Int!
+    var h : String!
+    var h2 : String!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,6 +68,30 @@ class ViewControllerSuen_o: UIViewController {
         formatter.locale = Locale(identifier: "en_gb")
         formatter.dateFormat = "HH:mm"
         tfSueno.text = formatter.string(from: sender.date)
+        str = tfSueno.text
+        let mySubstring = str.prefix(2)
+        enteros = Int(mySubstring)
+        enteros = enteros - 8
+        if enteros == 0 {
+            lbDespertar.text = "00:00 AM"
+        }
+        else if enteros < 0{
+            enteros = 12 + enteros
+            h = String(enteros)
+            lbDespertar.text =  h + ":00 PM"
+        }
+        else if enteros > 0 && enteros < 10{
+            h = String(enteros)
+            lbDespertar.text = "0" + h + ":00 AM"
+        }
+        else if enteros >= 10 && enteros < 12{
+            h = String(enteros)
+            lbDespertar.text = h + ":00 AM"
+        }
+        else if enteros >= 12 {
+            h = String(enteros)
+            lbDespertar.text = h + ":00 PM"
+        }
     }
     
     func dataFileURL() -> URL {
@@ -79,10 +111,33 @@ class ViewControllerSuen_o: UIViewController {
         }
         
         func actualiza(){
-            
-            let h = listaSueno[0].hora
-            tfSueno.text =  String(h!)
-            
+            let hr = listaSueno[0].hora
+            tfSueno.text =  String(hr!)
+            //LABEL
+            str2 = tfSueno.text
+            let mySubstring = str2.prefix(2)
+            enteros2 = Int(mySubstring)
+            enteros2 = enteros2 - 8
+            if enteros2 == 0 {
+                lbDespertar.text = "00:00 AM"
+            }
+            else if enteros2 < 0{
+                enteros2 = 12 + enteros2
+                h2 = String(enteros2)
+                lbDespertar.text =  h2 + ":00 PM"
+            }
+            else if enteros2 > 0 && enteros2 < 10{
+                h2 = String(enteros2)
+                lbDespertar.text = "0" + h2 + ":00 AM"
+            }
+            else if enteros2 >= 10 && enteros2 < 12{
+                h2 = String(enteros2)
+                lbDespertar.text = h2 + ":00 AM"
+            }
+            else if enteros2 >= 12 {
+                h2 = String(enteros2)
+                lbDespertar.text = h2 + ":00 PM"
+            }
         }
         
     @IBAction func obtenerDatos() {
