@@ -17,10 +17,14 @@ class ViewControllerSuen_o: UIViewController {
     var hora = "00:00"
     var str : String!
     var str2 : String!
-    var enteros2 : Int!
     var enteros : Int!
+    var enteros2 : Int!
+    var enterosMin : Int!
+    var enterosMin2: Int!
     var h : String!
     var h2 : String!
+    var m : String!
+    var m2 : String!
     
 
     override func viewDidLoad() {
@@ -70,27 +74,34 @@ class ViewControllerSuen_o: UIViewController {
         tfSueno.text = formatter.string(from: sender.date)
         str = tfSueno.text
         let mySubstring = str.prefix(2)
+        let mySubstringM = str.suffix(2)
         enteros = Int(mySubstring)
+        enterosMin = Int(mySubstringM)
         enteros = enteros - 8
         if enteros == 0 {
-            lbDespertar.text = "00:00 AM"
+            m = String(enterosMin)
+            lbDespertar.text = "00:" + m + " AM"
         }
         else if enteros < 0{
             enteros = 12 + enteros
             h = String(enteros)
-            lbDespertar.text =  h + ":00 PM"
+            m = String(enterosMin)
+            lbDespertar.text =  h + ":" + m + " PM"
         }
         else if enteros > 0 && enteros < 10{
             h = String(enteros)
-            lbDespertar.text = "0" + h + ":00 AM"
+            m = String(enterosMin)
+            lbDespertar.text = "0" + h + ":" + m + " AM"
         }
         else if enteros >= 10 && enteros < 12{
             h = String(enteros)
-            lbDespertar.text = h + ":00 AM"
+            m = String(enterosMin)
+            lbDespertar.text = h + ":" + m + " AM"
         }
         else if enteros >= 12 {
             h = String(enteros)
-            lbDespertar.text = h + ":00 PM"
+            m = String(enterosMin)
+            lbDespertar.text = h + ":" + m + " PM"
         }
     }
     
@@ -116,27 +127,34 @@ class ViewControllerSuen_o: UIViewController {
             //LABEL
             str2 = tfSueno.text
             let mySubstring = str2.prefix(2)
+            let mySubstringM = str2.suffix(2)
             enteros2 = Int(mySubstring)
+            enterosMin2 = Int(mySubstringM)
             enteros2 = enteros2 - 8
             if enteros2 == 0 {
-                lbDespertar.text = "00:00 AM"
+                m2 = String(enterosMin2)
+                lbDespertar.text = "00:" + m2 + " AM"
             }
             else if enteros2 < 0{
                 enteros2 = 12 + enteros2
                 h2 = String(enteros2)
-                lbDespertar.text =  h2 + ":00 PM"
+                m2 = String(enterosMin2)
+                lbDespertar.text =  h2 + ":" + m2 + " PM"
             }
             else if enteros2 > 0 && enteros2 < 10{
                 h2 = String(enteros2)
-                lbDespertar.text = "0" + h2 + ":00 AM"
+                m2 = String(enterosMin2)
+                lbDespertar.text = "0" + h2 + ":" + m2 + " AM"
             }
             else if enteros2 >= 10 && enteros2 < 12{
                 h2 = String(enteros2)
-                lbDespertar.text = h2 + ":00 AM"
+                m2 = String(enterosMin2)
+                lbDespertar.text = h2 + ":" + m2 + " AM"
             }
             else if enteros2 >= 12 {
                 h2 = String(enteros2)
-                lbDespertar.text = h2 + ":00 PM"
+                m2 = String(enterosMin2)
+                lbDespertar.text = h2 + ":" + m2 + " PM"
             }
         }
         

@@ -22,8 +22,12 @@ class ViewControllerFrutas: UIViewController {
         
         lbNumFrutas.clipsToBounds = true
         lbNumFrutas.layer.cornerRadius = 6
+        lbNumFrutas.layer.borderWidth = 0.4
+        lbNumFrutas.layer.borderColor = UIColor.lightGray.cgColor
         lbVerduras.clipsToBounds = true
         lbVerduras.layer.cornerRadius = 6
+        lbVerduras.layer.borderWidth = 0.4
+        lbVerduras.layer.borderColor = UIColor.lightGray.cgColor
         btnGuardar.layer.cornerRadius = 6
         // Do any additional setup after loading the view.
         let app = UIApplication.shared

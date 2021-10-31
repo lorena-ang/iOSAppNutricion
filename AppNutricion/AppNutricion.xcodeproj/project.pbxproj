@@ -70,8 +70,8 @@
 		17EB09DC2726965A0044673D /* ViewControllerPopOver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerPopOver.swift; sourceTree = "<group>"; };
 		3B8FE281272CC36B00AAC41A /* ViewControllerSueño.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewControllerSueño.swift"; sourceTree = "<group>"; };
 		3B8FE289272CD3D500AAC41A /* Sueno.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sueno.swift; sourceTree = "<group>"; };
-		3B8FE29A272DED0800AAC41A /* ViewControllerEjercicio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewControllerEjercicio.swift; path = Habitos/ViewControllerEjercicio.swift; sourceTree = "<group>"; };
-		3B8FE29D272DEF6500AAC41A /* Ejercicio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Ejercicio.swift; path = Habitos/Ejercicio.swift; sourceTree = "<group>"; };
+		3B8FE29A272DED0800AAC41A /* ViewControllerEjercicio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerEjercicio.swift; sourceTree = "<group>"; };
+		3B8FE29D272DEF6500AAC41A /* Ejercicio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ejercicio.swift; sourceTree = "<group>"; };
 		3BD3D4BD2716D24C00494094 /* ViewControllerPasos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerPasos.swift; sourceTree = "<group>"; };
 		3BD3D4C0271749AB00494094 /* ViewControllerFrutas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerFrutas.swift; sourceTree = "<group>"; };
 		3BD3D4C327174B9D00494094 /* ViewControllerMeditacion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerMeditacion.swift; sourceTree = "<group>"; };
@@ -105,13 +105,15 @@
 				FD38BA1A2717C36C00D93202 /* Comidas.swift */,
 				3B8FE289272CD3D500AAC41A /* Sueno.swift */,
 				FD77B896272DDE8E0055F1F0 /* Celular.swift */,
+				3B8FE29D272DEF6500AAC41A /* Ejercicio.swift */,
+				3B8FE29A272DED0800AAC41A /* ViewControllerEjercicio.swift */,
 				FD77B892272DD7D40055F1F0 /* ViewControllerCelular.swift */,
+				3B8FE281272CC36B00AAC41A /* ViewControllerSueño.swift */,
 				178FDD442716442C003B851E /* ViewControllerComidas.swift */,
 				178FDD412716441B003B851E /* ViewControllerAgua.swift */,
 				3BD3D4C327174B9D00494094 /* ViewControllerMeditacion.swift */,
 				3BD3D4C0271749AB00494094 /* ViewControllerFrutas.swift */,
 				3BD3D4BD2716D24C00494094 /* ViewControllerPasos.swift */,
-				3B8FE281272CC36B00AAC41A /* ViewControllerSueño.swift */,
 			);
 			path = Habitos;
 			sourceTree = "<group>";
@@ -163,8 +165,6 @@
 				17A0D1EA2715322E00A57412 /* SceneDelegate.swift */,
 				17A0D1F12715322F00A57412 /* Assets.xcassets */,
 				17A0D1EE2715322E00A57412 /* Main.storyboard */,
-				3B8FE29A272DED0800AAC41A /* ViewControllerEjercicio.swift */,
-				3B8FE29D272DEF6500AAC41A /* Ejercicio.swift */,
 				17EB09DC2726965A0044673D /* ViewControllerPopOver.swift */,
 				1750FAB4271B8CCB00B458D0 /* ViewControllerNombre.swift */,
 				178FDD4727164CCF003B851E /* Habitos */,
