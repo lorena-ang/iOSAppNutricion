@@ -12,15 +12,38 @@ class ViewControllerMeditacion: UIViewController, UIPopoverPresentationControlle
     @IBOutlet weak var btnGuardar: UIButton!
     @IBOutlet weak var btnIniciar: UIButton!
     @IBOutlet weak var lbCronometro: UILabel!
+    @IBOutlet weak var tfMeditacion: UITextField!
+    @IBOutlet weak var btnCheck: UIButton!
     
     var timer:Timer = Timer()
     var count:Int = 0
     var timerCounting:Bool = false
     var tiempo = ""
-    var listaMeditacion = [Meditacion(tiempo: "00 : 00 : 00")]
+    var hora = "00:00"
+    var check = "true"
+    var listaMeditacion = [Meditacion(tiempo: "00 : 00 : 00", hora: "00:00", check: "false")]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let time = Date()
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "en_gb")
+        formatter.dateFormat = "HH:mm"
+        tfMeditacion.text = formatter.string(from: time)
+        tfMeditacion.textColor = .link
+        
+        let timePicker = UIDatePicker()
+        timePicker.datePickerMode = .countDownTimer
+        timePicker.addTarget(self, action: #selector(timePickerValueChanged(sender:)), for: UIControl.Event.valueChanged)
+        timePicker.frame.size = CGSize(width: 0, height: 250)
+        
+        timePicker.preferredDatePickerStyle = .wheels
+        
+        tfMeditacion.inputView = timePicker
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(ViewControllerMeditacion.viewTapped(gestureRecognizer: )))
+        view.addGestureRecognizer(tapGesture)
         
         btnGuardar.layer.cornerRadius = 6
         btnIniciar.layer.cornerRadius = 6
@@ -35,6 +58,18 @@ class ViewControllerMeditacion: UIViewController, UIPopoverPresentationControlle
                 }
                 
                 actualiza()
+    }
+    
+    @objc func viewTapped(gestureRecognizer: UITapGestureRecognizer){
+        view.endEditing(true)
+    }
+    
+    @objc func timePickerValueChanged(sender:UIDatePicker){
+        //cuando el tiempo se cambia, va aparecer aqui
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "en_gb")
+        formatter.dateFormat = "HH:mm"
+        tfMeditacion.text = formatter.string(from: sender.date)
     }
     
     @IBAction func btnStart(_ sender: UIButton) {
@@ -90,8 +125,22 @@ class ViewControllerMeditacion: UIViewController, UIPopoverPresentationControlle
         }
         
         func actualiza(){
-            let t = listaMeditacion.first?.tiempo
+            //let t = listaMeditacion.first?.tiempo
+            //lbCronometro.text = t
+            let t = listaMeditacion[0].tiempo
             lbCronometro.text = t
+            
+            let hr = listaMeditacion[0].hora
+            tfMeditacion.text = hr
+            
+            let ch = listaMeditacion[0].check
+            if ch == "true" {
+                btnCheck.setImage(UIImage(named:"p8_checkV.png"), for: UIControl.State())
+                check = "false"
+            }else{
+                btnCheck.setImage(UIImage(named:"p8_checkB.png"), for: UIControl.State())
+                check = "true"
+            }
             
         }
         
@@ -106,10 +155,28 @@ class ViewControllerMeditacion: UIViewController, UIPopoverPresentationControlle
         }
     }
     
+    @IBAction func btnCheckA(_ sender: UIButton) {
+        if check == "true" {
+            sender.setImage(UIImage(named:"p8_checkV.png"), for: UIControl.State())
+            check = "false"
+        }else{
+            sender.setImage(UIImage(named:"p8_checkB.png"), for: UIControl.State())
+            check = "true"
+        }
+    }
+    
+    
     @IBAction func btGuardarA(_ sender: UIButton) {
+        hora = tfMeditacion.text!
+        //listaEjercicio = [Ejercicio(hora: hora)]
+        if check == "true"{
+            check = "false"
+        }else{
+            check = "true"
+        }
         let t = String(lbCronometro.text!)
         //tiempo = lbCronometro.text!
-        listaMeditacion = [Meditacion(tiempo: t)]
+        listaMeditacion = [Meditacion(tiempo: t,hora: hora, check: check)]
         guardarDatos()
         dismiss(animated: true, completion: nil)
     }

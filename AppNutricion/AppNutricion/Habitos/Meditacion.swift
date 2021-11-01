@@ -9,8 +9,13 @@ import UIKit
 
 class Meditacion: Codable {
     var tiempo : String!
-    init(tiempo : String) {
+    var hora : String!
+    var check: String!
+    
+    init(tiempo : String, hora : String, check : String) {
         self.tiempo = tiempo
+        self.hora = hora
+        self.check = check
     }
 
 }
