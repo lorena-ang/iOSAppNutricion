@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewControllerSuen_o: UIViewController {
+class ViewControllerSuen_o: UIViewController, UIPopoverPresentationControllerDelegate {
     
     @IBOutlet weak var tfSueno: UITextField!
     @IBOutlet weak var btnGuardar: UIButton!
@@ -177,14 +177,16 @@ class ViewControllerSuen_o: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    // Para que no se adapte al tamaño de diferentes pantallas
+    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .none
     }
-    */
-
+    
+    // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        let vistaPopOver = segue.destination as! ViewControllerPopOver
+        vistaPopOver.popoverPresentationController?.delegate = self
+        vistaPopOver.texto = "Esto es un texto de prueba sobre el beneficio de horas de sueño"
+    }
 }

@@ -191,6 +191,6 @@ class ViewControllerMeditacion: UIViewController, UIPopoverPresentationControlle
         
         let vistaPopOver = segue.destination as! ViewControllerPopOver
         vistaPopOver.popoverPresentationController?.delegate = self
-        vistaPopOver.texto = "Lorem"
+        vistaPopOver.texto = "Esto es un texto de prueba sobre el beneficio de minutos de meditación"
     }
 }

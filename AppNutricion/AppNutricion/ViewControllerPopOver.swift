@@ -15,7 +15,7 @@ class ViewControllerPopOver: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        preferredContentSize = CGSize(width: 320, height: 400)
+        preferredContentSize = CGSize(width: 320, height: 460)
         lbTexto.text = texto
     }
     

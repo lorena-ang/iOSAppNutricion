@@ -350,7 +350,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3d1-Td-l8A" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1669.5999999999999" y="500.59970014992507"/>
+            <point key="canvasLocation" x="566" y="866"/>
         </scene>
         <!--Perfil-->
         <scene sceneID="Zlt-ZX-ELc">
@@ -431,7 +431,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1669.5999999999999" y="-218.1409295352324"/>
+            <point key="canvasLocation" x="1271" y="866"/>
         </scene>
         <!--Página principal-->
         <scene sceneID="C2g-NY-SC1">
@@ -549,7 +549,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wsn-rX-zAm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2344.8000000000002" y="130.88455772113943"/>
+            <point key="canvasLocation" x="1710" y="83"/>
         </scene>
         <!--View Controller Seleccion-->
         <scene sceneID="Eqi-5g-6u7">
@@ -652,7 +652,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tND-uH-EHs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="YFS-zX-cWY" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3240.8000000000002" y="-564.46776611694156"/>
+            <point key="canvasLocation" x="2636" y="81"/>
         </scene>
         <!--View Controller Agua-->
         <scene sceneID="Wsm-jZ-Q3m">
@@ -773,6 +773,16 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pMc-ca-kUm">
+                                <rect key="frame" x="284" y="52" width="25" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.87450980389999999" green="0.23529411759999999" blue="0.59607843140000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <segue destination="9To-Bh-mUU" kind="popoverPresentation" popoverAnchorView="pMc-ca-kUm" id="Y1q-s4-9WN">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="v0Y-1L-tgR"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -793,7 +803,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E5h-YE-yWk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5588" y="-1039"/>
+            <point key="canvasLocation" x="7287" y="1045"/>
         </scene>
         <!--View Controller Ejercicio-->
         <scene sceneID="414-4r-nrR">
@@ -854,6 +864,16 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EoK-y3-atl">
+                                <rect key="frame" x="289" y="54" width="25" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.87450980389999999" green="0.23529411759999999" blue="0.59607843140000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <segue destination="9To-Bh-mUU" kind="popoverPresentation" popoverAnchorView="EoK-y3-atl" id="HUn-vo-ZCa">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="JiV-lS-BgA"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -867,7 +887,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ENh-sb-96H" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5588" y="-367.46626686656674"/>
+            <point key="canvasLocation" x="6622" y="1045"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="PAj-SD-Dfk">
@@ -888,7 +908,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tJH-6Z-8n9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="842" y="83"/>
+            <point key="canvasLocation" x="921" y="83"/>
         </scene>
         <!--View Controller Comidas-->
         <scene sceneID="vvv-25-84E">
@@ -965,6 +985,16 @@
                                     <action selector="btGuardarA:" destination="3YS-9D-2hs" eventType="touchUpInside" id="YqX-0x-4tz"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1br-Eg-2JN">
+                                <rect key="frame" x="308" y="48" width="25" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.87450980389999999" green="0.23529411759999999" blue="0.59607843140000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <segue destination="9To-Bh-mUU" kind="popoverPresentation" popoverAnchorView="1br-Eg-2JN" id="L4P-uB-f4I">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="2wv-gl-Qhk"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -979,11 +1009,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NaE-sK-YOJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2345" y="1076"/>
+            <point key="canvasLocation" x="2068" y="1045"/>
         </scene>
         <!--View Controller Celular-->
         <scene sceneID="aaz-uk-bvD">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ual-vs-AdX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="dJa-K5-mt0" customClass="ViewControllerCelular" customModule="AppNutricion" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Q0r-rz-MDF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
@@ -1058,6 +1089,16 @@
                                     <action selector="btnMenosHoras:" destination="dJa-K5-mt0" eventType="touchUpInside" id="gGG-aK-PCc"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sea-gt-8hh">
+                                <rect key="frame" x="294" y="103" width="25" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.87450980389999999" green="0.23529411759999999" blue="0.59607843140000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <segue destination="9To-Bh-mUU" kind="popoverPresentation" popoverAnchorView="sea-gt-8hh" id="IDZ-hj-e9c">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Q7G-tQ-TMs"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1069,14 +1110,13 @@
                         <outlet property="tfHrDormir" destination="Mlu-qL-9IC" id="dDS-nx-AbW"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ual-vs-AdX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2997.5999999999999" y="1074.5127436281859"/>
+            <point key="canvasLocation" x="2719" y="1044"/>
         </scene>
-        <!--View Controller-->
+        <!--View Controller Breaks-->
         <scene sceneID="aFK-fy-aJa">
             <objects>
-                <viewController id="Ovt-z5-coT" sceneMemberID="viewController">
+                <viewController id="Ovt-z5-coT" customClass="ViewControllerBreaks" customModule="AppNutricion" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OHk-ET-NVp">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1092,6 +1132,16 @@
                                 <rect key="frame" x="67" y="108" width="240" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RGY-At-dni">
+                                <rect key="frame" x="310" y="50" width="25" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.87450980389999999" green="0.23529411759999999" blue="0.59607843140000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <segue destination="9To-Bh-mUU" kind="popoverPresentation" popoverAnchorView="RGY-At-dni" id="jhG-xv-cqf">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="gdI-uq-Ph0"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1100,18 +1150,18 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UTd-u8-4ny" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5588" y="311"/>
+            <point key="canvasLocation" x="5959" y="1044"/>
         </scene>
         <!--View Controller Pop Over-->
         <scene sceneID="49r-fB-mLg">
             <objects>
                 <viewController id="9To-Bh-mUU" customClass="ViewControllerPopOver" customModule="AppNutricion" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="y3q-A3-Zyt">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="400"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Texto" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="14" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UG3-JX-87G">
-                                <rect key="frame" x="67" y="53" width="186" height="147"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Texto" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="15" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UG3-JX-87G">
+                                <rect key="frame" x="67" y="53" width="186" height="260"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -1121,14 +1171,14 @@
                         <viewLayoutGuide key="safeArea" id="Dfq-Wl-FY4"/>
                         <color key="backgroundColor" red="0.87450981139999995" green="0.2352941036" blue="0.59607845540000004" alpha="0.140625" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
-                    <size key="freeformSize" width="320" height="400"/>
+                    <size key="freeformSize" width="320" height="460"/>
                     <connections>
                         <outlet property="lbTexto" destination="UG3-JX-87G" id="nfh-Gg-nVk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ue0-Dw-oxy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6308.8000000000002" y="1074.9625187406298"/>
+            <point key="canvasLocation" x="4661" y="1978"/>
         </scene>
         <!--View Controller Frutas-->
         <scene sceneID="vbI-uS-dQl">
@@ -1231,6 +1281,16 @@
                                     <action selector="btGuardarA:" destination="qGj-E9-ldT" eventType="touchUpInside" id="Qn9-iB-9Fp"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7DT-1j-Zt2">
+                                <rect key="frame" x="312" y="59" width="25" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.87450980389999999" green="0.23529411759999999" blue="0.59607843140000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <segue destination="9To-Bh-mUU" kind="popoverPresentation" popoverAnchorView="7DT-1j-Zt2" id="1FO-yt-l9c">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="8UG-DT-b41"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1244,7 +1304,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aVD-Vf-z3d" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3636" y="1075"/>
+            <point key="canvasLocation" x="3359" y="1044"/>
         </scene>
         <!--View Controller Pasos-->
         <scene sceneID="VOC-Fx-JnQ">
@@ -1296,6 +1356,16 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eGg-it-p44">
+                                <rect key="frame" x="292" y="32" width="25" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.87450980389999999" green="0.23529411759999999" blue="0.59607843140000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <segue destination="9To-Bh-mUU" kind="popoverPresentation" popoverAnchorView="eGg-it-p44" id="nJk-Dz-NGy">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="BS9-vX-tOh"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1308,7 +1378,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BFE-bH-NN1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4942" y="1075"/>
+            <point key="canvasLocation" x="4663" y="1044"/>
         </scene>
         <!--View Controller Meditacion-->
         <scene sceneID="CdG-gR-0QP">
@@ -1451,7 +1521,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SHt-yt-tcm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5588" y="1074.5127436281859"/>
+            <point key="canvasLocation" x="5311" y="1044"/>
         </scene>
         <!--View Controller Suen o-->
         <scene sceneID="9Ud-HF-ccU">
@@ -1518,6 +1588,16 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eVI-Ji-UbM">
+                                <rect key="frame" x="319" y="51" width="25" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.87450980389999999" green="0.23529411759999999" blue="0.59607843140000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <segue destination="9To-Bh-mUU" kind="popoverPresentation" popoverAnchorView="eVI-Ji-UbM" id="Guk-bo-zrp">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="OHI-ma-2NF"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1531,55 +1611,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gZ6-hW-HwR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4292" y="1074.5127436281859"/>
-        </scene>
-        <!--Instrucciones-->
-        <scene sceneID="giM-dh-FLg">
-            <objects>
-                <viewController id="5W5-gH-s1b" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="JvI-Uk-XN4">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instrucciones" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fpg-TD-9KD">
-                                <rect key="frame" x="119" y="40" width="136" height="27"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
-                                <color key="textColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="14" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vGS-Mt-b6j">
-                                <rect key="frame" x="40" y="97" width="294" height="264"/>
-                                <string key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="instrucciones" translatesAutoresizingMaskIntoConstraints="NO" id="3br-GP-4pI">
-                                <rect key="frame" x="84" y="408" width="207" height="204"/>
-                            </imageView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="9PL-k8-aiO"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="3br-GP-4pI" firstAttribute="top" secondItem="vGS-Mt-b6j" secondAttribute="bottom" constant="47" id="3Uj-F0-8t0"/>
-                            <constraint firstItem="9PL-k8-aiO" firstAttribute="bottom" secondItem="3br-GP-4pI" secondAttribute="bottom" constant="55" id="EBS-dP-w2L"/>
-                            <constraint firstItem="3br-GP-4pI" firstAttribute="leading" secondItem="9PL-k8-aiO" secondAttribute="leading" constant="84" id="QKp-Ay-Zvb"/>
-                            <constraint firstItem="9PL-k8-aiO" firstAttribute="trailing" secondItem="fpg-TD-9KD" secondAttribute="trailing" constant="120" id="lym-Bu-6um"/>
-                            <constraint firstItem="9PL-k8-aiO" firstAttribute="trailing" secondItem="vGS-Mt-b6j" secondAttribute="trailing" constant="41" id="ohh-ss-YXc"/>
-                            <constraint firstItem="vGS-Mt-b6j" firstAttribute="top" secondItem="fpg-TD-9KD" secondAttribute="bottom" constant="30" id="spy-Az-Orm"/>
-                            <constraint firstItem="fpg-TD-9KD" firstAttribute="leading" secondItem="9PL-k8-aiO" secondAttribute="leading" constant="119" id="t97-qD-R99"/>
-                            <constraint firstItem="vGS-Mt-b6j" firstAttribute="leading" secondItem="9PL-k8-aiO" secondAttribute="leading" constant="40" id="tiT-Az-cKO"/>
-                            <constraint firstItem="fpg-TD-9KD" firstAttribute="top" secondItem="9PL-k8-aiO" secondAttribute="top" constant="40" id="x3i-3C-qYE"/>
-                            <constraint firstItem="9PL-k8-aiO" firstAttribute="trailing" secondItem="3br-GP-4pI" secondAttribute="trailing" constant="84" id="xIr-Yc-CrQ"/>
-                        </constraints>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Instrucciones" image="info.circle.fill" catalog="system" id="5TG-bN-Wnp"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="5Cc-BC-NYW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1583" y="1539"/>
+            <point key="canvasLocation" x="4015" y="1044"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="jhG-xv-cqf"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="agua" width="312" height="262"/>
         <image name="arrowtriangle.down.fill" catalog="system" width="128" height="124"/>

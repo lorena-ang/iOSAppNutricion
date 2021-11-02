@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewControllerAgua: UIViewController {
+class ViewControllerAgua: UIViewController, UIPopoverPresentationControllerDelegate {
     
     @IBOutlet weak var imgVaso1: UIImageView!
     @IBOutlet weak var imgVaso2: UIImageView!
@@ -204,16 +204,16 @@ class ViewControllerAgua: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    // Para que no se adapte al tamaño de diferentes pantallas
+    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .none
     }
-    */
-
+    
+    // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        let vistaPopOver = segue.destination as! ViewControllerPopOver
+        vistaPopOver.popoverPresentationController?.delegate = self
+        vistaPopOver.texto = "Esto es un texto de prueba sobre el beneficio de vasos de agua"
+    }
 }
