@@ -30,6 +30,7 @@
 		17A0D1FE271538A400A57412 /* CustomCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A0D1FD271538A400A57412 /* CustomCollectionView.swift */; };
 		17A0D201271538CD00A57412 /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A0D200271538CD00A57412 /* CustomCollectionViewCell.swift */; };
 		17EB09DD2726965A0044673D /* ViewControllerPopOver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EB09DC2726965A0044673D /* ViewControllerPopOver.swift */; };
+		3B2F01912731FE2B00FD720B /* Breaks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2F01902731FE2B00FD720B /* Breaks.swift */; };
 		3B8FE282272CC36B00AAC41A /* ViewControllerSueño.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8FE281272CC36B00AAC41A /* ViewControllerSueño.swift */; };
 		3B8FE28A272CD3D500AAC41A /* Sueno.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8FE289272CD3D500AAC41A /* Sueno.swift */; };
 		3B8FE29B272DED0800AAC41A /* ViewControllerEjercicio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8FE29A272DED0800AAC41A /* ViewControllerEjercicio.swift */; };
@@ -72,6 +73,7 @@
 		17A0D1FD271538A400A57412 /* CustomCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionView.swift; sourceTree = "<group>"; };
 		17A0D200271538CD00A57412 /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
 		17EB09DC2726965A0044673D /* ViewControllerPopOver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerPopOver.swift; sourceTree = "<group>"; };
+		3B2F01902731FE2B00FD720B /* Breaks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Breaks.swift; sourceTree = "<group>"; };
 		3B8FE281272CC36B00AAC41A /* ViewControllerSueño.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewControllerSueño.swift"; sourceTree = "<group>"; };
 		3B8FE289272CD3D500AAC41A /* Sueno.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sueno.swift; sourceTree = "<group>"; };
 		3B8FE29A272DED0800AAC41A /* ViewControllerEjercicio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerEjercicio.swift; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 				3BD3D4C0271749AB00494094 /* ViewControllerFrutas.swift */,
 				3BD3D4BD2716D24C00494094 /* ViewControllerPasos.swift */,
 				174EC0562730DC21005AA21C /* ViewControllerBreaks.swift */,
+				3B2F01902731FE2B00FD720B /* Breaks.swift */,
 			);
 			path = Habitos;
 			sourceTree = "<group>";
@@ -277,6 +280,7 @@
 				FD38BA202717CFEE00D93202 /* Frutas.swift in Sources */,
 				17A0D1E92715322E00A57412 /* AppDelegate.swift in Sources */,
 				1736434B27157FF000E3D8A5 /* SeleccionCollectionView.swift in Sources */,
+				3B2F01912731FE2B00FD720B /* Breaks.swift in Sources */,
 				3BD3D4BE2716D24C00494094 /* ViewControllerPasos.swift in Sources */,
 				3B8FE29E272DEF6500AAC41A /* Ejercicio.swift in Sources */,
 				170AAA512715C67700DA0105 /* ViewControllerPerfil.swift in Sources */,
