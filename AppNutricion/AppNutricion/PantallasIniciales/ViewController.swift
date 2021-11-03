@@ -29,10 +29,12 @@ class ViewController: UIViewController {
         habitosSeleccionados.sort { (h1, h2) in
             h1.id < h2.id
         }
+        
         // Almacenar ids de hábitos seleccionados en userDefaults
         for habito in habitosSeleccionados {
             habitoIds.append(habito.id)
         }
+        
         let userDefaults = UserDefaults.standard
         userDefaults.set(habitoIds, forKey: "habitoIds")
         
@@ -41,10 +43,9 @@ class ViewController: UIViewController {
         // Enviar a perfil
         let vistaPerfil = vistaTab.viewControllers?[0] as! ViewControllerPerfil
         vistaPerfil.habitoIds = habitoIds
-        /*
+
         // Enviar a página principal
         let vistaPaginaPrincipal = vistaTab.viewControllers?[1] as! ViewControllerPaginaPrincipal
         vistaPaginaPrincipal.habitoIds = habitoIds
- */
     }
 }

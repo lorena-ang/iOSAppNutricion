@@ -25,6 +25,7 @@ class ViewControllerNombre: UIViewController {
         defaults.setValue(tfNombre.text, forKey: "nombre")
     }
     
+    /*
     override func viewWillAppear(_ animated: Bool) {
         
         let defaults = UserDefaults.standard
@@ -32,9 +33,9 @@ class ViewControllerNombre: UIViewController {
         
         if viewsIniciales {
             performSegue(withIdentifier: "segGuardarNombre", sender: self)
-            print("kjsnckjfnwfkjnwejkfn")
         }
     }
+ */
     
     @IBAction func quitateclado() {
         view.endEditing(true)

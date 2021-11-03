@@ -41,10 +41,9 @@ class ViewControllerPaginaPrincipal: UIViewController {
         habitoIds.removeAll()
         let defaults = UserDefaults.standard
         habitoIds = defaults.array(forKey: "habitoIds") as? [Int] ?? [Int]()
-        
-        for (index, habito) in listaHabitos.enumerated() {
-            if index < habitoIds.count {
-                if habito.id == habitoIds[index] as! Int {
+        for id in habitoIds {
+            for habito in listaHabitos {
+                if habito.id == id as! Int {
                     habitosSeleccionados.append(habito)
                 }
             }
