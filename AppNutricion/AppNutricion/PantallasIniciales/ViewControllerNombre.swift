@@ -11,6 +11,7 @@ class ViewControllerNombre: UIViewController {
 
     @IBOutlet weak var tfNombre: UITextField!
     @IBOutlet weak var btnComenzar: UIButton!
+    var viewsIniciales: Bool!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +23,17 @@ class ViewControllerNombre: UIViewController {
         // Guardar en UserDefaults
         let defaults = UserDefaults.standard
         defaults.setValue(tfNombre.text, forKey: "nombre")
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        let defaults = UserDefaults.standard
+        viewsIniciales = defaults.bool(forKey: "viewsIniciales")
+        
+        if viewsIniciales {
+            performSegue(withIdentifier: "segGuardarNombre", sender: self)
+            print("kjsnckjfnwfkjnwejkfn")
+        }
     }
     
     @IBAction func quitateclado() {

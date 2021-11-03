@@ -11,6 +11,7 @@ class ViewControllerSeleccion: UIViewController {
 
     @IBOutlet weak var collectionView: SeleccionEditarCollectionView!
     var habitosSeleccionados = [Habito]()
+    var habitoIds = [Int]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
