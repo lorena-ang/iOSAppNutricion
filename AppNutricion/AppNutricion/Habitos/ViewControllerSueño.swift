@@ -78,30 +78,41 @@ class ViewControllerSuen_o: UIViewController, UIPopoverPresentationControllerDel
         enteros = Int(mySubstring)
         enterosMin = Int(mySubstringM)
         enteros = enteros - 8
-        if enteros == 0 {
+        if enteros == 0 { //despertar 8am
             m = String(enterosMin)
             lbDespertar.text = "00:" + m + " AM"
         }
-        else if enteros < 0{
+        else if enteros < 0{//despertar antes de las 8am
             enteros = 12 + enteros
             h = String(enteros)
             m = String(enterosMin)
-            lbDespertar.text =  h + ":" + m + " PM"
+            if enterosMin < 10 {
+                lbDespertar.text =  h + ":0" + m + " PM"
+            }else{
+                lbDespertar.text =  h + ":" + m + " PM"
+            }
         }
-        else if enteros > 0 && enteros < 10{
+        else if enteros > 0 && enteros < 12{//despertar después de las 8am y antes de las 8pm
             h = String(enteros)
             m = String(enterosMin)
-            lbDespertar.text = "0" + h + ":" + m + " AM"
-        }
-        else if enteros >= 10 && enteros < 12{
-            h = String(enteros)
-            m = String(enterosMin)
-            lbDespertar.text = h + ":" + m + " AM"
+            if enterosMin < 10 && enteros < 10{
+                lbDespertar.text = "0" + h + ":0" + m + " AM"
+            }else if enterosMin >= 10 && enteros < 10{
+                lbDespertar.text = "0" + h + ":" + m + " AM"
+            }else if enterosMin < 10 && enteros >= 10{ //para 
+                lbDespertar.text = h + ":0" + m + " AM"
+            }else if enterosMin >= 10 && enteros >= 10{
+                lbDespertar.text = h + ":" + m + " AM"
+            }
         }
         else if enteros >= 12 {
             h = String(enteros)
             m = String(enterosMin)
-            lbDespertar.text = h + ":" + m + " PM"
+            if enterosMin < 10 {
+                lbDespertar.text = h + ":0" + m + " PM"
+            }else{
+                lbDespertar.text = h + ":" + m + " PM"
+            }
         }
     }
     
@@ -139,22 +150,33 @@ class ViewControllerSuen_o: UIViewController, UIPopoverPresentationControllerDel
                 enteros2 = 12 + enteros2
                 h2 = String(enteros2)
                 m2 = String(enterosMin2)
-                lbDespertar.text =  h2 + ":" + m2 + " PM"
+                if enterosMin2 < 10 {
+                    lbDespertar.text =  h2 + ":0" + m2 + " PM"
+                }else{
+                    lbDespertar.text =  h2 + ":" + m2 + " PM"
+                }
             }
-            else if enteros2 > 0 && enteros2 < 10{
+            else if enteros2 > 0 && enteros2 < 12{//despertar después de las 8am y antes de las 8pm
                 h2 = String(enteros2)
                 m2 = String(enterosMin2)
-                lbDespertar.text = "0" + h2 + ":" + m2 + " AM"
-            }
-            else if enteros2 >= 10 && enteros2 < 12{
-                h2 = String(enteros2)
-                m2 = String(enterosMin2)
-                lbDespertar.text = h2 + ":" + m2 + " AM"
+                if enterosMin2 < 10 && enteros2 < 10{
+                    lbDespertar.text = "0" + h2 + ":0" + m2 + " AM"
+                }else if enterosMin2 >= 10 && enteros2 < 10{
+                    lbDespertar.text = "0" + h2 + ":" + m2 + " AM"
+                }else if enterosMin2 < 10 && enteros2 >= 10{ //para
+                    lbDespertar.text = h2 + ":0" + m2 + " AM"
+                }else if enterosMin2 >= 10 && enteros2 >= 10{
+                    lbDespertar.text = h2 + ":" + m2 + " AM"
+                }
             }
             else if enteros2 >= 12 {
                 h2 = String(enteros2)
                 m2 = String(enterosMin2)
-                lbDespertar.text = h2 + ":" + m2 + " PM"
+                if enterosMin2 < 10 {
+                    lbDespertar.text = h2 + ":0" + m2 + " PM"
+                }else{
+                    lbDespertar.text = h2 + ":" + m2 + " PM"
+                }
             }
         }
         
