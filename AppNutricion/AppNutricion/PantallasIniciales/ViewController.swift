@@ -19,6 +19,11 @@ class ViewController: UIViewController {
         collectionView.allowsMultipleSelection = true
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        let defaults = UserDefaults.standard
+        defaults.setValue(true, forKey: "viewsIniciales")
+    }
+    
     // MARK: - Navigation
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

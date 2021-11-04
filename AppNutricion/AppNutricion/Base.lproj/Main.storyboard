@@ -122,7 +122,7 @@
         <!--View Controller Nombre-->
         <scene sceneID="pSG-hl-coP">
             <objects>
-                <viewController id="IEQ-qe-q4S" customClass="ViewControllerNombre" customModule="AppNutricion" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewControllerNombre" useStoryboardIdentifierAsRestorationIdentifier="YES" id="IEQ-qe-q4S" customClass="ViewControllerNombre" customModule="AppNutricion" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4RG-Nc-gOT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1006,7 +1006,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="PAj-SD-Dfk">
             <objects>
-                <tabBarController id="9wf-iw-nR4" customClass="TabBarController" customModule="AppNutricion" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabBarController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="9wf-iw-nR4" customClass="TabBarController" customModule="AppNutricion" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="UhI-hh-99K">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>

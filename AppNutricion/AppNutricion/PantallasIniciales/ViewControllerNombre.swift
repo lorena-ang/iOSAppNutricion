@@ -25,18 +25,6 @@ class ViewControllerNombre: UIViewController {
         defaults.setValue(tfNombre.text, forKey: "nombre")
     }
     
-    /*
-    override func viewWillAppear(_ animated: Bool) {
-        
-        let defaults = UserDefaults.standard
-        viewsIniciales = defaults.bool(forKey: "viewsIniciales")
-        
-        if viewsIniciales {
-            performSegue(withIdentifier: "segGuardarNombre", sender: self)
-        }
-    }
- */
-    
     @IBAction func quitateclado() {
         view.endEditing(true)
     }
