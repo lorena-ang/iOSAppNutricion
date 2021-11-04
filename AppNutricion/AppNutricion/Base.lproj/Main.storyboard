@@ -1290,6 +1290,14 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VqV-Ww-ggX">
+                                <rect key="frame" x="143" y="569" width="89" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Recordatorio"/>
+                                <connections>
+                                    <action selector="btnRecordatorio:" destination="dJa-K5-mt0" eventType="touchUpInside" id="Fvx-Fy-5iF"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Q7G-tQ-TMs"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1439,6 +1447,14 @@
                                 <state key="normal" title="Guardar"/>
                                 <connections>
                                     <action selector="btnGuardarA:" destination="Ovt-z5-coT" eventType="touchUpInside" id="sbV-0W-RUb"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d6F-pU-bOE">
+                                <rect key="frame" x="143" y="587" width="89" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Recordatorio"/>
+                                <connections>
+                                    <action selector="btnRecordatorio:" destination="Ovt-z5-coT" eventType="touchUpInside" id="iMB-ju-MBr"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -2073,6 +2089,14 @@
                                     <action selector="btGuardar:" destination="ajT-cw-G1W" eventType="touchUpInside" id="Ra0-WX-awH"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ABJ-Tv-Jh8">
+                                <rect key="frame" x="143" y="603" width="89" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Recordatorio"/>
+                                <connections>
+                                    <action selector="btnRecordatorio:" destination="ajT-cw-G1W" eventType="touchUpInside" id="nE6-Se-yja"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="OHI-ma-2NF"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -2117,7 +2141,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="IDZ-hj-e9c"/>
+        <segue reference="jhG-xv-cqf"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="agua" width="312" height="262"/>

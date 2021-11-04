@@ -20,6 +20,10 @@ class ViewControllerBreaks: UIViewController, UIPopoverPresentationControllerDel
     var tiempo = ""
     var hora = "00:00"
     var listaBreaks = [Breaks(tiempo: "00 : 00 : 00", hora: "00:00")]
+    var str : String!
+    var doubleMin : Double!
+    var doubleHr : Double!
+    var timeNoti : Double!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,6 +59,9 @@ class ViewControllerBreaks: UIViewController, UIPopoverPresentationControllerDel
                 }
                 
                 actualiza()
+        
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge], completionHandler: {didAllow, error in})
+        
     }
     
     // Para que no se adapte al tamaño de diferentes pantallas
@@ -154,6 +161,27 @@ class ViewControllerBreaks: UIViewController, UIPopoverPresentationControllerDel
         listaBreaks = [Breaks(tiempo: t,hora: hora)]
         guardarDatos()
         dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func btnRecordatorio(_ sender: UIButton) {
+        let content = UNMutableNotificationContent()
+        content.title = "Break"
+        content.subtitle = "Break"
+        content.body = "Break"
+        content.badge = 1
+        
+        str = tfBreaks.text
+        let mySubstringHr = str.prefix(2)
+        let mySubstringM = str.suffix(2)
+        doubleHr = Double(mySubstringHr)! * 3600
+        doubleMin = Double(mySubstringM)! * 60
+        timeNoti = doubleHr + doubleMin
+        
+        
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: timeNoti, repeats: true)
+        let request = UNNotificationRequest(identifier: "timerDone", content: content, trigger: trigger)
+        
+        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
     }
     
     

@@ -16,6 +16,14 @@ class ViewControllerCelular: UIViewController, UIPopoverPresentationControllerDe
     var hora = "00:00"
     var hrsSinCel = 0
     var listaCelular = [Celular(hora: "00:00", hrsSin: 0)]
+    var str : String!
+    var doubleMin : Double!
+    var doubleHr : Double!
+    var timeNoti : Double!
+    var horaNoti : Int!
+    var minNoti : Int!
+    var horaCel : Int!
+    var strCel : String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,6 +61,9 @@ class ViewControllerCelular: UIViewController, UIPopoverPresentationControllerDe
                 }
                 
                 actualiza()
+        
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge], completionHandler: {didAllow, error in})
+        
     }
     
     @objc func viewTapped(gestureRecognizer: UITapGestureRecognizer){
@@ -123,6 +134,45 @@ class ViewControllerCelular: UIViewController, UIPopoverPresentationControllerDe
         guardarDatos()
         dismiss(animated: true, completion: nil)
     }
+    
+    @IBAction func btnRecordatorio(_ sender: UIButton) {
+        let content = UNMutableNotificationContent()
+        content.title = "Hora dormir sin cel"
+        content.subtitle = "Hora dormir sin cel"
+        content.body = "Hora dormir sin cel"
+        content.badge = 1
+        
+        //SACA FECHA
+        let date = Date()
+        let formatter = DateFormatter()
+        let year = formatter.string(from: date)
+        let month = formatter.string(from: date)
+        let day = formatter.string(from: date)
+        
+        //SACA HORA
+        str = tfHrDormir.text
+        strCel = lbHrsSinCel.text
+        let mySubstringHr = str.prefix(2)
+        let mySubstringM = str.suffix(2)
+        //timeNoti = doubleHr + doubleMin
+        horaNoti = Int(mySubstringHr)! - Int(strCel)!
+        minNoti = Int(mySubstringM)!
+        
+        //FECHA PARA NOTIFICACION
+        var dateInfo = DateComponents()
+            dateInfo.day = Int(day)
+            dateInfo.month = Int(month)
+            dateInfo.year = Int(year)
+            dateInfo.hour = horaNoti
+            dateInfo.minute = minNoti
+        
+        let trigger = UNCalendarNotificationTrigger(dateMatching: dateInfo, repeats: false)
+    
+        let request = UNNotificationRequest(identifier: "timerDone", content: content, trigger: trigger)
+        
+        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+    }
+    
     
     // Para que no se adapte al tamaño de diferentes pantallas
     func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
