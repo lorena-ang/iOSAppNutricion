@@ -137,9 +137,9 @@ class ViewControllerCelular: UIViewController, UIPopoverPresentationControllerDe
     
     @IBAction func btnRecordatorio(_ sender: UIButton) {
         let content = UNMutableNotificationContent()
-        content.title = "Recordatorio"
-        content.subtitle = "Horas antes de dormir sin celular"
-        content.body = "Es hora de dejar el cel :)"
+        content.title = "Hora dormir sin cel"
+        content.subtitle = "Hora dormir sin cel"
+        content.body = "Hora dormir sin cel"
         content.badge = 1
         
         //SACA FECHA
