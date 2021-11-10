@@ -165,9 +165,9 @@ class ViewControllerBreaks: UIViewController, UIPopoverPresentationControllerDel
     
     @IBAction func btnRecordatorio(_ sender: UIButton) {
         let content = UNMutableNotificationContent()
-        content.title = "Break"
-        content.subtitle = "Break"
-        content.body = "Break"
+        content.title = "Recordatorio"
+        content.subtitle = "Breaks de actividades"
+        content.body = "Tomate un break :)"
         content.badge = 1
         
         str = tfBreaks.text
