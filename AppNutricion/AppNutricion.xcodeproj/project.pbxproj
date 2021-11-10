@@ -112,6 +112,7 @@
 				3B8FE289272CD3D500AAC41A /* Sueno.swift */,
 				FD77B896272DDE8E0055F1F0 /* Celular.swift */,
 				3B8FE29D272DEF6500AAC41A /* Ejercicio.swift */,
+				3B2F01902731FE2B00FD720B /* Breaks.swift */,
 				3B8FE29A272DED0800AAC41A /* ViewControllerEjercicio.swift */,
 				FD77B892272DD7D40055F1F0 /* ViewControllerCelular.swift */,
 				3B8FE281272CC36B00AAC41A /* ViewControllerSueño.swift */,
@@ -121,7 +122,6 @@
 				3BD3D4C0271749AB00494094 /* ViewControllerFrutas.swift */,
 				3BD3D4BD2716D24C00494094 /* ViewControllerPasos.swift */,
 				174EC0562730DC21005AA21C /* ViewControllerBreaks.swift */,
-				3B2F01902731FE2B00FD720B /* Breaks.swift */,
 			);
 			path = Habitos;
 			sourceTree = "<group>";

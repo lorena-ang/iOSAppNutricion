@@ -11,11 +11,13 @@ class Comidas: Codable {
     var desayuno: Bool
     var comida: Bool
     var cena: Bool
+    var fecha: DateComponents
     
-    init(desayuno:Bool,comida:Bool,cena:Bool) {
+    init(desayuno:Bool,comida:Bool,cena:Bool,fecha:DateComponents) {
         self.desayuno = desayuno
         self.comida = comida
         self.cena = cena
+        self.fecha = fecha
     }
     
 }

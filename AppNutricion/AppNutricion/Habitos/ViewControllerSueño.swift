@@ -86,10 +86,14 @@ class ViewControllerSuen_o: UIViewController, UIPopoverPresentationControllerDel
         enteros = enteros - 8
         if enteros == 0 { //despertar 8am
             m = String(enterosMin)
-            lbDespertar.text = "00:" + m + " AM"
+            if enterosMin < 10 {
+                lbDespertar.text = "00:0" + m + " AM"
+            }else{
+                lbDespertar.text = "00:" + m + " AM"
+            }
         }
-        else if enteros < 0{//despertar antes de las 8am
-            enteros = 12 + enteros
+        else if enteros < 0{//despertar a las 12am o después y antes de las 8am
+            enteros = 24 + enteros
             h = String(enteros)
             m = String(enterosMin)
             if enterosMin < 10 {
@@ -105,7 +109,7 @@ class ViewControllerSuen_o: UIViewController, UIPopoverPresentationControllerDel
                 lbDespertar.text = "0" + h + ":0" + m + " AM"
             }else if enterosMin >= 10 && enteros < 10{
                 lbDespertar.text = "0" + h + ":" + m + " AM"
-            }else if enterosMin < 10 && enteros >= 10{ //para 
+            }else if enterosMin < 10 && enteros >= 10{ //despertar a las 6 o 7 pm
                 lbDespertar.text = h + ":0" + m + " AM"
             }else if enterosMin >= 10 && enteros >= 10{
                 lbDespertar.text = h + ":" + m + " AM"
@@ -148,12 +152,16 @@ class ViewControllerSuen_o: UIViewController, UIPopoverPresentationControllerDel
             enteros2 = Int(mySubstring)
             enterosMin2 = Int(mySubstringM)
             enteros2 = enteros2 - 8
-            if enteros2 == 0 {
+            if enteros2 == 0 {//despertar a las 8am
                 m2 = String(enterosMin2)
-                lbDespertar.text = "00:" + m2 + " AM"
+                if enterosMin2 < 10 {
+                    lbDespertar.text = "00:0" + m2 + " AM"
+                }else{
+                    lbDespertar.text = "00:" + m2 + " AM"
+                }
             }
-            else if enteros2 < 0{
-                enteros2 = 12 + enteros2
+            else if enteros2 < 0{//despertar a las 12am o después y antes de las 8am
+                enteros2 = 24 + enteros2
                 h2 = String(enteros2)
                 m2 = String(enterosMin2)
                 if enterosMin2 < 10 {
@@ -169,7 +177,7 @@ class ViewControllerSuen_o: UIViewController, UIPopoverPresentationControllerDel
                     lbDespertar.text = "0" + h2 + ":0" + m2 + " AM"
                 }else if enterosMin2 >= 10 && enteros2 < 10{
                     lbDespertar.text = "0" + h2 + ":" + m2 + " AM"
-                }else if enterosMin2 < 10 && enteros2 >= 10{ //para
+                }else if enterosMin2 < 10 && enteros2 >= 10{ //despertar a las 6 o 7 pm
                     lbDespertar.text = h2 + ":0" + m2 + " AM"
                 }else if enterosMin2 >= 10 && enteros2 >= 10{
                     lbDespertar.text = h2 + ":" + m2 + " AM"
@@ -206,9 +214,9 @@ class ViewControllerSuen_o: UIViewController, UIPopoverPresentationControllerDel
     
     @IBAction func btnRecordatorio(_ sender: UIButton) {
         let content = UNMutableNotificationContent()
-        content.title = "Hora sueño"
-        content.subtitle = "Duermete"
-        content.body = "Hora sueño"
+        content.title = "Recordatorio"
+        content.subtitle = "Horas de sueño"
+        content.body = "Es hora de dormir :)"
         content.badge = 1
         
         //SACA FECHA

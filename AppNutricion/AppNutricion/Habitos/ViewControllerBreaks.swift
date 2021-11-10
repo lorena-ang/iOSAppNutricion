@@ -7,33 +7,54 @@
 
 import UIKit
 
-class ViewControllerBreaks: UIViewController, UIPopoverPresentationControllerDelegate {
+class ViewControllerBreaks: UIViewController, UIPopoverPresentationControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
     
-    @IBOutlet weak var tfBreaks: UITextField!
-    @IBOutlet weak var btnIniciar: UIButton!
+    @IBOutlet weak var tfCantidad: UITextField!
+    @IBOutlet weak var tfCadaCuanto: UITextField!
+    @IBOutlet weak var tfDuracion: UITextField!
     @IBOutlet weak var btnGuardar: UIButton!
-    @IBOutlet weak var lbCronometro: UILabel!
     
-    var timer:Timer = Timer()
-    var count:Int = 0
-    var timerCounting:Bool = false
-    var tiempo = ""
     var hora = "00:00"
-    var listaBreaks = [Breaks(tiempo: "00 : 00 : 00", hora: "00:00")]
-    var str : String!
+    //var listaBreaks = [Breaks(tiempo: "00 : 00 : 00", hora: "00:00")]
+    //Variables para picker views
+    var pickerCantidad = UIPickerView()
+    let cantidad = ["1","2","3","4"]
+    var pickerDuracion = UIPickerView()
+    let duracion = ["5","10","15","20"]
+    //Variables para recordatorios
+    var strCant : Int!
+    var strCadaCuanto : String!
+    var strCadaCuanto2 : String!
+    var strDuracion : String!
+    var doubleDuracion : Double!
+    var doubleDuracion2 : Double!
     var doubleMin : Double!
+    var doubleMin2 : Double!
     var doubleHr : Double!
+    var doubleHr2 : Double!
     var timeNoti : Double!
+    var timeNoti2 : Double!
+    var contHr = 1.0
+    var contMin = 1.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //Para el tf de cantidad de breaks
+        pickerCantidad.tag = 0
+        self.pickerCantidad.delegate = self
+        self.pickerCantidad.dataSource = self
+        tfCantidad.inputView = pickerCantidad
+        tfCantidad.textAlignment = .center
+        tfCantidad.textColor = .link
+        //FIN tfCantidad
         
+        //Para el tf de cada cuanto tiempo deben durar los breaks
         let time = Date()
         let formatter = DateFormatter()
         formatter.locale = Locale(identifier: "en_gb")
         formatter.dateFormat = "HH:mm"
-        tfBreaks.text = formatter.string(from: time)
-        tfBreaks.textColor = .link
+        tfCadaCuanto.text = formatter.string(from: time)
+        tfCadaCuanto.textColor = .link
         
         let timePicker = UIDatePicker()
         timePicker.datePickerMode = .countDownTimer
@@ -42,15 +63,25 @@ class ViewControllerBreaks: UIViewController, UIPopoverPresentationControllerDel
         
         timePicker.preferredDatePickerStyle = .wheels
         
-        tfBreaks.inputView = timePicker
+        tfCadaCuanto.inputView = timePicker
+        //FIN tfCadaCuanto
+        
+        //Para el tf de duracion de cada break
+        pickerDuracion.tag = 1
+        self.pickerDuracion.delegate = self
+        self.pickerDuracion.dataSource = self
+        tfDuracion.inputView = pickerDuracion
+        tfDuracion.textAlignment = .center
+        tfDuracion.textColor = .link
+        //FIN tfDuracion
+        
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(ViewControllerBreaks.viewTapped(gestureRecognizer: )))
         view.addGestureRecognizer(tapGesture)
         
         btnGuardar.layer.cornerRadius = 6
-        btnIniciar.layer.cornerRadius = 6
         
-        let app = UIApplication.shared
+       /* let app = UIApplication.shared
                 
                 NotificationCenter.default.addObserver(self, selector: #selector(guardarDatos), name: UIApplication.didEnterBackgroundNotification, object: app)
                 
@@ -59,7 +90,7 @@ class ViewControllerBreaks: UIViewController, UIPopoverPresentationControllerDel
                 }
                 
                 actualiza()
-        
+        */
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge], completionHandler: {didAllow, error in})
         
     }
@@ -78,51 +109,17 @@ class ViewControllerBreaks: UIViewController, UIPopoverPresentationControllerDel
         let formatter = DateFormatter()
         formatter.locale = Locale(identifier: "en_gb")
         formatter.dateFormat = "HH:mm"
-        tfBreaks.text = formatter.string(from: sender.date)
+        tfCadaCuanto.text = formatter.string(from: sender.date)
     }
     
-    @IBAction func btnStart(_ sender: UIButton) {
-        if(timerCounting){
-            timerCounting = false
-            timer.invalidate()
-            btnIniciar.setTitle("Iniciar", for: .normal)
-        }else{
-            timerCounting = true
-            btnIniciar.setTitle("Detener", for: .normal)
-            timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerCounter), userInfo: nil, repeats: true)
-        }
-    }
-    
-    @objc func timerCounter() -> Void {
-        count = count + 1
-        let time = secondsToHoursMinutesSeconds(seconds: count)
-        let timeString = makeTimerString(hours: time.0, minutes: time.1, seconds: time.2)
-        lbCronometro.text = timeString
-        //let h = makeTimerStringS(hours: time.0, minutes: time.1, seconds: time.2)
-    }
-    
-    func secondsToHoursMinutesSeconds(seconds:Int) -> (Int,Int,Int){
-        return (seconds / 3600, (seconds % 3600)/60, ((seconds % 3600)%60))
-    }
-    
-    func makeTimerString(hours: Int, minutes: Int, seconds: Int) -> String{
-        var timeString = ""
-        timeString += String(format: "%02d", hours)
-        //hr += Int("%02d", radix: hours)!
-        timeString += " : "
-        timeString += String(format: "%02d", minutes)
-        timeString += " : "
-        timeString += String(format: "%02d", seconds)
-        return timeString
-    }
-    
+/*
     func dataFileURL() -> URL {
             let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
             let pathArchivo = documentsDirectory.appendingPathComponent("Breaks").appendingPathExtension("plist")
             //print(pathArchivo.path)
             return pathArchivo
         }
-        
+
         @IBAction func guardarDatos(){
             do{
                 let data = try PropertyListEncoder().encode(listaBreaks)
@@ -137,10 +134,9 @@ class ViewControllerBreaks: UIViewController, UIPopoverPresentationControllerDel
         //let t = listaMeditacion.first?.tiempo
         //lbCronometro.text = t
         let t = listaBreaks[0].tiempo
-        lbCronometro.text = t
         
         let hr = listaBreaks[0].hora
-        tfBreaks.text = hr
+        tfCadaCuanto.text = hr
     }
     
     @IBAction func obtenerDatos() {
@@ -153,37 +149,141 @@ class ViewControllerBreaks: UIViewController, UIPopoverPresentationControllerDel
             print("Error al cargar los datos del archivo")
         }
     }
-    
+*/
     @IBAction func btnGuardarA(_ sender: Any) {
-        hora = tfBreaks.text!
-        let t = String(lbCronometro.text!)
-        //tiempo = lbCronometro.text!
-        listaBreaks = [Breaks(tiempo: t,hora: hora)]
-        guardarDatos()
-        dismiss(animated: true, completion: nil)
-    }
-    
-    @IBAction func btnRecordatorio(_ sender: UIButton) {
+        //Al dar click los recordatorios se activan
+        //RECORDATORIO DE BREAK 1
         let content = UNMutableNotificationContent()
-        content.title = "Break"
-        content.subtitle = "Break"
-        content.body = "Break"
+        content.title = "Recordatorio"
+        content.subtitle = "Breaks de actividades"
+        content.body = "Tomate un break :) Te avisamos cuando haya finalizado"
         content.badge = 1
         
-        str = tfBreaks.text
-        let mySubstringHr = str.prefix(2)
-        let mySubstringM = str.suffix(2)
+        strCadaCuanto = tfCadaCuanto.text
+        let mySubstringHr = strCadaCuanto.prefix(2)
+        let mySubstringM = strCadaCuanto.suffix(2)
         doubleHr = Double(mySubstringHr)! * 3600
         doubleMin = Double(mySubstringM)! * 60
-        timeNoti = doubleHr + doubleMin
+        timeNoti = doubleHr + doubleMin //Cada cuanto va a suceder
         
-        
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: timeNoti, repeats: true)
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: timeNoti, repeats: false)
         let request = UNNotificationRequest(identifier: "timerDone", content: content, trigger: trigger)
         
         UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+        //FIN RECORDATORIO 1
+        
+        //FOR LOOP
+        strCant = Int(tfCantidad.text!)
+        for i in 2...strCant {
+            //RECORDATORIO DE TERMINACION DE BREAK
+            //Dura timeNoti + duracion de cada break
+            let content2 = UNMutableNotificationContent()
+            content2.title = "Recordatorio"
+            content2.subtitle = "Breaks de actividades"
+            content2.body = "Break finalizado"
+            content2.badge = 1
+            
+            strCadaCuanto2 = tfCadaCuanto.text
+            strDuracion = tfDuracion.text
+            let mySubstringHr2 = strCadaCuanto2.prefix(2)
+            let mySubstringM2 = strCadaCuanto2.suffix(2)
+            doubleHr2 = (Double(mySubstringHr2)! * 3600) * contHr
+            doubleMin2 = (Double(mySubstringM2)! * 60) * contHr
+            doubleDuracion = (Double(strDuracion)! * 60) * contMin
+            timeNoti2 = doubleHr2 + doubleMin2 + doubleDuracion//sumar duracion
+            
+            let trigger2 = UNTimeIntervalNotificationTrigger(timeInterval: timeNoti2, repeats: false)
+            let request2 = UNNotificationRequest(identifier: "timerDone", content: content, trigger: trigger2)
+            
+            UNUserNotificationCenter.current().add(request2, withCompletionHandler: nil)
+            //FIN RECORDATORIO
+            
+            contHr += 1
+            let content = UNMutableNotificationContent()
+            content.title = "Recordatorio"
+            content.subtitle = "Breaks de actividades"
+            content.body = "Tomate un break :) Te avisamos cuando haya finalizado"
+            content.badge = 1
+            
+            strCadaCuanto = tfCadaCuanto.text
+            strDuracion = tfDuracion.text
+            let mySubstringHr = strCadaCuanto.prefix(2)
+            let mySubstringM = strCadaCuanto.suffix(2)
+            doubleHr = (Double(mySubstringHr)! * 3600) * contHr
+            doubleMin = (Double(mySubstringM)! * 60) * contHr
+            doubleDuracion2 = (Double(strDuracion)! * 60) * contMin
+            timeNoti = doubleHr + doubleMin + doubleDuracion//Cada cuanto va a suceder
+            contMin += 1
+            
+            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: timeNoti, repeats: false)
+            let request = UNNotificationRequest(identifier: "timerDone", content: content, trigger: trigger)
+            
+            UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+        }
+        //FIN FOR LOOP
+        
+        //RECORDATORIO DE TERMINACION DE BREAK FINAL
+        let content2 = UNMutableNotificationContent()
+        content2.title = "Recordatorio"
+        content2.subtitle = "Breaks de actividades"
+        content2.body = "Break finalizado"
+        content2.badge = 1
+        
+        strCadaCuanto2 = tfCadaCuanto.text
+        strDuracion = tfDuracion.text
+        let mySubstringHr2 = strCadaCuanto2.prefix(2)
+        let mySubstringM2 = strCadaCuanto2.suffix(2)
+        doubleHr2 = (Double(mySubstringHr2)! * 3600) * contHr
+        doubleMin2 = (Double(mySubstringM2)! * 60) * contHr
+        doubleDuracion = (Double(strDuracion)! * 60) * contMin
+        timeNoti2 = doubleHr2 + doubleMin2 + doubleDuracion//sumar duracion
+        
+        let trigger2 = UNTimeIntervalNotificationTrigger(timeInterval: timeNoti2, repeats: false)
+        let request2 = UNNotificationRequest(identifier: "timerDone", content: content, trigger: trigger2)
+        
+        UNUserNotificationCenter.current().add(request2, withCompletionHandler: nil)
+        //FIN RECORDATORIO FINAL
+        
+        /*
+        hora = tfCadaCuanto.text!
+        listaBreaks = [Breaks(tiempo: t,hora: hora)]
+        guardarDatos()
+        */
+        dismiss(animated: true, completion: nil)
+    }
+   
+    // MARK: - PickerViews
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
     }
     
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        if pickerView == pickerCantidad {
+            return cantidad.count
+        } else if pickerView == pickerDuracion  {
+            return duracion.count
+        }
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String?  {
+        if pickerView == pickerCantidad {
+            return cantidad[row]
+        } else if pickerView == pickerDuracion{
+            return duracion[row]
+        }
+        return ""
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        if pickerView == pickerCantidad {
+            tfCantidad.text = cantidad[row]
+            tfCantidad.resignFirstResponder()
+        } else if pickerView == pickerDuracion {
+            tfDuracion.text = duracion[row]
+            tfDuracion.resignFirstResponder()
+        }
+    }
     
     
     // MARK: - Navigation
