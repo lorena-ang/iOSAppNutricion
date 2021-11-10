@@ -124,6 +124,6 @@ class ViewControllerFrutas: UIViewController, UIPopoverPresentationControllerDel
         
         let vistaPopOver = segue.destination as! ViewControllerPopOver
         vistaPopOver.popoverPresentationController?.delegate = self
-        vistaPopOver.texto = "Esto es un texto de prueba sobre el beneficio de raciones de frutas y verduras"
+        vistaPopOver.texto = #"No hay ningún sumplento vitáminico como las frutas y verduras. "Eat the rainbow": Pensemos en el arcoíris cuando elegimos los vegetales que vamos a consumir."#
     }
 }

@@ -214,6 +214,6 @@ class ViewControllerAgua: UIViewController, UIPopoverPresentationControllerDeleg
         
         let vistaPopOver = segue.destination as! ViewControllerPopOver
         vistaPopOver.popoverPresentationController?.delegate = self
-        vistaPopOver.texto = "Esto es un texto de prueba sobre el beneficio de vasos de agua"
+        vistaPopOver.texto = "El cuerpo requiere de agua para llevar a cabo inumerables funciones fisiológicas. Desde la lubricación de las articulaciones, a regular nuestra temperatura corporal y metabolismo. Incluso, tanto el cerebro y corazón de un adulto están compuestos por 3/4 de agua."
     }
 }

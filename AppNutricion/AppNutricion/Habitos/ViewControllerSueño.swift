@@ -260,6 +260,6 @@ class ViewControllerSuen_o: UIViewController, UIPopoverPresentationControllerDel
         
         let vistaPopOver = segue.destination as! ViewControllerPopOver
         vistaPopOver.popoverPresentationController?.delegate = self
-        vistaPopOver.texto = "Esto es un texto de prueba sobre el beneficio de horas de sueño"
+        vistaPopOver.texto = "Dormir bien y suficiente no es un lujo, es una necesidad del cuerpo para poder funcionar de manera adecuada. Una higiene del sueño deficiente, puede interferir en procesos de aprendizaje, almacenaje de memoria, la función inmunológica, entre muchos otros aspectos más."
     }
 }

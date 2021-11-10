@@ -219,6 +219,6 @@ class ViewControllerComidas: UIViewController, UIPopoverPresentationControllerDe
         
         let vistaPopOver = segue.destination as! ViewControllerPopOver
         vistaPopOver.popoverPresentationController?.delegate = self
-        vistaPopOver.texto = "Esto es un texto de prueba sobre el beneficio de comidas completas"
+        vistaPopOver.texto = "No podemos nutrir nuestro cuerpo con solo 1 plato saludable, trata de integrar todos los grupos de alimentos, especialmente: vegetales, cereales integrales, grasas saludables en moderación y proteína baja en grasa (animal y/o vegetal)."
     }
 }

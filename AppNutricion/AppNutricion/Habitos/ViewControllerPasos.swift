@@ -85,6 +85,6 @@ class ViewControllerPasos: UIViewController, UIPopoverPresentationControllerDele
         
         let vistaPopOver = segue.destination as! ViewControllerPopOver
         vistaPopOver.popoverPresentationController?.delegate = self
-        vistaPopOver.texto = "Esto es un texto de prueba sobre el beneficio de mil pasos"
+        vistaPopOver.texto = "Aumentar el nivel de actividad física trae enormes beneficios a la salud, sobre todo la salud cardiovascular ❤️. Además de hacer ejercicio, es importante también la actividad física para no ser sedentarios."
     }
 }

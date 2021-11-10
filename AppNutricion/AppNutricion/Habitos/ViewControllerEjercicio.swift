@@ -140,6 +140,6 @@ class ViewControllerEjercicio: UIViewController, UIPopoverPresentationController
         
         let vistaPopOver = segue.destination as! ViewControllerPopOver
         vistaPopOver.popoverPresentationController?.delegate = self
-        vistaPopOver.texto = "Esto es un texto de prueba sobre el beneficio de rutina de ejercicio"
+        vistaPopOver.texto = "Trata de realizar al menos 45 minutos de ejercicio intenso. Los días que no te sea posible, 15 o 20 min también ¡son excelente!"
     }
 }

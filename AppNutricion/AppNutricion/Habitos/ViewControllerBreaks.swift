@@ -291,6 +291,6 @@ class ViewControllerBreaks: UIViewController, UIPopoverPresentationControllerDel
         
         let vistaPopOver = segue.destination as! ViewControllerPopOver
         vistaPopOver.popoverPresentationController?.delegate = self
-        vistaPopOver.texto = "Esto es un texto de prueba sobre el beneficio de breaks de actividades"
+        vistaPopOver.texto = "Incorpora 4 breaks durante tu horario académico/laboral, pueden ser desde 5-20 minutos. Aprovecha y levántate, camina, activa tus músculos y evita el sedentarismo."
     }
 }

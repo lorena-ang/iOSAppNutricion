@@ -184,6 +184,6 @@ class ViewControllerCelular: UIViewController, UIPopoverPresentationControllerDe
         
         let vistaPopOver = segue.destination as! ViewControllerPopOver
         vistaPopOver.popoverPresentationController?.delegate = self
-        vistaPopOver.texto = "Esto es un texto de prueba sobre el beneficio de horas de dormir sin celular"
+        vistaPopOver.texto = "Los aparatos como celular, tablets y demás interfieren no solo con la cantidad pero la calidad de nuestro sueño. ¡Comienza dejando el celular media hora antes de dormir!"
     }
 }
