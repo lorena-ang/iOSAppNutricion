@@ -22,10 +22,22 @@ class ViewControllerAgua: UIViewController, UIPopoverPresentationControllerDeleg
     
     var numVaso = 0
     var cant = 0
+    var fechaActual = DateComponents()
+    var components = DateComponents()
     var listaVasos = [Agua]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let date = Date()
+        let calendar = Calendar.current
+        let day = calendar.component(.day, from: date)
+        let month = calendar.component(.month, from: date)
+        let year = calendar.component(.year, from: date)
+        components.day = day
+        components.month = month
+        components.year = year
+        listaVasos.append(Agua(vaso: 0, fecha: .init(year:year, month: month, day: day)))
         
         btnGuardar.layer.cornerRadius = 6
 
@@ -122,67 +134,94 @@ class ViewControllerAgua: UIViewController, UIPopoverPresentationControllerDeleg
         }
         
         func actualiza(){
-            let v = listaVasos.first?.vaso
-            if v == 1 {
-                imgVaso1.image = UIImage(named: "p12_vaso.png")
-                lbCantVasos.text = String("7")
-                numVaso = 1
-            }else if v == 2{
-                imgVaso1.image = UIImage(named: "p12_vaso.png")
-                imgVaso2.image = UIImage(named: "p12_vaso.png")
-                lbCantVasos.text = String("6")
-                numVaso = 2
-            }else if v == 3{
-                imgVaso1.image = UIImage(named: "p12_vaso.png")
-                imgVaso2.image = UIImage(named: "p12_vaso.png")
-                imgVaso3.image = UIImage(named: "p12_vaso.png")
-                lbCantVasos.text = String("5")
-                numVaso = 3
-            }else if v == 4{
-                imgVaso1.image = UIImage(named: "p12_vaso.png")
-                imgVaso2.image = UIImage(named: "p12_vaso.png")
-                imgVaso3.image = UIImage(named: "p12_vaso.png")
-                imgVaso4.image = UIImage(named: "p12_vaso.png")
-                lbCantVasos.text = String("4")
-                numVaso = 4
-            }else if v == 5{
-                imgVaso1.image = UIImage(named: "p12_vaso.png")
-                imgVaso2.image = UIImage(named: "p12_vaso.png")
-                imgVaso3.image = UIImage(named: "p12_vaso.png")
-                imgVaso4.image = UIImage(named: "p12_vaso.png")
-                imgVaso5.image = UIImage(named: "p12_vaso.png")
-                lbCantVasos.text = String("3")
-                numVaso = 5
-            }else if v == 6{
-                imgVaso1.image = UIImage(named: "p12_vaso.png")
-                imgVaso2.image = UIImage(named: "p12_vaso.png")
-                imgVaso3.image = UIImage(named: "p12_vaso.png")
-                imgVaso4.image = UIImage(named: "p12_vaso.png")
-                imgVaso5.image = UIImage(named: "p12_vaso.png")
-                imgVaso6.image = UIImage(named: "p12_vaso.png")
-                lbCantVasos.text = String("2")
-                numVaso = 6
-            }else if v == 7{
-                imgVaso1.image = UIImage(named: "p12_vaso.png")
-                imgVaso2.image = UIImage(named: "p12_vaso.png")
-                imgVaso3.image = UIImage(named: "p12_vaso.png")
-                imgVaso4.image = UIImage(named: "p12_vaso.png")
-                imgVaso5.image = UIImage(named: "p12_vaso.png")
-                imgVaso6.image = UIImage(named: "p12_vaso.png")
-                imgVaso7.image = UIImage(named: "p12_vaso.png")
-                lbCantVasos.text = String("1")
-                numVaso = 7
-            }else if v == 8{
-                imgVaso1.image = UIImage(named: "p12_vaso.png")
-                imgVaso2.image = UIImage(named: "p12_vaso.png")
-                imgVaso3.image = UIImage(named: "p12_vaso.png")
-                imgVaso4.image = UIImage(named: "p12_vaso.png")
-                imgVaso5.image = UIImage(named: "p12_vaso.png")
-                imgVaso6.image = UIImage(named: "p12_vaso.png")
-                imgVaso7.image = UIImage(named: "p12_vaso.png")
-                imgVaso8.image = UIImage(named: "p12_vaso.png")
-                lbCantVasos.text = String("0")
-                numVaso = 8
+            let date = Date()
+            
+            let calendar = Calendar.current
+            let day = calendar.component(.day, from: date)
+            let month = calendar.component(.month, from: date)
+            let year = calendar.component(.year, from: date)
+            fechaActual.day = day
+            fechaActual.month = month
+            fechaActual.year = year
+            
+            if  fechaActual.day != listaVasos[0].fecha.day || fechaActual.month != listaVasos[0].fecha.month{
+                imgVaso1.image = UIImage(named: "")
+                imgVaso2.image = UIImage(named: "")
+                imgVaso3.image = UIImage(named: "")
+                imgVaso4.image = UIImage(named: "")
+                imgVaso5.image = UIImage(named: "")
+                imgVaso6.image = UIImage(named: "")
+                imgVaso7.image = UIImage(named: "")
+                imgVaso8.image = UIImage(named: "")
+                lbCantVasos.text = String("8")
+                
+                let nuevaAgua = Agua(vaso: 0,fecha: .init(year:fechaActual.year, month: fechaActual.month, day: fechaActual.day))
+                listaVasos.insert(nuevaAgua, at: 0)
+                
+            }else{
+                
+                let v = listaVasos.first?.vaso
+                if v == 1 {
+                    imgVaso1.image = UIImage(named: "p12_vaso.png")
+                    lbCantVasos.text = String("7")
+                    numVaso = 1
+                }else if v == 2{
+                    imgVaso1.image = UIImage(named: "p12_vaso.png")
+                    imgVaso2.image = UIImage(named: "p12_vaso.png")
+                    lbCantVasos.text = String("6")
+                    numVaso = 2
+                }else if v == 3{
+                    imgVaso1.image = UIImage(named: "p12_vaso.png")
+                    imgVaso2.image = UIImage(named: "p12_vaso.png")
+                    imgVaso3.image = UIImage(named: "p12_vaso.png")
+                    lbCantVasos.text = String("5")
+                    numVaso = 3
+                }else if v == 4{
+                    imgVaso1.image = UIImage(named: "p12_vaso.png")
+                    imgVaso2.image = UIImage(named: "p12_vaso.png")
+                    imgVaso3.image = UIImage(named: "p12_vaso.png")
+                    imgVaso4.image = UIImage(named: "p12_vaso.png")
+                    lbCantVasos.text = String("4")
+                    numVaso = 4
+                }else if v == 5{
+                    imgVaso1.image = UIImage(named: "p12_vaso.png")
+                    imgVaso2.image = UIImage(named: "p12_vaso.png")
+                    imgVaso3.image = UIImage(named: "p12_vaso.png")
+                    imgVaso4.image = UIImage(named: "p12_vaso.png")
+                    imgVaso5.image = UIImage(named: "p12_vaso.png")
+                    lbCantVasos.text = String("3")
+                    numVaso = 5
+                }else if v == 6{
+                    imgVaso1.image = UIImage(named: "p12_vaso.png")
+                    imgVaso2.image = UIImage(named: "p12_vaso.png")
+                    imgVaso3.image = UIImage(named: "p12_vaso.png")
+                    imgVaso4.image = UIImage(named: "p12_vaso.png")
+                    imgVaso5.image = UIImage(named: "p12_vaso.png")
+                    imgVaso6.image = UIImage(named: "p12_vaso.png")
+                    lbCantVasos.text = String("2")
+                    numVaso = 6
+                }else if v == 7{
+                    imgVaso1.image = UIImage(named: "p12_vaso.png")
+                    imgVaso2.image = UIImage(named: "p12_vaso.png")
+                    imgVaso3.image = UIImage(named: "p12_vaso.png")
+                    imgVaso4.image = UIImage(named: "p12_vaso.png")
+                    imgVaso5.image = UIImage(named: "p12_vaso.png")
+                    imgVaso6.image = UIImage(named: "p12_vaso.png")
+                    imgVaso7.image = UIImage(named: "p12_vaso.png")
+                    lbCantVasos.text = String("1")
+                    numVaso = 7
+                }else if v == 8{
+                    imgVaso1.image = UIImage(named: "p12_vaso.png")
+                    imgVaso2.image = UIImage(named: "p12_vaso.png")
+                    imgVaso3.image = UIImage(named: "p12_vaso.png")
+                    imgVaso4.image = UIImage(named: "p12_vaso.png")
+                    imgVaso5.image = UIImage(named: "p12_vaso.png")
+                    imgVaso6.image = UIImage(named: "p12_vaso.png")
+                    imgVaso7.image = UIImage(named: "p12_vaso.png")
+                    imgVaso8.image = UIImage(named: "p12_vaso.png")
+                    lbCantVasos.text = String("0")
+                    numVaso = 8
+                }
             }
         }
         
@@ -199,7 +238,18 @@ class ViewControllerAgua: UIViewController, UIPopoverPresentationControllerDeleg
     
     @IBAction func btGuardarA(_ sender: UIButton) {
         //cant = 8 - Int(lbCantVasos.text!)!
-        listaVasos = [Agua(vaso: numVaso)]
+        let date = Date()
+        let calendar = Calendar.current
+        let day = calendar.component(.day, from: date)
+        let month = calendar.component(.month, from: date)
+        let year = calendar.component(.year, from: date)
+        components.day = day
+        components.month = month
+        components.year = year
+    
+        //listaVasos = [Agua(vaso: numVaso, fecha: components)]
+        listaVasos[0].vaso = numVaso
+        listaVasos[0].fecha = components
         guardarDatos()
         dismiss(animated: true, completion: nil)
     }

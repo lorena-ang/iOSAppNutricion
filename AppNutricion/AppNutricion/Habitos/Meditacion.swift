@@ -11,11 +11,13 @@ class Meditacion: Codable {
     var tiempo : String!
     var hora : String!
     var check: String!
+    var fecha: DateComponents
     
-    init(tiempo : String, hora : String, check : String) {
+    init(tiempo : String, hora : String, check : String, fecha:DateComponents) {
         self.tiempo = tiempo
         self.hora = hora
         self.check = check
+        self.fecha = fecha
     }
 
 }

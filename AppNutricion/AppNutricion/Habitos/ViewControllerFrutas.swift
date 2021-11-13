@@ -13,12 +13,26 @@ class ViewControllerFrutas: UIViewController, UIPopoverPresentationControllerDel
     @IBOutlet weak var lbVerduras: UILabel!
     @IBOutlet weak var btnGuardar: UIButton!
     
-    var listaFrutas = [Frutas(fruta: 0, verdura: 0)]
+    var fechaActual = DateComponents()
+    var components = DateComponents()
+    //var listaFrutas = [Frutas(fruta: 0, verdura: 0)]
+    var listaFrutas = [Frutas]()
     var frutas = 0
     var verduras = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let date = Date()
+        let calendar = Calendar.current
+        let day = calendar.component(.day, from: date)
+        let month = calendar.component(.month, from: date)
+        let year = calendar.component(.year, from: date)
+        components.day = day
+        components.month = month
+        components.year = year
+        listaFrutas.append(Frutas(fruta: 0, verdura:0, fecha: .init(year:year, month: month, day: day)))
+        
         
         lbNumFrutas.clipsToBounds = true
         lbNumFrutas.layer.cornerRadius = 6
@@ -88,11 +102,30 @@ class ViewControllerFrutas: UIViewController, UIPopoverPresentationControllerDel
         
         func actualiza(){
             
-            let f = listaFrutas[0].fruta
-            lbNumFrutas.text =  String(f!)
+            let date = Date()
+            let calendar = Calendar.current
+            let day = calendar.component(.day, from: date)
+            let month = calendar.component(.month, from: date)
+            let year = calendar.component(.year, from: date)
+            fechaActual.day = day
+            fechaActual.month = month
+            fechaActual.year = year
             
-            let v = listaFrutas[0].verdura
-            lbVerduras.text = String(v!)
+            if  fechaActual.day != listaFrutas[0].fecha.day || fechaActual.month != listaFrutas[0].fecha.month{
+                
+                lbNumFrutas.text = "0"
+                lbVerduras.text = "0"
+                
+                let nuevasFrutas = Frutas(fruta: 0,verdura: 0, fecha: .init(year:fechaActual.year, month: fechaActual.month, day: fechaActual.day))
+                listaFrutas.insert(nuevasFrutas, at: 0)
+            
+            }else{
+                let f = listaFrutas[0].fruta
+                lbNumFrutas.text =  String(f!)
+                
+                let v = listaFrutas[0].verdura
+                lbVerduras.text = String(v!)
+            }
         }
         
     @IBAction func obtenerDatos() {
@@ -109,7 +142,21 @@ class ViewControllerFrutas: UIViewController, UIPopoverPresentationControllerDel
     @IBAction func btGuardarA(_ sender: UIButton) {
         frutas = Int(lbNumFrutas.text!)!
         verduras = Int(lbVerduras.text!)!
-        listaFrutas = [Frutas(fruta: frutas, verdura: verduras)]
+        
+        let date = Date()
+        let calendar = Calendar.current
+        let day = calendar.component(.day, from: date)
+        let month = calendar.component(.month, from: date)
+        let year = calendar.component(.year, from: date)
+        components.day = day
+        components.month = month
+        components.year = year
+        
+        listaFrutas[0].fruta = frutas
+        listaFrutas[0].verdura = verduras
+        listaFrutas[0].fecha = components
+        
+        //listaFrutas = [Frutas(fruta: frutas, verdura: verduras)]
         guardarDatos()
         dismiss(animated: true, completion: nil)
     }

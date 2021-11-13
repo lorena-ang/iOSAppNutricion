@@ -9,9 +9,11 @@ import UIKit
 
 class Agua: Codable {
     var vaso : Int!
+    var fecha: DateComponents
     
-    init(vaso : Int) {
+    init(vaso : Int, fecha:DateComponents) {
         self.vaso = vaso
+        self.fecha = fecha
     }
 
 }

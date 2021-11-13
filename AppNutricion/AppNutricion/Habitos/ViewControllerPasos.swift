@@ -12,11 +12,26 @@ class ViewControllerPasos: UIViewController, UIPopoverPresentationControllerDele
     @IBOutlet weak var tfPasos: UITextField!
     @IBOutlet weak var btnGuardar: UIButton!
     
-    var listaPasos = [Pasos(pasos: 0)]
+    var fechaActual = DateComponents()
+    var components = DateComponents()
+    //var listaPasos = [Pasos(pasos: 0)]
+    var listaPasos = [Pasos]()
     var pasos = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let date = Date()
+        let calendar = Calendar.current
+        let day = calendar.component(.day, from: date)
+        let month = calendar.component(.month, from: date)
+        let year = calendar.component(.year, from: date)
+        components.day = day
+        components.month = month
+        components.year = year
+        listaPasos.append(Pasos(pasos: 0, fecha: .init(year: year, month: month, day: day)))
+        
+        
         btnGuardar.layer.cornerRadius = 6
         // Do any additional setup after loading the view.
         let app = UIApplication.shared
@@ -48,8 +63,26 @@ class ViewControllerPasos: UIViewController, UIPopoverPresentationControllerDele
         }
         
         func actualiza(){
-            let p = listaPasos[0].pasos
-            tfPasos.text = String(p!)
+            
+            let date = Date()
+            let calendar = Calendar.current
+            let day = calendar.component(.day, from: date)
+            let month = calendar.component(.month, from: date)
+            let year = calendar.component(.year, from: date)
+            fechaActual.day = 13
+            fechaActual.month = month
+            fechaActual.year = year
+            if  fechaActual.day != listaPasos[0].fecha.day || fechaActual.month != listaPasos[0].fecha.month{
+                
+                tfPasos.text = ""
+                
+                let nuevosPasos = Pasos(pasos: 0,fecha: .init(year:fechaActual.year, month: fechaActual.month, day: fechaActual.day))
+                listaPasos.insert(nuevosPasos, at: 0)
+                
+            }else{
+                let p = listaPasos[0].pasos
+                tfPasos.text = String(p!)
+            }
         }
         
     @IBAction func obtenerDatos() {
@@ -70,7 +103,18 @@ class ViewControllerPasos: UIViewController, UIPopoverPresentationControllerDele
             tfPasos.text = "0"
             pasos = Int(tfPasos.text!)!
         }
-        listaPasos = [Pasos(pasos: pasos)]
+        let date = Date()
+        let calendar = Calendar.current
+        let day = calendar.component(.day, from: date)
+        let month = calendar.component(.month, from: date)
+        let year = calendar.component(.year, from: date)
+        components.day = 13
+        components.month = month
+        components.year = year
+        print(components)
+        //listaPasos = [Pasos(pasos: pasos, fecha:components)]
+        listaPasos[0].pasos = pasos
+        listaPasos[0].fecha = components
         guardarDatos()
         dismiss(animated: true, completion: nil)
     }

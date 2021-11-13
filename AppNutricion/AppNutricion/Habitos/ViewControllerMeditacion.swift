@@ -21,10 +21,23 @@ class ViewControllerMeditacion: UIViewController, UIPopoverPresentationControlle
     var tiempo = ""
     var hora = "00:00"
     var check = "true"
-    var listaMeditacion = [Meditacion(tiempo: "00 : 00 : 00", hora: "00:00", check: "false")]
+    var fechaActual = DateComponents()
+    var components = DateComponents()
+    var listaMeditacion = [Meditacion]()
+    //var listaMeditacion = [Meditacion(tiempo: "00 : 00 : 00", hora: "00:00", check: "false")]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let date = Date()
+        let calendar = Calendar.current
+        let day = calendar.component(.day, from: date)
+        let month = calendar.component(.month, from: date)
+        let year = calendar.component(.year, from: date)
+        components.day = day
+        components.month = month
+        components.year = year
+        listaMeditacion.append(Meditacion(tiempo: "00 : 00 : 00", hora: "00:00", check: "false", fecha: .init(year:year, month: month, day: day)))
         
         let time = Date()
         let formatter = DateFormatter()
@@ -125,21 +138,42 @@ class ViewControllerMeditacion: UIViewController, UIPopoverPresentationControlle
         }
         
         func actualiza(){
-            //let t = listaMeditacion.first?.tiempo
-            //lbCronometro.text = t
-            let t = listaMeditacion[0].tiempo
-            lbCronometro.text = t
             
-            let hr = listaMeditacion[0].hora
-            tfMeditacion.text = hr
+            let date = Date()
+            let calendar = Calendar.current
+            let day = calendar.component(.day, from: date)
+            let month = calendar.component(.month, from: date)
+            let year = calendar.component(.year, from: date)
+            fechaActual.day = day
+            fechaActual.month = month
+            fechaActual.year = year
             
-            let ch = listaMeditacion[0].check
-            if ch == "true" {
-                btnCheck.setImage(UIImage(named:"p8_checkV.png"), for: UIControl.State())
-                check = "false"
-            }else{
+            if  fechaActual.day != listaMeditacion[0].fecha.day || fechaActual.month != listaMeditacion[0].fecha.month{
+                
+                lbCronometro.text = "00 : 00 : 00"
+                tfMeditacion.text = "00:00"
                 btnCheck.setImage(UIImage(named:"p8_checkB.png"), for: UIControl.State())
-                check = "true"
+                
+                let nuevaMeditacion = Meditacion(tiempo: "00 : 00 : 00", hora: "00:00", check: "false", fecha: .init(year:fechaActual.year, month: fechaActual.month, day: fechaActual.day))
+                listaMeditacion.insert(nuevaMeditacion, at: 0)
+                
+            }else{
+                //let t = listaMeditacion.first?.tiempo
+                //lbCronometro.text = t
+                let t = listaMeditacion[0].tiempo
+                lbCronometro.text = t
+                
+                let hr = listaMeditacion[0].hora
+                tfMeditacion.text = hr
+                
+                let ch = listaMeditacion[0].check
+                if ch == "true" {
+                    btnCheck.setImage(UIImage(named:"p8_checkV.png"), for: UIControl.State())
+                    check = "false"
+                }else{
+                    btnCheck.setImage(UIImage(named:"p8_checkB.png"), for: UIControl.State())
+                    check = "true"
+                }
             }
             
         }
@@ -176,7 +210,21 @@ class ViewControllerMeditacion: UIViewController, UIPopoverPresentationControlle
         }
         let t = String(lbCronometro.text!)
         //tiempo = lbCronometro.text!
-        listaMeditacion = [Meditacion(tiempo: t,hora: hora, check: check)]
+        let date = Date()
+        let calendar = Calendar.current
+        let day = calendar.component(.day, from: date)
+        let month = calendar.component(.month, from: date)
+        let year = calendar.component(.year, from: date)
+        components.day = day
+        components.month = month
+        components.year = year
+        
+        listaMeditacion[0].tiempo = t
+        listaMeditacion[0].hora = hora
+        listaMeditacion[0].check = check
+        listaMeditacion[0].fecha = components
+        
+        //listaMeditacion = [Meditacion(tiempo: t,hora: hora, check: check)]
         guardarDatos()
         dismiss(animated: true, completion: nil)
     }

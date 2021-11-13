@@ -13,13 +13,26 @@ class ViewControllerEjercicio: UIViewController, UIPopoverPresentationController
     @IBOutlet weak var btnGuardar: UIButton!
     @IBOutlet weak var btnCheck: UIButton!
     
-    var listaEjercicio = [Ejercicio(hora: "00:00", check: "false")]
+    var fechaActual = DateComponents()
+    var components = DateComponents()
+    var listaEjercicio = [Ejercicio]()
+    //var listaEjercicio = [Ejercicio(hora: "00:00", check: "false")]
     //var listaEjercicio = [Ejercicio(hora: "00:00")]
     var hora = "00:00"
     var check = "true"
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let date = Date()
+        let calendar = Calendar.current
+        let day = calendar.component(.day, from: date)
+        let month = calendar.component(.month, from: date)
+        let year = calendar.component(.year, from: date)
+        components.day = day
+        components.month = month
+        components.year = year
+        listaEjercicio.append(Ejercicio(hora: "00:00", check: "false", fecha: .init(year:year, month: month, day: day)))
 
         let time = Date()
         let formatter = DateFormatter()
@@ -93,16 +106,36 @@ class ViewControllerEjercicio: UIViewController, UIPopoverPresentationController
         }
     
     func actualiza(){
-        let hr = listaEjercicio[0].hora
-        tfEjercicio.text =  String(hr!)
         
-        let ch = listaEjercicio[0].check
-        if ch == "true" {
-            btnCheck.setImage(UIImage(named:"p8_checkV.png"), for: UIControl.State())
-            check = "false"
-        }else{
+        let date = Date()
+        let calendar = Calendar.current
+        let day = calendar.component(.day, from: date)
+        let month = calendar.component(.month, from: date)
+        let year = calendar.component(.year, from: date)
+        fechaActual.day = 13
+        fechaActual.month = month
+        fechaActual.year = year
+        
+        if  fechaActual.day != listaEjercicio[0].fecha.day || fechaActual.month != listaEjercicio[0].fecha.month{
+            
+            tfEjercicio.text = "00:00"
             btnCheck.setImage(UIImage(named:"p8_checkB.png"), for: UIControl.State())
-            check = "true"
+            
+            let nuevoEjercicio = Ejercicio(hora: "00:00", check: "false", fecha: .init(year:fechaActual.year, month: fechaActual.month, day: fechaActual.day))
+            listaEjercicio.insert(nuevoEjercicio, at: 0)
+            
+        }else{
+            let hr = listaEjercicio[0].hora
+            tfEjercicio.text =  String(hr!)
+            
+            let ch = listaEjercicio[0].check
+            if ch == "true" {
+                btnCheck.setImage(UIImage(named:"p8_checkV.png"), for: UIControl.State())
+                check = "false"
+            }else{
+                btnCheck.setImage(UIImage(named:"p8_checkB.png"), for: UIControl.State())
+                check = "true"
+            }
         }
     }
     
@@ -125,7 +158,19 @@ class ViewControllerEjercicio: UIViewController, UIPopoverPresentationController
         }else{
             check = "true"
         }
-        listaEjercicio = [Ejercicio(hora: hora, check: check)]
+        let date = Date()
+        let calendar = Calendar.current
+        let day = calendar.component(.day, from: date)
+        let month = calendar.component(.month, from: date)
+        let year = calendar.component(.year, from: date)
+        components.day = 13
+        components.month = month
+        components.year = year
+        
+        listaEjercicio[0].hora = hora
+        listaEjercicio[0].check = check
+        listaEjercicio[0].fecha = components
+        //listaEjercicio = [Ejercicio(hora: hora, check: check)]
         guardarDatos()
         dismiss(animated: true, completion: nil)
     }
