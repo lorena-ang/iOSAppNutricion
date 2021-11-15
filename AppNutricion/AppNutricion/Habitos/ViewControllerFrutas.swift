@@ -121,10 +121,10 @@ class ViewControllerFrutas: UIViewController, UIPopoverPresentationControllerDel
             
             }else{
                 let f = listaFrutas[0].fruta
-                lbNumFrutas.text =  String(f!)
+                lbNumFrutas.text =  String(f)
                 
                 let v = listaFrutas[0].verdura
-                lbVerduras.text = String(v!)
+                lbVerduras.text = String(v)
             }
         }
         
