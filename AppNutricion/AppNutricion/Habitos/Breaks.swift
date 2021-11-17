@@ -8,13 +8,15 @@
 import UIKit
 
 class Breaks: Codable {
-    var tiempo : String!
-    var hora : String!
+    var cantidad : String!
+    var cadaCuanto : String!
+    var duracion : String!
+    var fecha : DateComponents
     
-    init(tiempo : String, hora : String) {
-        self.tiempo = tiempo
-        self.hora = hora
+    init(cantidad : String, cadaCuanto : String, duracion : String, fecha : DateComponents) {
+        self.cantidad = cantidad
+        self.cadaCuanto = cadaCuanto
+        self.duracion = duracion
+        self.fecha = fecha
     }
-
-
 }

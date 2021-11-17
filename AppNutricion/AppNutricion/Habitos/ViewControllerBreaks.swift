@@ -15,7 +15,7 @@ class ViewControllerBreaks: UIViewController, UIPopoverPresentationControllerDel
     @IBOutlet weak var btnGuardar: UIButton!
     
     var hora = "00:00"
-    //var listaBreaks = [Breaks(tiempo: "00 : 00 : 00", hora: "00:00")]
+    var listaBreaks = [Breaks]()
     //Variables para picker views
     var pickerCantidad = UIPickerView()
     let cantidad = ["1","2","3","4"]
@@ -39,9 +39,25 @@ class ViewControllerBreaks: UIViewController, UIPopoverPresentationControllerDel
     var contMin = 1.0
     var conNotiI = 200
     var conNotiF = 100
+    var fechaActual = DateComponents()
+    var components = DateComponents()
+    var cant : String!
+    var dur : String!
+    var cadaCuanto : String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let date = Date()
+        let calendar = Calendar.current
+        let day = calendar.component(.day, from: date)
+        let month = calendar.component(.month, from: date)
+        let year = calendar.component(.year, from: date)
+        components.day = day
+        components.month = month
+        components.year = year
+        listaBreaks.append(Breaks(cantidad: "0", cadaCuanto: "00:00", duracion: "0", fecha: .init(year:year, month: month, day: day)))
+        
         //Para el tf de cantidad de breaks
         pickerCantidad.tag = 0
         self.pickerCantidad.delegate = self
@@ -86,7 +102,7 @@ class ViewControllerBreaks: UIViewController, UIPopoverPresentationControllerDel
         
         btnGuardar.layer.cornerRadius = 6
         
-       /* let app = UIApplication.shared
+       let app = UIApplication.shared
                 
                 NotificationCenter.default.addObserver(self, selector: #selector(guardarDatos), name: UIApplication.didEnterBackgroundNotification, object: app)
                 
@@ -95,7 +111,7 @@ class ViewControllerBreaks: UIViewController, UIPopoverPresentationControllerDel
                 }
                 
                 actualiza()
-        */
+    
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge], completionHandler: {didAllow, error in})
         
     }
@@ -117,7 +133,6 @@ class ViewControllerBreaks: UIViewController, UIPopoverPresentationControllerDel
         tfCadaCuanto.text = formatter.string(from: sender.date)
     }
     
-/*
     func dataFileURL() -> URL {
             let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
             let pathArchivo = documentsDirectory.appendingPathComponent("Breaks").appendingPathExtension("plist")
@@ -138,10 +153,35 @@ class ViewControllerBreaks: UIViewController, UIPopoverPresentationControllerDel
     func actualiza(){
         //let t = listaMeditacion.first?.tiempo
         //lbCronometro.text = t
-        let t = listaBreaks[0].tiempo
         
-        let hr = listaBreaks[0].hora
-        tfCadaCuanto.text = hr
+        let date = Date()
+        let calendar = Calendar.current
+        let day = calendar.component(.day, from: date)
+        let month = calendar.component(.month, from: date)
+        let year = calendar.component(.year, from: date)
+        fechaActual.day = day
+        fechaActual.month = month
+        fechaActual.year = year
+        
+        if  fechaActual.day != listaBreaks[0].fecha.day || fechaActual.month != listaBreaks[0].fecha.month{
+            
+            tfCantidad.text = "0"
+            tfCadaCuanto.text = "00:00"
+            tfDuracion.text = "0"
+            
+            let nuevosBreaks = Breaks(cantidad: "0", cadaCuanto: "00:00", duracion: "0",fecha: .init(year:fechaActual.year, month: fechaActual.month, day: fechaActual.day))
+            listaBreaks.insert(nuevosBreaks, at: 0)
+        
+        }else{
+            let cant = listaBreaks[0].cantidad
+            tfCantidad.text = cant
+            
+            let cc = listaBreaks[0].cadaCuanto
+            tfCadaCuanto.text = cc
+            
+            let d = listaBreaks[0].duracion
+            tfDuracion.text = d
+        }
     }
     
     @IBAction func obtenerDatos() {
@@ -154,7 +194,7 @@ class ViewControllerBreaks: UIViewController, UIPopoverPresentationControllerDel
             print("Error al cargar los datos del archivo")
         }
     }
-*/
+ 
     @IBAction func btnGuardarA(_ sender: Any) {
         //Al dar click los recordatorios se activan
         //RECORDATORIO DE BREAK 1
@@ -260,6 +300,27 @@ class ViewControllerBreaks: UIViewController, UIPopoverPresentationControllerDel
         listaBreaks = [Breaks(tiempo: t,hora: hora)]
         guardarDatos()
         */
+        
+        cant = tfCantidad.text
+        dur = tfDuracion.text
+        cadaCuanto = tfCadaCuanto.text
+        
+        let date = Date()
+        let calendar = Calendar.current
+        let day = calendar.component(.day, from: date)
+        let month = calendar.component(.month, from: date)
+        let year = calendar.component(.year, from: date)
+        components.day = day
+        components.month = month
+        components.year = year
+        
+        listaBreaks[0].cantidad = cant
+        listaBreaks[0].cadaCuanto = cadaCuanto
+        listaBreaks[0].duracion = dur
+        listaBreaks[0].fecha = components
+        
+        guardarDatos()
+        
         dismiss(animated: true, completion: nil)
     }
    
