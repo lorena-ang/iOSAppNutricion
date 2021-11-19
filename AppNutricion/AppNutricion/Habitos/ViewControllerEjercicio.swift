@@ -112,7 +112,7 @@ class ViewControllerEjercicio: UIViewController, UIPopoverPresentationController
         let day = calendar.component(.day, from: date)
         let month = calendar.component(.month, from: date)
         let year = calendar.component(.year, from: date)
-        fechaActual.day = 13
+        fechaActual.day = day
         fechaActual.month = month
         fechaActual.year = year
         
@@ -163,7 +163,7 @@ class ViewControllerEjercicio: UIViewController, UIPopoverPresentationController
         let day = calendar.component(.day, from: date)
         let month = calendar.component(.month, from: date)
         let year = calendar.component(.year, from: date)
-        components.day = 13
+        components.day = day
         components.month = month
         components.year = year
         

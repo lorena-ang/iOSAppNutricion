@@ -6,8 +6,9 @@
 //
 
 import UIKit
+import UserNotifications
 
-class ViewControllerBreaks: UIViewController, UIPopoverPresentationControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
+class ViewControllerBreaks: UIViewController, UIPopoverPresentationControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource, UNUserNotificationCenterDelegate {
     
     @IBOutlet weak var tfCantidad: UITextField!
     @IBOutlet weak var tfCadaCuanto: UITextField!
@@ -20,7 +21,7 @@ class ViewControllerBreaks: UIViewController, UIPopoverPresentationControllerDel
     var pickerCantidad = UIPickerView()
     let cantidad = ["1","2","3","4"]
     var pickerDuracion = UIPickerView()
-    let duracion = ["5","10","15","20"]
+    let duracion = ["1","10","15","20"]
     //Variables para recordatorios
     var strCant : Int!
     var strCadaCuanto : String!
@@ -44,6 +45,7 @@ class ViewControllerBreaks: UIViewController, UIPopoverPresentationControllerDel
     var cant : String!
     var dur : String!
     var cadaCuanto : String!
+    var breaksHechos = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -113,7 +115,7 @@ class ViewControllerBreaks: UIViewController, UIPopoverPresentationControllerDel
                 actualiza()
     
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge], completionHandler: {didAllow, error in})
-        
+        UNUserNotificationCenter.current().delegate = self
     }
     
     // Para que no se adapte al tamaño de diferentes pantallas
@@ -219,64 +221,73 @@ class ViewControllerBreaks: UIViewController, UIPopoverPresentationControllerDel
         
         //FOR LOOP
         strCant = Int(tfCantidad.text!)
-        for i in 2...strCant {
-            //RECORDATORIO DE TERMINACION DE BREAK
-            //Dura timeNoti + duracion de cada break
-            let content2 = UNMutableNotificationContent()
-            content2.title = "Recordatorio"
-            content2.subtitle = "Breaks de actividades"
-            content2.body = "Break finalizado"
-            content2.badge = 1
-            
-            //strCadaCuanto2 = tfCadaCuanto.text
-            strDuracion = tfDuracion.text
-            /*
-            let mySubstringHr2 = strCadaCuanto2.prefix(2)
-            let mySubstringM2 = strCadaCuanto2.suffix(2)
-             */
-            doubleHr = (Double(mySubstringHr)! * 3600) * contHr
-            doubleMin = (Double(mySubstringM)! * 60) * contHr
-            doubleDuracion = (Double(strDuracion)! * 60) * contMin
-            timeNoti2 = doubleHr + doubleMin + doubleDuracion//sumar duracion
-            
-            let trigger2 = UNTimeIntervalNotificationTrigger(timeInterval: timeNoti2, repeats: false)
-            let request2 = UNNotificationRequest(identifier: "timerDone" + String(conNotiF), content: content2, trigger: trigger2)
-            
-            UNUserNotificationCenter.current().add(request2, withCompletionHandler: nil)
-            //FIN RECORDATORIO
-            conNotiF += 1
-            contHr += 1
-            let content = UNMutableNotificationContent()
-            content.title = "Recordatorio"
-            content.subtitle = "Breaks de actividades"
-            content.body = "Tomate un break :) Te avisamos cuando haya finalizado"
-            content.badge = 1
-            
-            /*strCadaCuanto = tfCadaCuanto.text
-            strDuracion = tfDuracion.text
-            let mySubstringHr = strCadaCuanto.prefix(2)
-            let mySubstringM = strCadaCuanto.suffix(2)
-             */
-            doubleHr = (Double(mySubstringHr)! * 3600) * contHr
-            doubleMin = (Double(mySubstringM)! * 60) * contHr
-            doubleDuracion = (Double(strDuracion)! * 60) * contMin
-            timeNoti3 = doubleHr + doubleMin + doubleDuracion//Cada cuanto va a suceder
-            contMin += 1
-            
-            let trigger3 = UNTimeIntervalNotificationTrigger(timeInterval: timeNoti3, repeats: false)
-            let request3 = UNNotificationRequest(identifier: "timerDone" + String(conNotiI), content: content, trigger: trigger3)
-            
-            UNUserNotificationCenter.current().add(request3, withCompletionHandler: nil)
-            
-            conNotiI += 1
+        if strCant > 1 {
+            for i in 2...strCant {
+                //RECORDATORIO DE TERMINACION DE BREAK
+                //Dura timeNoti + duracion de cada break
+                let content2 = UNMutableNotificationContent()
+                content2.title = "Recordatorio"
+                content2.subtitle = "Breaks de actividades"
+                content2.body = "Break finalizado"
+                content2.badge = 1
+                
+                //strCadaCuanto2 = tfCadaCuanto.text
+                strDuracion = tfDuracion.text
+                /*
+                let mySubstringHr2 = strCadaCuanto2.prefix(2)
+                let mySubstringM2 = strCadaCuanto2.suffix(2)
+                 */
+                doubleHr = (Double(mySubstringHr)! * 3600) * contHr
+                doubleMin = (Double(mySubstringM)! * 60) * contHr
+                doubleDuracion = (Double(strDuracion)! * 60) * contMin
+                timeNoti2 = doubleHr + doubleMin + doubleDuracion//sumar duracion
+                
+                let trigger2 = UNTimeIntervalNotificationTrigger(timeInterval: timeNoti2, repeats: false)
+                let request2 = UNNotificationRequest(identifier: "timerDone" + String(conNotiF), content: content2, trigger: trigger2)
+                
+                UNUserNotificationCenter.current().add(request2, withCompletionHandler: nil)
+                //FIN RECORDATORIO
+                conNotiF += 1
+                contHr += 1
+                let content = UNMutableNotificationContent()
+                content.title = "Recordatorio"
+                content.subtitle = "Breaks de actividades"
+                content.body = "Tomate un break :) Te avisamos cuando haya finalizado"
+                content.badge = 1
+                
+                /*strCadaCuanto = tfCadaCuanto.text
+                strDuracion = tfDuracion.text
+                let mySubstringHr = strCadaCuanto.prefix(2)
+                let mySubstringM = strCadaCuanto.suffix(2)
+                 */
+                doubleHr = (Double(mySubstringHr)! * 3600) * contHr
+                doubleMin = (Double(mySubstringM)! * 60) * contHr
+                doubleDuracion = (Double(strDuracion)! * 60) * contMin
+                timeNoti3 = doubleHr + doubleMin + doubleDuracion//Cada cuanto va a suceder
+                contMin += 1
+                
+                let trigger3 = UNTimeIntervalNotificationTrigger(timeInterval: timeNoti3, repeats: false)
+                let request3 = UNNotificationRequest(identifier: "timerDone" + String(conNotiI), content: content, trigger: trigger3)
+                
+                UNUserNotificationCenter.current().add(request3, withCompletionHandler: nil)
+                
+                conNotiI += 1
+            }
+            //FIN FOR LOOP
         }
-        //FIN FOR LOOP
+        
+        let resp1 = UNNotificationAction(identifier: "resp1", title: "Si", options: UNNotificationActionOptions.foreground)
+        let resp2 = UNNotificationAction(identifier: "resp2", title: "No", options: UNNotificationActionOptions.foreground)
+                
+        let category = UNNotificationCategory(identifier: "myCategory", actions: [resp1,resp2], intentIdentifiers: [], options: [])
+        UNUserNotificationCenter.current().setNotificationCategories([category])
     
         //RECORDATORIO DE TERMINACION DE BREAK FINAL
         let content2 = UNMutableNotificationContent()
         content2.title = "Recordatorio ULTIMOO"
         content2.subtitle = "Breaks de actividades"
         content2.body = "Break finalizado"
+        content.categoryIdentifier = "myCategory"
         content2.badge = 1
         
         strCadaCuanto2 = tfCadaCuanto.text
@@ -322,6 +333,20 @@ class ViewControllerBreaks: UIViewController, UIPopoverPresentationControllerDel
         guardarDatos()
         
         dismiss(animated: true, completion: nil)
+    }
+    
+    // MARK: - Notifications
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        print("Hola")
+        let alerta = UIAlertController(title: "¿Tomaste el break?", message: "Selecciona la opción adecuada", preferredStyle: .alert)
+        alerta.addAction(UIAlertAction(title: "Si", style: UIAlertAction.Style.default, handler: { (action: UIAlertAction!) in
+            print("Handle Ok logic here")
+            self.breaksHechos += 1
+        }))
+        alerta.addAction(UIAlertAction(title: "No", style: UIAlertAction.Style.default, handler: {_ in}))
+                
+        present(alerta, animated: true, completion: nil)
+        completionHandler()
     }
    
     // MARK: - PickerViews

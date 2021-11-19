@@ -8,10 +8,16 @@
 import UIKit
 
 class Sueno: Codable {
-    var hora : String!
+    var id : Int!
+    var horaDespertar : String!
+    var horaDormir : String!
+    var fecha : DateComponents
     
-    init(hora : String) {
-        self.hora = hora
+    init(id : Int, horaDespertar : String, horaDormir : String, fecha : DateComponents) {
+        self.id = id
+        self.horaDespertar = horaDespertar
+        self.horaDormir = horaDormir
+        self.fecha = fecha
     }
 
 }

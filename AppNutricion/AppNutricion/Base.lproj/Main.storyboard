@@ -1982,14 +1982,14 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Duérmete a las " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="axF-Zl-Oih">
-                                <rect key="frame" x="128" y="492.5" width="119" height="20.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Duérmete a las " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="axF-Zl-Oih">
+                                <rect key="frame" x="128" y="475.5" width="119" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QWZ-wg-Uut">
-                                <rect key="frame" x="123" y="523" width="128" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QWZ-wg-Uut">
+                                <rect key="frame" x="123" y="506" width="128" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="LL7-bV-SfR"/>
                                 </constraints>
@@ -1997,8 +1997,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="para completar 8 hrs de sueño" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cTZ-qU-Shy">
-                                <rect key="frame" x="119" y="554" width="137" height="41"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="para completar 8 hrs de sueño" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cTZ-qU-Shy">
+                                <rect key="frame" x="119" y="537" width="137" height="41"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -2012,8 +2012,8 @@
                                     </segue>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="idea" translatesAutoresizingMaskIntoConstraints="NO" id="Mc7-fA-51K">
-                                <rect key="frame" x="102" y="490.5" width="25" height="20"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="idea" translatesAutoresizingMaskIntoConstraints="NO" id="Mc7-fA-51K">
+                                <rect key="frame" x="102" y="473.5" width="25" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="25" id="MsP-jc-BI2"/>
                                     <constraint firstAttribute="height" constant="20" id="k1D-ip-5vK"/>
@@ -2031,14 +2031,6 @@
                                 </state>
                                 <connections>
                                     <action selector="btGuardar:" destination="ajT-cw-G1W" eventType="touchUpInside" id="Ra0-WX-awH"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ABJ-Tv-Jh8">
-                                <rect key="frame" x="143" y="603" width="89" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Recordatorio"/>
-                                <connections>
-                                    <action selector="btnRecordatorio:" destination="ajT-cw-G1W" eventType="touchUpInside" id="nE6-Se-yja"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -2085,7 +2077,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="HUn-vo-ZCa"/>
+        <segue reference="jhG-xv-cqf"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="agua" width="312" height="262"/>

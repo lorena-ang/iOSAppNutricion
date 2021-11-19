@@ -13,8 +13,9 @@ class ViewControllerSuen_o: UIViewController, UIPopoverPresentationControllerDel
     @IBOutlet weak var btnGuardar: UIButton!
     @IBOutlet weak var lbDespertar: UILabel!
     
-    var listaSueno = [Sueno(hora: "00:00")]
-    var hora = "00:00"
+    var listaSueno = [Sueno]()
+    var horaDespertar = "00:00"
+    var horaDormir = "00:00"
     var str : String!
     var str2 : String!
     var enteros : Int!
@@ -28,11 +29,24 @@ class ViewControllerSuen_o: UIViewController, UIPopoverPresentationControllerDel
     var horaNoti : Int!
     var minNoti : Int!
     var strNoti : String!
-    
+    var fechaActual = DateComponents()
+    var components = DateComponents()
+    var id = 8
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        //Inicializa el arreglo con la fecha actual
+        let date = Date()
+        let calendar = Calendar.current
+        let day = calendar.component(.day, from: date)
+        let month = calendar.component(.month, from: date)
+        let year = calendar.component(.year, from: date)
+        components.day = day
+        components.month = month
+        components.year = year
+        listaSueno.append(Sueno(id: id, horaDespertar: horaDespertar, horaDormir: horaDormir, fecha: .init(year:year, month:month, day:day)))
+       ///
         let time = Date()
         let formatter = DateFormatter()
         formatter.locale = Locale(identifier: "en_gb")
@@ -65,7 +79,6 @@ class ViewControllerSuen_o: UIViewController, UIPopoverPresentationControllerDel
                 actualiza()
         
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge], completionHandler: {didAllow, error in})
-        
     }
     
     @objc func viewTapped(gestureRecognizer: UITapGestureRecognizer){
@@ -143,53 +156,74 @@ class ViewControllerSuen_o: UIViewController, UIPopoverPresentationControllerDel
         }
         
         func actualiza(){
-            let hr = listaSueno[0].hora
-            tfSueno.text =  String(hr!)
-            //LABEL
-            str2 = tfSueno.text
-            let mySubstring = str2.prefix(2)
-            let mySubstringM = str2.suffix(2)
-            enteros2 = Int(mySubstring)
-            enterosMin2 = Int(mySubstringM)
-            enteros2 = enteros2 - 8
-            if enteros2 == 0 {//despertar a las 8am
-                m2 = String(enterosMin2)
-                if enterosMin2 < 10 {
-                    lbDespertar.text = "00:0" + m2 + " AM"
-                }else{
-                    lbDespertar.text = "00:" + m2 + " AM"
-                }
+            //Obtiene fecha actual
+            let date = Date()
+            let calendar = Calendar.current
+            let day = calendar.component(.day, from: date)
+            let month = calendar.component(.month, from: date)
+            let year = calendar.component(.year, from: date)
+            fechaActual.day = day
+            fechaActual.month = month
+            fechaActual.year = year
+            
+            if  fechaActual.day != listaSueno[0].fecha.day || fechaActual.month != listaSueno[0].fecha.month{
+                
+                tfSueno.text = ""
+                lbDespertar.text = ""
+                
+                let nuevoSueño = Sueno(id: id, horaDespertar: "0", horaDormir: "0", fecha: .init(year:fechaActual.year, month: fechaActual.month, day: fechaActual.day))
+                listaSueno.insert(nuevoSueño, at: 0)
             }
-            else if enteros2 < 0{//despertar a las 12am o después y antes de las 8am
-                enteros2 = 24 + enteros2
-                h2 = String(enteros2)
-                m2 = String(enterosMin2)
-                if enterosMin2 < 10 {
-                    lbDespertar.text =  h2 + ":0" + m2 + " PM"
-                }else{
-                    lbDespertar.text =  h2 + ":" + m2 + " PM"
+            else{
+                let hrDespertar = listaSueno[0].horaDespertar
+                tfSueno.text =  String(hrDespertar!)
+                //LABEL
+                str2 = tfSueno.text
+                let mySubstring = str2.prefix(2)
+                let mySubstringM = str2.suffix(2)
+                enteros2 = 0
+                enteros2 = Int(mySubstring)
+                enterosMin2 = Int(mySubstringM)
+                enteros2 = enteros2 - 8
+                if enteros2 == 0 {//despertar a las 8am
+                    m2 = String(enterosMin2)
+                    if enterosMin2 < 10 {
+                        lbDespertar.text = "00:0" + m2 + " AM"
+                    }else{
+                        lbDespertar.text = "00:" + m2 + " AM"
+                    }
                 }
-            }
-            else if enteros2 > 0 && enteros2 < 12{//despertar después de las 8am y antes de las 8pm
-                h2 = String(enteros2)
-                m2 = String(enterosMin2)
-                if enterosMin2 < 10 && enteros2 < 10{
-                    lbDespertar.text = "0" + h2 + ":0" + m2 + " AM"
-                }else if enterosMin2 >= 10 && enteros2 < 10{
-                    lbDespertar.text = "0" + h2 + ":" + m2 + " AM"
-                }else if enterosMin2 < 10 && enteros2 >= 10{ //despertar a las 6 o 7 pm
-                    lbDespertar.text = h2 + ":0" + m2 + " AM"
-                }else if enterosMin2 >= 10 && enteros2 >= 10{
-                    lbDespertar.text = h2 + ":" + m2 + " AM"
+                else if enteros2 < 0{//despertar a las 12am o después y antes de las 8am
+                    enteros2 = 24 + enteros2
+                    h2 = String(enteros2)
+                    m2 = String(enterosMin2)
+                    if enterosMin2 < 10 {
+                        lbDespertar.text =  h2 + ":0" + m2 + " PM"
+                    }else{
+                        lbDespertar.text =  h2 + ":" + m2 + " PM"
+                    }
                 }
-            }
-            else if enteros2 >= 12 {
-                h2 = String(enteros2)
-                m2 = String(enterosMin2)
-                if enterosMin2 < 10 {
-                    lbDespertar.text = h2 + ":0" + m2 + " PM"
-                }else{
-                    lbDespertar.text = h2 + ":" + m2 + " PM"
+                else if enteros2 > 0 && enteros2 < 12{//despertar después de las 8am y antes de las 8pm
+                    h2 = String(enteros2)
+                    m2 = String(enterosMin2)
+                    if enterosMin2 < 10 && enteros2 < 10{
+                        lbDespertar.text = "0" + h2 + ":0" + m2 + " AM"
+                    }else if enterosMin2 >= 10 && enteros2 < 10{
+                        lbDespertar.text = "0" + h2 + ":" + m2 + " AM"
+                    }else if enterosMin2 < 10 && enteros2 >= 10{ //despertar a las 6 o 7 pm
+                        lbDespertar.text = h2 + ":0" + m2 + " AM"
+                    }else if enterosMin2 >= 10 && enteros2 >= 10{
+                        lbDespertar.text = h2 + ":" + m2 + " AM"
+                    }
+                }
+                else if enteros2 >= 12 {
+                    h2 = String(enteros2)
+                    m2 = String(enterosMin2)
+                    if enterosMin2 < 10 {
+                        lbDespertar.text = h2 + ":0" + m2 + " PM"
+                    }else{
+                        lbDespertar.text = h2 + ":" + m2 + " PM"
+                    }
                 }
             }
         }
@@ -206,13 +240,7 @@ class ViewControllerSuen_o: UIViewController, UIPopoverPresentationControllerDel
     }
     
     @IBAction func btGuardar(_ sender: UIButton) {
-        hora = tfSueno.text!
-        listaSueno = [Sueno(hora: hora)]
-        guardarDatos()
-        dismiss(animated: true, completion: nil)
-    }
-    
-    @IBAction func btnRecordatorio(_ sender: UIButton) {
+        //ACTIVA NOTIFICACIÓN
         let content = UNMutableNotificationContent()
         content.title = "Recordatorio"
         content.subtitle = "Horas de sueño"
@@ -246,14 +274,35 @@ class ViewControllerSuen_o: UIViewController, UIPopoverPresentationControllerDel
         
         let trigger = UNCalendarNotificationTrigger(dateMatching: dateInfo, repeats: false)
         let request = UNNotificationRequest(identifier: "timerDone", content: content, trigger: trigger)
-        
         UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+        
+        let dateA = Date()
+        let calendar = Calendar.current
+        let dayA = calendar.component(.day, from: dateA)
+        let monthA = calendar.component(.month, from: dateA)
+        let yearA = calendar.component(.year, from: dateA)
+        components.day = dayA
+        components.month = monthA
+        components.year = yearA
+        
+        //GUARDA LA INFO EN EL ARREGLO
+        horaDespertar = tfSueno.text!
+        horaDormir = lbDespertar.text!
+        
+        listaSueno[0].id = id
+        listaSueno[0].horaDespertar = horaDespertar
+        listaSueno[0].horaDormir = horaDormir
+        listaSueno[0].fecha = components
+        
+        guardarDatos()
+        dismiss(animated: true, completion: nil)
     }
     
     // Para que no se adapte al tamaño de diferentes pantallas
     func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
         return .none
     }
+    
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

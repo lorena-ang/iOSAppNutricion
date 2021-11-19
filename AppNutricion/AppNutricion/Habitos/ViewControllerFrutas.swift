@@ -23,6 +23,7 @@ class ViewControllerFrutas: UIViewController, UIPopoverPresentationControllerDel
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //Inicializa el arreglo con la fecha actual
         let date = Date()
         let calendar = Calendar.current
         let day = calendar.component(.day, from: date)
@@ -33,7 +34,7 @@ class ViewControllerFrutas: UIViewController, UIPopoverPresentationControllerDel
         components.year = year
         listaFrutas.append(Frutas(fruta: 0, verdura:0, fecha: .init(year:year, month: month, day: day)))
         
-        
+        //Estilo de labels
         lbNumFrutas.clipsToBounds = true
         lbNumFrutas.layer.cornerRadius = 6
         lbNumFrutas.layer.borderWidth = 0.4

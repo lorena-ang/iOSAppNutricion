@@ -104,24 +104,24 @@
 		178FDD4727164CCF003B851E /* Habitos */ = {
 			isa = PBXGroup;
 			children = (
-				FD4DA74A2718A37A00455845 /* Meditacion.swift */,
-				FD38BA2A2717F56200D93202 /* Pasos.swift */,
-				FD38BA222717DB4A00D93202 /* Agua.swift */,
-				FD38BA1F2717CFEE00D93202 /* Frutas.swift */,
-				FD38BA1A2717C36C00D93202 /* Comidas.swift */,
-				3B8FE289272CD3D500AAC41A /* Sueno.swift */,
-				FD77B896272DDE8E0055F1F0 /* Celular.swift */,
 				3B8FE29D272DEF6500AAC41A /* Ejercicio.swift */,
+				FD77B896272DDE8E0055F1F0 /* Celular.swift */,
+				FD38BA1A2717C36C00D93202 /* Comidas.swift */,
 				3B2F01902731FE2B00FD720B /* Breaks.swift */,
+				FD38BA1F2717CFEE00D93202 /* Frutas.swift */,
+				FD4DA74A2718A37A00455845 /* Meditacion.swift */,
+				FD38BA222717DB4A00D93202 /* Agua.swift */,
+				3B8FE289272CD3D500AAC41A /* Sueno.swift */,
+				FD38BA2A2717F56200D93202 /* Pasos.swift */,
 				3B8FE29A272DED0800AAC41A /* ViewControllerEjercicio.swift */,
 				FD77B892272DD7D40055F1F0 /* ViewControllerCelular.swift */,
-				3B8FE281272CC36B00AAC41A /* ViewControllerSueño.swift */,
 				178FDD442716442C003B851E /* ViewControllerComidas.swift */,
-				178FDD412716441B003B851E /* ViewControllerAgua.swift */,
-				3BD3D4C327174B9D00494094 /* ViewControllerMeditacion.swift */,
-				3BD3D4C0271749AB00494094 /* ViewControllerFrutas.swift */,
-				3BD3D4BD2716D24C00494094 /* ViewControllerPasos.swift */,
 				174EC0562730DC21005AA21C /* ViewControllerBreaks.swift */,
+				3BD3D4C0271749AB00494094 /* ViewControllerFrutas.swift */,
+				3BD3D4C327174B9D00494094 /* ViewControllerMeditacion.swift */,
+				178FDD412716441B003B851E /* ViewControllerAgua.swift */,
+				3B8FE281272CC36B00AAC41A /* ViewControllerSueño.swift */,
+				3BD3D4BD2716D24C00494094 /* ViewControllerPasos.swift */,
 			);
 			path = Habitos;
 			sourceTree = "<group>";
