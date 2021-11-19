@@ -23,6 +23,7 @@ class ViewControllerMeditacion: UIViewController, UIPopoverPresentationControlle
     var check = "true"
     var fechaActual = DateComponents()
     var components = DateComponents()
+    var id = 6
     var listaMeditacion = [Meditacion]()
     //var listaMeditacion = [Meditacion(tiempo: "00 : 00 : 00", hora: "00:00", check: "false")]
     
@@ -37,7 +38,7 @@ class ViewControllerMeditacion: UIViewController, UIPopoverPresentationControlle
         components.day = day
         components.month = month
         components.year = year
-        listaMeditacion.append(Meditacion(tiempo: "00 : 00 : 00", hora: "00:00", check: "false", fecha: .init(year:year, month: month, day: day)))
+        listaMeditacion.append(Meditacion(id: id, tiempo: "00 : 00 : 00", hora: "00:00", check: "false", fecha: .init(year:year, month: month, day: day)))
         
         let time = Date()
         let formatter = DateFormatter()
@@ -154,7 +155,7 @@ class ViewControllerMeditacion: UIViewController, UIPopoverPresentationControlle
                 tfMeditacion.text = "00:00"
                 btnCheck.setImage(UIImage(named:"p8_checkB.png"), for: UIControl.State())
                 
-                let nuevaMeditacion = Meditacion(tiempo: "00 : 00 : 00", hora: "00:00", check: "false", fecha: .init(year:fechaActual.year, month: fechaActual.month, day: fechaActual.day))
+                let nuevaMeditacion = Meditacion(id: id, tiempo: "00 : 00 : 00", hora: "00:00", check: "false", fecha: .init(year:fechaActual.year, month: fechaActual.month, day: fechaActual.day))
                 listaMeditacion.insert(nuevaMeditacion, at: 0)
                 
             }else{
@@ -202,7 +203,6 @@ class ViewControllerMeditacion: UIViewController, UIPopoverPresentationControlle
     
     @IBAction func btGuardarA(_ sender: UIButton) {
         hora = tfMeditacion.text!
-        //listaEjercicio = [Ejercicio(hora: hora)]
         if check == "true"{
             check = "false"
         }else{
@@ -219,6 +219,7 @@ class ViewControllerMeditacion: UIViewController, UIPopoverPresentationControlle
         components.month = month
         components.year = year
         
+        listaMeditacion[0].id = id
         listaMeditacion[0].tiempo = t
         listaMeditacion[0].hora = hora
         listaMeditacion[0].check = check

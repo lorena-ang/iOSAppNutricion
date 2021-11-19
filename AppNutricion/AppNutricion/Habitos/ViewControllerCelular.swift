@@ -15,7 +15,7 @@ class ViewControllerCelular: UIViewController, UIPopoverPresentationControllerDe
     
     var hora = "00:00"
     var hrsSinCel = 0
-    var listaCelular = [Celular(hora: "00:00", hrsSin: 0)]
+    var listaCelular = [Celular(id: 2, hora: "00:00", hrsSin: 0)]
     var str : String!
     var doubleMin : Double!
     var doubleHr : Double!
@@ -24,6 +24,7 @@ class ViewControllerCelular: UIViewController, UIPopoverPresentationControllerDe
     var minNoti : Int!
     var horaCel : Int!
     var strCel : String!
+    var id = 2
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -130,7 +131,7 @@ class ViewControllerCelular: UIViewController, UIPopoverPresentationControllerDe
     @IBAction func btGuardarA(_ sender: UIButton) {
         hora = tfHrDormir.text!
         hrsSinCel = Int(lbHrsSinCel.text!)!
-        listaCelular = [Celular(hora: hora, hrsSin: hrsSinCel)]
+        listaCelular = [Celular(id: id, hora: hora, hrsSin: hrsSinCel)]
         guardarDatos()
         dismiss(animated: true, completion: nil)
     }

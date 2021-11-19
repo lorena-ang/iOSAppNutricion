@@ -12,11 +12,10 @@ class ViewControllerComidas: UIViewController, UIPopoverPresentationControllerDe
     var desayuno = true
     var comida = true
     var cena = true
-    //var fecha = DateComponents()
     var fechaActual = DateComponents()
     var components = DateComponents()
-    //var listaComidas = [Comidas(desayuno: false, comida: false, cena: false, fecha: .init(year:2021, month: 11, day: 9))]
     var listaComidas = [Comidas]()
+    var id = 3
     
     @IBOutlet weak var btCheckD: UIButton!
     @IBOutlet weak var btCheckCo: UIButton!
@@ -35,7 +34,7 @@ class ViewControllerComidas: UIViewController, UIPopoverPresentationControllerDe
         components.day = day
         components.month = month
         components.year = year
-        listaComidas.append(Comidas(desayuno: false, comida: false, cena: false, fecha: .init(year:year, month: month, day: day)))
+        listaComidas.append(Comidas(id: id, desayuno: false, comida: false, cena: false, fecha: .init(year:year, month: month, day: day)))
         
         btnGuardar.layer.cornerRadius = 6
         // Do any additional setup after loading the view.
@@ -100,15 +99,6 @@ class ViewControllerComidas: UIViewController, UIPopoverPresentationControllerDe
     
     func actualiza(){
         let date = Date()
-        /*
-        let formatter = DateFormatter()
-        let year = formatter.string(from: date)
-        let month = formatter.string(from: date)
-        let day = formatter.string(from: date)
-            fechaActual.day = Int(day)
-            fechaActual.month = Int(month)
-            fechaActual.year = Int(year)
-        */
         let calendar = Calendar.current
         let day = calendar.component(.day, from: date)
         let month = calendar.component(.month, from: date)
@@ -124,7 +114,7 @@ class ViewControllerComidas: UIViewController, UIPopoverPresentationControllerDe
             comida = true
             btCheckCe.setImage(UIImage(named:"p8_checkB.png"), for: UIControl.State())
             cena = true
-            let nuevaComida = Comidas(desayuno: desayuno, comida: comida, cena: cena, fecha: .init(year:fechaActual.year, month: fechaActual.month, day: fechaActual.day))
+            let nuevaComida = Comidas(id: id, desayuno: desayuno, comida: comida, cena: cena, fecha: .init(year:fechaActual.year, month: fechaActual.month, day: fechaActual.day))
             listaComidas.insert(nuevaComida, at: 0)
         }
         else{
@@ -186,11 +176,6 @@ class ViewControllerComidas: UIViewController, UIPopoverPresentationControllerDe
         }
         //FECHA
         let date = Date()
-/*      let formatter = DateFormatter()
-        let day = formatter.string(from: date)
-        let year = formatter.string(from: date)
-        let month = formatter.string(from: date)
- */
         let calendar = Calendar.current
         let day = calendar.component(.day, from: date)
         let month = calendar.component(.month, from: date)
@@ -200,6 +185,7 @@ class ViewControllerComidas: UIViewController, UIPopoverPresentationControllerDe
         components.year = year
         print(components)
         //listaComidas = [Comidas(desayuno: desayuno, comida: comida, cena: cena, fecha: components)]
+        listaComidas[0].id = id
         listaComidas[0].desayuno = desayuno
         listaComidas[0].comida = comida
         listaComidas[0].cena = cena

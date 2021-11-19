@@ -17,6 +17,7 @@ class ViewControllerFrutas: UIViewController, UIPopoverPresentationControllerDel
     var components = DateComponents()
     //var listaFrutas = [Frutas(fruta: 0, verdura: 0)]
     var listaFrutas = [Frutas]()
+    var id = 5
     var frutas = 0
     var verduras = 0
 
@@ -32,7 +33,7 @@ class ViewControllerFrutas: UIViewController, UIPopoverPresentationControllerDel
         components.day = day
         components.month = month
         components.year = year
-        listaFrutas.append(Frutas(fruta: 0, verdura:0, fecha: .init(year:year, month: month, day: day)))
+        listaFrutas.append(Frutas(id: id, fruta: 0, verdura:0, fecha: .init(year:year, month: month, day: day)))
         
         //Estilo de labels
         lbNumFrutas.clipsToBounds = true
@@ -117,7 +118,7 @@ class ViewControllerFrutas: UIViewController, UIPopoverPresentationControllerDel
                 lbNumFrutas.text = "0"
                 lbVerduras.text = "0"
                 
-                let nuevasFrutas = Frutas(fruta: 0,verdura: 0, fecha: .init(year:fechaActual.year, month: fechaActual.month, day: fechaActual.day))
+                let nuevasFrutas = Frutas(id: id, fruta: 0,verdura: 0, fecha: .init(year:fechaActual.year, month: fechaActual.month, day: fechaActual.day))
                 listaFrutas.insert(nuevasFrutas, at: 0)
             
             }else{
@@ -153,6 +154,7 @@ class ViewControllerFrutas: UIViewController, UIPopoverPresentationControllerDel
         components.month = month
         components.year = year
         
+        listaFrutas[0].id = id
         listaFrutas[0].fruta = frutas
         listaFrutas[0].verdura = verduras
         listaFrutas[0].fecha = components

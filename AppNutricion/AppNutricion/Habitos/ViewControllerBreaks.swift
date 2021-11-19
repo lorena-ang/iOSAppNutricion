@@ -15,8 +15,8 @@ class ViewControllerBreaks: UIViewController, UIPopoverPresentationControllerDel
     @IBOutlet weak var tfDuracion: UITextField!
     @IBOutlet weak var btnGuardar: UIButton!
     
-    var hora = "00:00"
     var listaBreaks = [Breaks]()
+    var id = 4
     //Variables para picker views
     var pickerCantidad = UIPickerView()
     let cantidad = ["1","2","3","4"]
@@ -58,7 +58,7 @@ class ViewControllerBreaks: UIViewController, UIPopoverPresentationControllerDel
         components.day = day
         components.month = month
         components.year = year
-        listaBreaks.append(Breaks(cantidad: "0", cadaCuanto: "00:00", duracion: "0", fecha: .init(year:year, month: month, day: day)))
+        listaBreaks.append(Breaks(id: id, cantidad: "0", cadaCuanto: "00:00", duracion: "0", fecha: .init(year:year, month: month, day: day)))
         
         //Para el tf de cantidad de breaks
         pickerCantidad.tag = 0
@@ -171,7 +171,7 @@ class ViewControllerBreaks: UIViewController, UIPopoverPresentationControllerDel
             tfCadaCuanto.text = "00:00"
             tfDuracion.text = "0"
             
-            let nuevosBreaks = Breaks(cantidad: "0", cadaCuanto: "00:00", duracion: "0",fecha: .init(year:fechaActual.year, month: fechaActual.month, day: fechaActual.day))
+            let nuevosBreaks = Breaks(id: id, cantidad: "0", cadaCuanto: "00:00", duracion: "0",fecha: .init(year:fechaActual.year, month: fechaActual.month, day: fechaActual.day))
             listaBreaks.insert(nuevosBreaks, at: 0)
         
         }else{
@@ -304,14 +304,7 @@ class ViewControllerBreaks: UIViewController, UIPopoverPresentationControllerDel
         
         UNUserNotificationCenter.current().add(request4, withCompletionHandler: nil)
         //FIN RECORDATORIO FINAL
-        
-        
-        /*
-        hora = tfCadaCuanto.text!
-        listaBreaks = [Breaks(tiempo: t,hora: hora)]
-        guardarDatos()
-        */
-        
+            
         cant = tfCantidad.text
         dur = tfDuracion.text
         cadaCuanto = tfCadaCuanto.text
@@ -325,6 +318,7 @@ class ViewControllerBreaks: UIViewController, UIPopoverPresentationControllerDel
         components.month = month
         components.year = year
         
+        listaBreaks[0].id = id
         listaBreaks[0].cantidad = cant
         listaBreaks[0].cadaCuanto = cadaCuanto
         listaBreaks[0].duracion = dur

@@ -8,10 +8,12 @@
 import UIKit
 
 class Pasos: Codable {
+    var id : Int!
     var pasos : Int!
     var fecha: DateComponents
     
-    init(pasos: Int, fecha:DateComponents) {
+    init(id: Int, pasos: Int, fecha:DateComponents) {
+        self.id = id
         self.pasos = pasos
         self.fecha = fecha
     }

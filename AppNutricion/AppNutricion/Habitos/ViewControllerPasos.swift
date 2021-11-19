@@ -17,6 +17,7 @@ class ViewControllerPasos: UIViewController, UIPopoverPresentationControllerDele
     //var listaPasos = [Pasos(pasos: 0)]
     var listaPasos = [Pasos]()
     var pasos = 0
+    var id = 9
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +30,7 @@ class ViewControllerPasos: UIViewController, UIPopoverPresentationControllerDele
         components.day = day
         components.month = month
         components.year = year
-        listaPasos.append(Pasos(pasos: 0, fecha: .init(year: year, month: month, day: day)))
+        listaPasos.append(Pasos(id: id, pasos: 0, fecha: .init(year: year, month: month, day: day)))
         
         
         btnGuardar.layer.cornerRadius = 6
@@ -69,14 +70,14 @@ class ViewControllerPasos: UIViewController, UIPopoverPresentationControllerDele
             let day = calendar.component(.day, from: date)
             let month = calendar.component(.month, from: date)
             let year = calendar.component(.year, from: date)
-            fechaActual.day = 13
+            fechaActual.day = day
             fechaActual.month = month
             fechaActual.year = year
             if  fechaActual.day != listaPasos[0].fecha.day || fechaActual.month != listaPasos[0].fecha.month{
                 
                 tfPasos.text = ""
                 
-                let nuevosPasos = Pasos(pasos: 0,fecha: .init(year:fechaActual.year, month: fechaActual.month, day: fechaActual.day))
+                let nuevosPasos = Pasos(id: id, pasos: 0,fecha: .init(year:fechaActual.year, month: fechaActual.month, day: fechaActual.day))
                 listaPasos.insert(nuevosPasos, at: 0)
                 
             }else{
@@ -108,11 +109,11 @@ class ViewControllerPasos: UIViewController, UIPopoverPresentationControllerDele
         let day = calendar.component(.day, from: date)
         let month = calendar.component(.month, from: date)
         let year = calendar.component(.year, from: date)
-        components.day = 13
+        components.day = day
         components.month = month
         components.year = year
-        print(components)
-        //listaPasos = [Pasos(pasos: pasos, fecha:components)]
+        
+        listaPasos[0].id = id
         listaPasos[0].pasos = pasos
         listaPasos[0].fecha = components
         guardarDatos()

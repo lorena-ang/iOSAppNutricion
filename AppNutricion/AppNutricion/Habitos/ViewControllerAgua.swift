@@ -24,6 +24,7 @@ class ViewControllerAgua: UIViewController, UIPopoverPresentationControllerDeleg
     var cant = 0
     var fechaActual = DateComponents()
     var components = DateComponents()
+    var id = 7
     var listaVasos = [Agua]()
 
     override func viewDidLoad() {
@@ -37,7 +38,7 @@ class ViewControllerAgua: UIViewController, UIPopoverPresentationControllerDeleg
         components.day = day
         components.month = month
         components.year = year
-        listaVasos.append(Agua(vaso: 0, fecha: .init(year:year, month: month, day: day)))
+        listaVasos.append(Agua(id: id, vaso: 0, fecha: .init(year:year, month: month, day: day)))
         
         btnGuardar.layer.cornerRadius = 6
 
@@ -155,7 +156,7 @@ class ViewControllerAgua: UIViewController, UIPopoverPresentationControllerDeleg
                 imgVaso8.image = UIImage(named: "")
                 lbCantVasos.text = String("8")
                 
-                let nuevaAgua = Agua(vaso: 0,fecha: .init(year:fechaActual.year, month: fechaActual.month, day: fechaActual.day))
+                let nuevaAgua = Agua(id: id, vaso: 0,fecha: .init(year:fechaActual.year, month: fechaActual.month, day: fechaActual.day))
                 listaVasos.insert(nuevaAgua, at: 0)
                 
             }else{
@@ -247,7 +248,7 @@ class ViewControllerAgua: UIViewController, UIPopoverPresentationControllerDeleg
         components.month = month
         components.year = year
     
-        //listaVasos = [Agua(vaso: numVaso, fecha: components)]
+        listaVasos[0].id = id
         listaVasos[0].vaso = numVaso
         listaVasos[0].fecha = components
         guardarDatos()

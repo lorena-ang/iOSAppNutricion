@@ -16,10 +16,9 @@ class ViewControllerEjercicio: UIViewController, UIPopoverPresentationController
     var fechaActual = DateComponents()
     var components = DateComponents()
     var listaEjercicio = [Ejercicio]()
-    //var listaEjercicio = [Ejercicio(hora: "00:00", check: "false")]
-    //var listaEjercicio = [Ejercicio(hora: "00:00")]
     var hora = "00:00"
     var check = "true"
+    var id = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +31,7 @@ class ViewControllerEjercicio: UIViewController, UIPopoverPresentationController
         components.day = day
         components.month = month
         components.year = year
-        listaEjercicio.append(Ejercicio(hora: "00:00", check: "false", fecha: .init(year:year, month: month, day: day)))
+        listaEjercicio.append(Ejercicio(id: id, hora: "00:00", check: "false", fecha: .init(year:year, month: month, day: day)))
 
         let time = Date()
         let formatter = DateFormatter()
@@ -121,7 +120,7 @@ class ViewControllerEjercicio: UIViewController, UIPopoverPresentationController
             tfEjercicio.text = "00:00"
             btnCheck.setImage(UIImage(named:"p8_checkB.png"), for: UIControl.State())
             
-            let nuevoEjercicio = Ejercicio(hora: "00:00", check: "false", fecha: .init(year:fechaActual.year, month: fechaActual.month, day: fechaActual.day))
+            let nuevoEjercicio = Ejercicio(id: id, hora: "00:00", check: "false", fecha: .init(year:fechaActual.year, month: fechaActual.month, day: fechaActual.day))
             listaEjercicio.insert(nuevoEjercicio, at: 0)
             
         }else{
@@ -167,6 +166,7 @@ class ViewControllerEjercicio: UIViewController, UIPopoverPresentationController
         components.month = month
         components.year = year
         
+        listaEjercicio[0].id = id
         listaEjercicio[0].hora = hora
         listaEjercicio[0].check = check
         listaEjercicio[0].fecha = components
@@ -185,6 +185,6 @@ class ViewControllerEjercicio: UIViewController, UIPopoverPresentationController
         
         let vistaPopOver = segue.destination as! ViewControllerPopOver
         vistaPopOver.popoverPresentationController?.delegate = self
-        vistaPopOver.texto = "Trata de realizar al menos 45 minutos de ejercicio intenso. Los días que no te sea posible, 15 o 20 min también ¡son excelente!"
+        vistaPopOver.texto = "Trata de realizar al menos 45 minutos de ejercicio intenso. Los días que no te sea posible, 15 o 20 min también ¡son excelentes!"
     }
 }
