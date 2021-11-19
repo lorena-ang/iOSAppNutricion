@@ -1290,14 +1290,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VqV-Ww-ggX">
-                                <rect key="frame" x="143" y="569" width="89" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Recordatorio"/>
-                                <connections>
-                                    <action selector="btnRecordatorio:" destination="dJa-K5-mt0" eventType="touchUpInside" id="Fvx-Fy-5iF"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Q7G-tQ-TMs"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -2077,7 +2069,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="jhG-xv-cqf"/>
+        <segue reference="IDZ-hj-e9c"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="agua" width="312" height="262"/>

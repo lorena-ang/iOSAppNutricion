@@ -15,7 +15,7 @@ class ViewControllerCelular: UIViewController, UIPopoverPresentationControllerDe
     
     var hora = "00:00"
     var hrsSinCel = 0
-    var listaCelular = [Celular(id: 2, hora: "00:00", hrsSin: 0)]
+    var listaCelular = [Celular]()
     var str : String!
     var doubleMin : Double!
     var doubleHr : Double!
@@ -24,6 +24,8 @@ class ViewControllerCelular: UIViewController, UIPopoverPresentationControllerDe
     var minNoti : Int!
     var horaCel : Int!
     var strCel : String!
+    var fechaActual = DateComponents()
+    var components = DateComponents()
     var id = 2
     
     override func viewDidLoad() {
@@ -33,6 +35,18 @@ class ViewControllerCelular: UIViewController, UIPopoverPresentationControllerDe
         lbHrsSinCel.layer.borderWidth = 0.4
         lbHrsSinCel.layer.borderColor = UIColor.lightGray.cgColor
         btnGuardar.layer.cornerRadius = 6
+        
+        //Inicializa el arreglo con la fecha actual
+        let date = Date()
+        let calendar = Calendar.current
+        let day = calendar.component(.day, from: date)
+        let month = calendar.component(.month, from: date)
+        let year = calendar.component(.year, from: date)
+        components.day = day
+        components.month = month
+        components.year = year
+        listaCelular.append(Celular(id: id, hora: hora, hrsSin: hrsSinCel, fecha: .init(year:year, month:month, day:day)))
+       ///
         
         let time = Date()
         let formatter = DateFormatter()
@@ -111,10 +125,30 @@ class ViewControllerCelular: UIViewController, UIPopoverPresentationControllerDe
         }
         
         func actualiza(){
-            let hr = listaCelular[0].hora
-            tfHrDormir.text =  String(hr!)
-            let hsc = listaCelular[0].hrsSin
-            lbHrsSinCel.text =  String(hsc!)
+            //Obtiene fecha actual
+            let date = Date()
+            let calendar = Calendar.current
+            let day = calendar.component(.day, from: date)
+            let month = calendar.component(.month, from: date)
+            let year = calendar.component(.year, from: date)
+            fechaActual.day = day
+            fechaActual.month = month
+            fechaActual.year = year
+            
+            if  fechaActual.day != listaCelular[0].fecha.day || fechaActual.month != listaCelular[0].fecha.month{
+                
+                tfHrDormir.text = ""
+                lbHrsSinCel.text = ""
+                
+                let nuevoCelular = Celular(id: id, hora: "0", hrsSin: 0, fecha: .init(year:fechaActual.year, month: fechaActual.month, day: fechaActual.day))
+                listaCelular.insert(nuevoCelular, at: 0)
+            }
+            else{
+                let hr = listaCelular[0].hora
+                tfHrDormir.text =  String(hr!)
+                let hsc = listaCelular[0].hrsSin
+                lbHrsSinCel.text =  String(hsc!)
+            }
         }
         
     @IBAction func obtenerDatos() {
@@ -129,14 +163,6 @@ class ViewControllerCelular: UIViewController, UIPopoverPresentationControllerDe
     }
     
     @IBAction func btGuardarA(_ sender: UIButton) {
-        hora = tfHrDormir.text!
-        hrsSinCel = Int(lbHrsSinCel.text!)!
-        listaCelular = [Celular(id: id, hora: hora, hrsSin: hrsSinCel)]
-        guardarDatos()
-        dismiss(animated: true, completion: nil)
-    }
-    
-    @IBAction func btnRecordatorio(_ sender: UIButton) {
         let content = UNMutableNotificationContent()
         content.title = "Recordatorio"
         content.subtitle = "Horas antes de dormir sin celular"
@@ -168,12 +194,30 @@ class ViewControllerCelular: UIViewController, UIPopoverPresentationControllerDe
             dateInfo.minute = minNoti
         
         let trigger = UNCalendarNotificationTrigger(dateMatching: dateInfo, repeats: false)
-    
         let request = UNNotificationRequest(identifier: "timerDone", content: content, trigger: trigger)
-        
         UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+        
+        let dateA = Date()
+        let calendar = Calendar.current
+        let dayA = calendar.component(.day, from: dateA)
+        let monthA = calendar.component(.month, from: dateA)
+        let yearA = calendar.component(.year, from: dateA)
+        components.day = dayA
+        components.month = monthA
+        components.year = yearA
+        
+        //GUARDA LA INFO EN EL ARREGLO
+        hora = tfHrDormir.text!
+        hrsSinCel = Int(lbHrsSinCel.text!)!
+        
+        listaCelular[0].id = id
+        listaCelular[0].hora = hora
+        listaCelular[0].hrsSin = hrsSinCel
+        listaCelular[0].fecha = components
+        
+        guardarDatos()
+        dismiss(animated: true, completion: nil)
     }
-    
     
     // Para que no se adapte al tamaño de diferentes pantallas
     func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
