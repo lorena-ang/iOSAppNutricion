@@ -6,9 +6,8 @@
 //
 
 import UIKit
-import UserNotifications
 
-class ViewControllerBreaks: UIViewController, UIPopoverPresentationControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource, UNUserNotificationCenterDelegate {
+class ViewControllerBreaks: UIViewController, UIPopoverPresentationControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
     
     @IBOutlet weak var tfCantidad: UITextField!
     @IBOutlet weak var tfCadaCuanto: UITextField!
@@ -45,7 +44,7 @@ class ViewControllerBreaks: UIViewController, UIPopoverPresentationControllerDel
     var cant : String!
     var dur : String!
     var cadaCuanto : String!
-    var breaksHechos = 0
+    var completado = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,7 +57,7 @@ class ViewControllerBreaks: UIViewController, UIPopoverPresentationControllerDel
         components.day = day
         components.month = month
         components.year = year
-        listaBreaks.append(Breaks(id: id, cantidad: "0", cadaCuanto: "00:00", duracion: "0", fecha: .init(year:year, month: month, day: day)))
+        listaBreaks.append(Breaks(id: id, cantidad: "0", cadaCuanto: "00:00", duracion: "0", completado: completado, fecha: .init(year:year, month: month, day: day)))
         
         //Para el tf de cantidad de breaks
         pickerCantidad.tag = 0
@@ -115,7 +114,6 @@ class ViewControllerBreaks: UIViewController, UIPopoverPresentationControllerDel
                 actualiza()
     
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge], completionHandler: {didAllow, error in})
-        UNUserNotificationCenter.current().delegate = self
     }
     
     // Para que no se adapte al tamaño de diferentes pantallas
@@ -171,7 +169,7 @@ class ViewControllerBreaks: UIViewController, UIPopoverPresentationControllerDel
             tfCadaCuanto.text = "00:00"
             tfDuracion.text = "0"
             
-            let nuevosBreaks = Breaks(id: id, cantidad: "0", cadaCuanto: "00:00", duracion: "0",fecha: .init(year:fechaActual.year, month: fechaActual.month, day: fechaActual.day))
+            let nuevosBreaks = Breaks(id: id, cantidad: "0", cadaCuanto: "00:00", duracion: "0", completado: completado, fecha: .init(year:fechaActual.year, month: fechaActual.month, day: fechaActual.day))
             listaBreaks.insert(nuevosBreaks, at: 0)
         
         }else{
@@ -275,16 +273,10 @@ class ViewControllerBreaks: UIViewController, UIPopoverPresentationControllerDel
             }
             //FIN FOR LOOP
         }
-        
-        let resp1 = UNNotificationAction(identifier: "resp1", title: "Si", options: UNNotificationActionOptions.foreground)
-        let resp2 = UNNotificationAction(identifier: "resp2", title: "No", options: UNNotificationActionOptions.foreground)
-                
-        let category = UNNotificationCategory(identifier: "myCategory", actions: [resp1,resp2], intentIdentifiers: [], options: [])
-        UNUserNotificationCenter.current().setNotificationCategories([category])
     
         //RECORDATORIO DE TERMINACION DE BREAK FINAL
         let content2 = UNMutableNotificationContent()
-        content2.title = "Recordatorio ULTIMOO"
+        content2.title = "Recordatorio"
         content2.subtitle = "Breaks de actividades"
         content2.body = "Break finalizado"
         content.categoryIdentifier = "myCategory"
@@ -322,25 +314,12 @@ class ViewControllerBreaks: UIViewController, UIPopoverPresentationControllerDel
         listaBreaks[0].cantidad = cant
         listaBreaks[0].cadaCuanto = cadaCuanto
         listaBreaks[0].duracion = dur
+        listaBreaks[0].completado = completado
         listaBreaks[0].fecha = components
         
         guardarDatos()
         
         dismiss(animated: true, completion: nil)
-    }
-    
-    // MARK: - Notifications
-    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-        print("Hola")
-        let alerta = UIAlertController(title: "¿Tomaste el break?", message: "Selecciona la opción adecuada", preferredStyle: .alert)
-        alerta.addAction(UIAlertAction(title: "Si", style: UIAlertAction.Style.default, handler: { (action: UIAlertAction!) in
-            print("Handle Ok logic here")
-            self.breaksHechos += 1
-        }))
-        alerta.addAction(UIAlertAction(title: "No", style: UIAlertAction.Style.default, handler: {_ in}))
-                
-        present(alerta, animated: true, completion: nil)
-        completionHandler()
     }
    
     // MARK: - PickerViews

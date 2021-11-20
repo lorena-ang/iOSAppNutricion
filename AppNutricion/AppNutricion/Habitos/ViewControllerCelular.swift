@@ -27,6 +27,7 @@ class ViewControllerCelular: UIViewController, UIPopoverPresentationControllerDe
     var fechaActual = DateComponents()
     var components = DateComponents()
     var id = 2
+    var completado = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,7 +46,7 @@ class ViewControllerCelular: UIViewController, UIPopoverPresentationControllerDe
         components.day = day
         components.month = month
         components.year = year
-        listaCelular.append(Celular(id: id, hora: hora, hrsSin: hrsSinCel, fecha: .init(year:year, month:month, day:day)))
+        listaCelular.append(Celular(id: id, hora: hora, hrsSin: hrsSinCel, completado: completado, fecha: .init(year:year, month:month, day:day)))
        ///
         
         let time = Date()
@@ -69,13 +70,13 @@ class ViewControllerCelular: UIViewController, UIPopoverPresentationControllerDe
         
         let app = UIApplication.shared
                 
-                NotificationCenter.default.addObserver(self, selector: #selector(guardarDatos), name: UIApplication.didEnterBackgroundNotification, object: app)
+        NotificationCenter.default.addObserver(self, selector: #selector(guardarDatos), name: UIApplication.didEnterBackgroundNotification, object: app)
                 
-                if FileManager.default.fileExists(atPath: dataFileURL().path){
-                    obtenerDatos()
-                }
+        if FileManager.default.fileExists(atPath: dataFileURL().path){
+            obtenerDatos()
+        }
                 
-                actualiza()
+        actualiza()
         
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge], completionHandler: {didAllow, error in})
         
@@ -140,7 +141,7 @@ class ViewControllerCelular: UIViewController, UIPopoverPresentationControllerDe
                 tfHrDormir.text = ""
                 lbHrsSinCel.text = ""
                 
-                let nuevoCelular = Celular(id: id, hora: "0", hrsSin: 0, fecha: .init(year:fechaActual.year, month: fechaActual.month, day: fechaActual.day))
+                let nuevoCelular = Celular(id: id, hora: "0", hrsSin: 0, completado: completado, fecha: .init(year:fechaActual.year, month: fechaActual.month, day: fechaActual.day))
                 listaCelular.insert(nuevoCelular, at: 0)
             }
             else{
@@ -209,10 +210,12 @@ class ViewControllerCelular: UIViewController, UIPopoverPresentationControllerDe
         //GUARDA LA INFO EN EL ARREGLO
         hora = tfHrDormir.text!
         hrsSinCel = Int(lbHrsSinCel.text!)!
+        completado = true
         
         listaCelular[0].id = id
         listaCelular[0].hora = hora
         listaCelular[0].hrsSin = hrsSinCel
+        listaCelular[0].completado = completado
         listaCelular[0].fecha = components
         
         guardarDatos()

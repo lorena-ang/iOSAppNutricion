@@ -32,6 +32,7 @@ class ViewControllerSuen_o: UIViewController, UIPopoverPresentationControllerDel
     var fechaActual = DateComponents()
     var components = DateComponents()
     var id = 8
+    var completado = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,7 +46,7 @@ class ViewControllerSuen_o: UIViewController, UIPopoverPresentationControllerDel
         components.day = day
         components.month = month
         components.year = year
-        listaSueno.append(Sueno(id: id, horaDespertar: horaDespertar, horaDormir: horaDormir, fecha: .init(year:year, month:month, day:day)))
+        listaSueno.append(Sueno(id: id, horaDespertar: horaDespertar, horaDormir: horaDormir, completado: completado, fecha: .init(year:year, month:month, day:day)))
        ///
         let time = Date()
         let formatter = DateFormatter()
@@ -171,7 +172,7 @@ class ViewControllerSuen_o: UIViewController, UIPopoverPresentationControllerDel
                 tfSueno.text = ""
                 lbDespertar.text = ""
                 
-                let nuevoSueño = Sueno(id: id, horaDespertar: "0", horaDormir: "0", fecha: .init(year:fechaActual.year, month: fechaActual.month, day: fechaActual.day))
+                let nuevoSueño = Sueno(id: id, horaDespertar: "0", horaDormir: "0", completado: completado, fecha: .init(year:fechaActual.year, month: fechaActual.month, day: fechaActual.day))
                 listaSueno.insert(nuevoSueño, at: 0)
             }
             else{
@@ -288,10 +289,12 @@ class ViewControllerSuen_o: UIViewController, UIPopoverPresentationControllerDel
         //GUARDA LA INFO EN EL ARREGLO
         horaDespertar = tfSueno.text!
         horaDormir = lbDespertar.text!
+        completado = true
         
         listaSueno[0].id = id
         listaSueno[0].horaDespertar = horaDespertar
         listaSueno[0].horaDormir = horaDormir
+        listaSueno[0].completado = completado
         listaSueno[0].fecha = components
         
         guardarDatos()

@@ -12,13 +12,15 @@ class Breaks: Codable {
     var cantidad : String!
     var cadaCuanto : String!
     var duracion : String!
+    var completado : Bool
     var fecha : DateComponents
     
-    init(id : Int, cantidad : String, cadaCuanto : String, duracion : String, fecha : DateComponents) {
+    init(id : Int, cantidad : String, cadaCuanto : String, duracion : String, completado : Bool, fecha : DateComponents) {
         self.id = id
         self.cantidad = cantidad
         self.cadaCuanto = cadaCuanto
         self.duracion = duracion
+        self.completado = completado
         self.fecha = fecha
     }
 }
