@@ -19,4 +19,14 @@ class ViewControllerSeleccion: UIViewController {
         collectionView.allowsMultipleSelection = true
         collectionView.habitosSeleccionados = habitosSeleccionados
     }
+    
+    // MARK: - Limitar orientación a portrait
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.landscape
+    }
+    
+    override var shouldAutorotate: Bool {
+        return false
+    }
 }

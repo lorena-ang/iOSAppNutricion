@@ -242,4 +242,14 @@ class ViewControllerMeditacion: UIViewController, UIPopoverPresentationControlle
         vistaPopOver.popoverPresentationController?.delegate = self
         vistaPopOver.texto = "Te ayuda a conocer tu mente, regular emociones, ser más resiliente, compasivo y ecuánime, además de la tranquilidad y calma que te otorga."
     }
+    
+    // MARK: - Limitar orientación a portrait
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.landscape
+    }
+    
+    override var shouldAutorotate: Bool {
+        return false
+    }
 }

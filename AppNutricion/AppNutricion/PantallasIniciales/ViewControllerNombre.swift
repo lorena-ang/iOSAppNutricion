@@ -28,4 +28,24 @@ class ViewControllerNombre: UIViewController {
     @IBAction func quitateclado() {
         view.endEditing(true)
     }
+    
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        if identifier == "segGuardarNombre" {
+            let nombre = tfNombre.text
+            if !nombre!.isEmpty {
+                return true
+            }
+        }
+        return false
+    }
+    
+    // MARK: - Limitar orientación a portrait
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.landscape
+    }
+    
+    override var shouldAutorotate: Bool {
+        return false
+    }
 }

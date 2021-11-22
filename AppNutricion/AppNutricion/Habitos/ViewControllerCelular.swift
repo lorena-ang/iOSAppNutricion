@@ -227,11 +227,25 @@ class ViewControllerCelular: UIViewController, UIPopoverPresentationControllerDe
         return .none
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        guardarDatos()
+    }
+    
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         let vistaPopOver = segue.destination as! ViewControllerPopOver
         vistaPopOver.popoverPresentationController?.delegate = self
         vistaPopOver.texto = "Los aparatos como celular, tablets y demás interfieren no solo con la cantidad pero la calidad de nuestro sueño. ¡Comienza dejando el celular media hora antes de dormir!"
+    }
+    
+    // MARK: - Limitar orientación a portrait
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.landscape
+    }
+    
+    override var shouldAutorotate: Bool {
+        return false
     }
 }

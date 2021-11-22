@@ -187,4 +187,14 @@ class ViewControllerEjercicio: UIViewController, UIPopoverPresentationController
         vistaPopOver.popoverPresentationController?.delegate = self
         vistaPopOver.texto = "Trata de realizar al menos 45 minutos de ejercicio intenso. Los días que no te sea posible, 15 o 20 min también ¡son excelentes!"
     }
+    
+    // MARK: - Limitar orientación a portrait
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.landscape
+    }
+    
+    override var shouldAutorotate: Bool {
+        return false
+    }
 }

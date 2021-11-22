@@ -86,4 +86,14 @@ class ViewControllerPaginaPrincipal: UIViewController {
             collectionView.reloadData()
         }
     }
+    
+    // MARK: - Limitar orientación a portrait
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.landscape
+    }
+    
+    override var shouldAutorotate: Bool {
+        return false
+    }
 }

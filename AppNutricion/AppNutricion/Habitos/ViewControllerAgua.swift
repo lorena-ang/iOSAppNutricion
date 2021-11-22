@@ -267,4 +267,14 @@ class ViewControllerAgua: UIViewController, UIPopoverPresentationControllerDeleg
         vistaPopOver.popoverPresentationController?.delegate = self
         vistaPopOver.texto = "El cuerpo requiere de agua para llevar a cabo inumerables funciones fisiológicas. Desde la lubricación de las articulaciones, a regular nuestra temperatura corporal y metabolismo. Incluso, tanto el cerebro y corazón de un adulto están compuestos por 3/4 de agua."
     }
+    
+    // MARK: - Limitar orientación a portrait
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.landscape
+    }
+    
+    override var shouldAutorotate: Bool {
+        return false
+    }
 }

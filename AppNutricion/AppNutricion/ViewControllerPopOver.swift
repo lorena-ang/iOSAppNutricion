@@ -15,19 +15,17 @@ class ViewControllerPopOver: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        preferredContentSize = CGSize(width: 320, height: 460)
+        preferredContentSize = CGSize(width: 320, height: 300)
         lbTexto.text = texto
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    // MARK: - Limitar orientación a portrait
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.landscape
     }
-    */
-
+    
+    override var shouldAutorotate: Bool {
+        return false
+    }
 }

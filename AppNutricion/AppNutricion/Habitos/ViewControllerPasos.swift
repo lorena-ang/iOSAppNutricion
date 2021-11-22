@@ -132,4 +132,14 @@ class ViewControllerPasos: UIViewController, UIPopoverPresentationControllerDele
         vistaPopOver.popoverPresentationController?.delegate = self
         vistaPopOver.texto = "Aumentar el nivel de actividad física trae enormes beneficios a la salud, sobre todo la salud cardiovascular ❤️. Además de hacer ejercicio, es importante también la actividad física para no ser sedentarios."
     }
+    
+    // MARK: - Limitar orientación a portrait
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.landscape
+    }
+    
+    override var shouldAutorotate: Bool {
+        return false
+    }
 }

@@ -200,11 +200,25 @@ class ViewControllerComidas: UIViewController, UIPopoverPresentationControllerDe
         return .none
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        guardarDatos()
+    }
+    
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         let vistaPopOver = segue.destination as! ViewControllerPopOver
         vistaPopOver.popoverPresentationController?.delegate = self
         vistaPopOver.texto = "No podemos nutrir nuestro cuerpo con solo 1 plato saludable, trata de integrar todos los grupos de alimentos, especialmente: vegetales, cereales integrales, grasas saludables en moderación y proteína baja en grasa (animal y/o vegetal)."
+    }
+    
+    // MARK: - Limitar orientación a portrait
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.landscape
+    }
+    
+    override var shouldAutorotate: Bool {
+        return false
     }
 }

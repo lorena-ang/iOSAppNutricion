@@ -15,7 +15,6 @@ class ViewControllerFrutas: UIViewController, UIPopoverPresentationControllerDel
     
     var fechaActual = DateComponents()
     var components = DateComponents()
-    //var listaFrutas = [Frutas(fruta: 0, verdura: 0)]
     var listaFrutas = [Frutas]()
     var id = 5
     var frutas = 0
@@ -175,5 +174,15 @@ class ViewControllerFrutas: UIViewController, UIPopoverPresentationControllerDel
         let vistaPopOver = segue.destination as! ViewControllerPopOver
         vistaPopOver.popoverPresentationController?.delegate = self
         vistaPopOver.texto = #"No hay ningún sumplento vitáminico como las frutas y verduras. "Eat the rainbow": Pensemos en el arcoíris cuando elegimos los vegetales que vamos a consumir."#
+    }
+    
+    // MARK: - Limitar orientación a portrait
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.landscape
+    }
+    
+    override var shouldAutorotate: Bool {
+        return false
     }
 }

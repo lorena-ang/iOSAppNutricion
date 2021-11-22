@@ -53,4 +53,14 @@ class ViewController: UIViewController {
         let vistaPaginaPrincipal = vistaTab.viewControllers?[1] as! ViewControllerPaginaPrincipal
         vistaPaginaPrincipal.habitoIds = habitoIds
     }
+    
+    // MARK: - Limitar orientación a portrait
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.landscape
+    }
+    
+    override var shouldAutorotate: Bool {
+        return false
+    }
 }

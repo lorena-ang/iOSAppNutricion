@@ -314,7 +314,7 @@ class ViewControllerBreaks: UIViewController, UIPopoverPresentationControllerDel
         listaBreaks[0].cantidad = cant
         listaBreaks[0].cadaCuanto = cadaCuanto
         listaBreaks[0].duracion = dur
-        listaBreaks[0].completado = completado
+        listaBreaks[0].completado = true
         listaBreaks[0].fecha = components
         
         guardarDatos()
@@ -362,5 +362,15 @@ class ViewControllerBreaks: UIViewController, UIPopoverPresentationControllerDel
         let vistaPopOver = segue.destination as! ViewControllerPopOver
         vistaPopOver.popoverPresentationController?.delegate = self
         vistaPopOver.texto = "Incorpora 4 breaks durante tu horario académico/laboral, pueden ser desde 5-20 minutos. Aprovecha y levántate, camina, activa tus músculos y evita el sedentarismo."
+    }
+    
+    // MARK: - Limitar orientación a portrait
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.landscape
+    }
+    
+    override var shouldAutorotate: Bool {
+        return false
     }
 }

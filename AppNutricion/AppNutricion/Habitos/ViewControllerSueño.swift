@@ -314,4 +314,14 @@ class ViewControllerSuen_o: UIViewController, UIPopoverPresentationControllerDel
         vistaPopOver.popoverPresentationController?.delegate = self
         vistaPopOver.texto = "Dormir bien y suficiente no es un lujo, es una necesidad del cuerpo para poder funcionar de manera adecuada. Una higiene del sueño deficiente, puede interferir en procesos de aprendizaje, almacenaje de memoria, la función inmunológica, entre muchos otros aspectos más."
     }
+    
+    // MARK: - Limitar orientación a portrait
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.landscape
+    }
+    
+    override var shouldAutorotate: Bool {
+        return false
+    }
 }
