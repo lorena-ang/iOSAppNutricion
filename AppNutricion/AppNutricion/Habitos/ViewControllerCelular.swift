@@ -54,7 +54,7 @@ class ViewControllerCelular: UIViewController, UIPopoverPresentationControllerDe
         formatter.locale = Locale(identifier: "en_gb")
         formatter.dateFormat = "HH:mm"
         tfHrDormir.text = formatter.string(from: time)
-        tfHrDormir.textColor = .link
+        //tfHrDormir.textColor = .link
         
         let timePicker = UIDatePicker()
         timePicker.datePickerMode = .time

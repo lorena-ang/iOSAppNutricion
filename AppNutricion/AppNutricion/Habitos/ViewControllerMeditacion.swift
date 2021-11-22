@@ -45,7 +45,7 @@ class ViewControllerMeditacion: UIViewController, UIPopoverPresentationControlle
         formatter.locale = Locale(identifier: "en_gb")
         formatter.dateFormat = "HH:mm"
         tfMeditacion.text = formatter.string(from: time)
-        tfMeditacion.textColor = .link
+        //tfMeditacion.textColor = .link
         
         let timePicker = UIDatePicker()
         timePicker.datePickerMode = .countDownTimer

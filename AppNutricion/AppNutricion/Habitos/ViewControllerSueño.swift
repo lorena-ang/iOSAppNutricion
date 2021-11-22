@@ -53,7 +53,7 @@ class ViewControllerSuen_o: UIViewController, UIPopoverPresentationControllerDel
         formatter.locale = Locale(identifier: "en_gb")
         formatter.dateFormat = "HH:mm"
         tfSueno.text = formatter.string(from: time)
-        tfSueno.textColor = .link
+        //tfSueno.textColor = .link
         
         let timePicker = UIDatePicker()
         timePicker.datePickerMode = .time

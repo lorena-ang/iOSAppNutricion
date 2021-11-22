@@ -65,7 +65,7 @@ class ViewControllerBreaks: UIViewController, UIPopoverPresentationControllerDel
         self.pickerCantidad.dataSource = self
         tfCantidad.inputView = pickerCantidad
         tfCantidad.textAlignment = .center
-        tfCantidad.textColor = .link
+        //tfCantidad.textColor = .link
         //FIN tfCantidad
         
         //Para el tf de cada cuanto tiempo deben durar los breaks
@@ -74,7 +74,7 @@ class ViewControllerBreaks: UIViewController, UIPopoverPresentationControllerDel
         formatter.locale = Locale(identifier: "en_gb")
         formatter.dateFormat = "HH:mm"
         //tfCadaCuanto.text = formatter.string(from: time)
-        tfCadaCuanto.textColor = .link
+        //tfCadaCuanto.textColor = .link
         
         let timePicker = UIDatePicker()
         timePicker.datePickerMode = .countDownTimer
@@ -94,7 +94,7 @@ class ViewControllerBreaks: UIViewController, UIPopoverPresentationControllerDel
         self.pickerDuracion.dataSource = self
         tfDuracion.inputView = pickerDuracion
         tfDuracion.textAlignment = .center
-        tfDuracion.textColor = .link
+        //tfDuracion.textColor = .link
         //FIN tfDuracion
         
         

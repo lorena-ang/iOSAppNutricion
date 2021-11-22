@@ -38,7 +38,7 @@ class ViewControllerEjercicio: UIViewController, UIPopoverPresentationController
         formatter.locale = Locale(identifier: "en_gb")
         formatter.dateFormat = "HH:mm"
         tfEjercicio.text = formatter.string(from: time)
-        tfEjercicio.textColor = .link
+        //tfEjercicio.textColor = .link
         
         let timePicker = UIDatePicker()
         timePicker.datePickerMode = .countDownTimer
