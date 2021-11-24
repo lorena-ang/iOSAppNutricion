@@ -125,6 +125,12 @@ class ViewControllerPasos: UIViewController, UIPopoverPresentationControllerDele
         return .none
     }
     
+    
+    // MARK: - Teclado
+    @IBAction func quitaTeclado(_ sender: UITapGestureRecognizer) {
+        view.endEditing(true)
+    }
+    
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
@@ -132,6 +138,7 @@ class ViewControllerPasos: UIViewController, UIPopoverPresentationControllerDele
         vistaPopOver.popoverPresentationController?.delegate = self
         vistaPopOver.texto = "Aumentar el nivel de actividad física trae enormes beneficios a la salud, sobre todo la salud cardiovascular ❤️. Además de hacer ejercicio, es importante también la actividad física para no ser sedentarios."
     }
+    
     
     // MARK: - Limitar orientación a portrait
     
