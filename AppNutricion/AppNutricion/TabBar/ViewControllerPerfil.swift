@@ -338,17 +338,22 @@ class ViewControllerPerfil: UIViewController,UITableViewDelegate, UITableViewDat
             case 0:
                 // Ejercicio
                 if indexPath.row == 0 {
-                    let ej = ejercicioActual.hora!
-                    let startIndex = ej.index(ej.startIndex, offsetBy: 0)
-                    let endIndex = ej.index(ej.startIndex, offsetBy: 1)
-                    let startIndex2 = ej.index(ej.startIndex, offsetBy: 3)
-                    let endIndex2 = ej.index(ej.startIndex, offsetBy: 4)
-                    cell.textLabel?.text = "Tiempo invertido: " + ej[startIndex...endIndex] + " hr " + ej[startIndex2...endIndex2] + " min"
+                    if (ejercicioActual.hora == "") {
+                        cell.textLabel?.text = "Tiempo invertido: 0 hr 0 min"
+                    }
+                    else {
+                        let ej = ejercicioActual.hora!
+                        let startIndex = ej.index(ej.startIndex, offsetBy: 0)
+                        let endIndex = ej.index(ej.startIndex, offsetBy: 1)
+                        let startIndex2 = ej.index(ej.startIndex, offsetBy: 3)
+                        let endIndex2 = ej.index(ej.startIndex, offsetBy: 4)
+                        cell.textLabel?.text = "Tiempo invertido: " + ej[startIndex...endIndex] + " hr " + ej[startIndex2...endIndex2] + " min"
+                    }
                 }
                 else {
                     cell.textLabel?.text = "Estatus: " + (ejercicioActual.check == "true" ? "Completado" : "No completado")
                 }
-                if (ejercicioActual.check == "false") {
+                if (ejercicioActual.check == "false" && ejercicioActual.hora == "") {
                     cell.backgroundColor = UIColor(red: 234/255, green: 222/255, blue: 252/255, alpha: 1)
                 }
                 else {
@@ -426,7 +431,7 @@ class ViewControllerPerfil: UIViewController,UITableViewDelegate, UITableViewDat
                 else {
                     cell.textLabel?.text = "Estatus: " + (meditacionActual.check == "true" ? "Completado" : "No completado")
                 }
-                if (meditacionActual.check == "false") {
+                if (meditacionActual.check == "false" && meditacionActual.hora == "00:00") {
                     cell.backgroundColor = UIColor(red: 234/255, green: 222/255, blue: 252/255, alpha: 1)
                 }
                 else {

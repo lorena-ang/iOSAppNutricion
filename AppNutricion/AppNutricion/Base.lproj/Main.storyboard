@@ -257,6 +257,21 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HábitosSaludables se distribuye como está de manera gratuita y se prohíbe su distribución y uso con fines de lucro." lineBreakMode="tailTruncation" numberOfLines="18" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uta-Mx-N8W">
                                 <rect key="frame" x="40" y="411.5" width="294" height="81.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.17254901960784313" green="0.16862745098039217" blue="0.23137254901960785" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Derechos de imágenes usadas:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gzy-BR-GrY">
+                                <rect key="frame" x="40" y="523" width="294" height="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <color key="textColor" red="0.47450980390000003" green="0.29411764709999999" blue="0.85490196080000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="https://undraw.co/illustrations           https://www.manypixels.co/gallery" lineBreakMode="tailTruncation" numberOfLines="18" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FFm-nr-u4x">
+                                <rect key="frame" x="40" y="554" width="275" height="41"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="275" id="9uh-pC-ps5"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.17254901959999999" green="0.16862745100000001" blue="0.23137254900000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -268,13 +283,19 @@
                             <constraint firstItem="0Yy-s1-eLI" firstAttribute="leading" secondItem="3x1-0A-HD3" secondAttribute="leading" constant="145" id="DhF-43-tWh"/>
                             <constraint firstItem="AaN-qS-inI" firstAttribute="top" secondItem="0Xc-1v-NYw" secondAttribute="bottom" constant="10" id="G9D-8q-Krp"/>
                             <constraint firstItem="gx5-Ji-0vw" firstAttribute="leading" secondItem="3x1-0A-HD3" secondAttribute="leading" constant="40" id="HSg-tj-z1V"/>
+                            <constraint firstItem="3x1-0A-HD3" firstAttribute="trailing" secondItem="FFm-nr-u4x" secondAttribute="trailing" constant="60" id="JtZ-Jt-J97"/>
+                            <constraint firstItem="FFm-nr-u4x" firstAttribute="leading" secondItem="3x1-0A-HD3" secondAttribute="leading" constant="40" id="QoV-4l-qcT"/>
                             <constraint firstItem="3x1-0A-HD3" firstAttribute="trailing" secondItem="Uta-Mx-N8W" secondAttribute="trailing" constant="41" id="S2h-dp-SmU"/>
+                            <constraint firstItem="FFm-nr-u4x" firstAttribute="top" secondItem="Gzy-BR-GrY" secondAttribute="bottom" constant="10" id="UJu-Oh-8er"/>
                             <constraint firstItem="0Xc-1v-NYw" firstAttribute="top" secondItem="gx5-Ji-0vw" secondAttribute="bottom" constant="30" id="awy-gH-Mq8"/>
                             <constraint firstItem="0Yy-s1-eLI" firstAttribute="top" secondItem="3x1-0A-HD3" secondAttribute="top" constant="40" id="bDi-EV-Zw3"/>
                             <constraint firstItem="Uta-Mx-N8W" firstAttribute="leading" secondItem="3x1-0A-HD3" secondAttribute="leading" constant="40" id="czi-x6-T30"/>
                             <constraint firstItem="3x1-0A-HD3" firstAttribute="trailing" secondItem="gx5-Ji-0vw" secondAttribute="trailing" constant="41" id="hVC-aU-F22"/>
                             <constraint firstItem="3x1-0A-HD3" firstAttribute="trailing" secondItem="0Yy-s1-eLI" secondAttribute="trailing" constant="145" id="ica-5B-B0P"/>
                             <constraint firstItem="AaN-qS-inI" firstAttribute="leading" secondItem="3x1-0A-HD3" secondAttribute="leading" constant="40" id="mWK-9q-xSP"/>
+                            <constraint firstItem="Gzy-BR-GrY" firstAttribute="leading" secondItem="3x1-0A-HD3" secondAttribute="leading" constant="40" id="nQ5-vP-LdQ"/>
+                            <constraint firstItem="Gzy-BR-GrY" firstAttribute="top" secondItem="Uta-Mx-N8W" secondAttribute="bottom" constant="30" id="oa5-pB-geq"/>
+                            <constraint firstItem="3x1-0A-HD3" firstAttribute="trailing" secondItem="Gzy-BR-GrY" secondAttribute="trailing" constant="41" id="siG-ea-p6t"/>
                             <constraint firstItem="Uta-Mx-N8W" firstAttribute="top" secondItem="AaN-qS-inI" secondAttribute="bottom" constant="30" id="tHM-JN-rkn"/>
                             <constraint firstItem="3x1-0A-HD3" firstAttribute="trailing" secondItem="0Xc-1v-NYw" secondAttribute="trailing" constant="41" id="xiG-tk-e4B"/>
                             <constraint firstItem="0Xc-1v-NYw" firstAttribute="leading" secondItem="3x1-0A-HD3" secondAttribute="leading" constant="40" id="zPN-8j-ftG"/>
@@ -340,7 +361,7 @@
                                                 <rect key="frame" x="40" y="665" width="294" height="162.5"/>
                                                 <string key="text">Para ver tu progreso diario, deberás ir a la pestaña de Perfil, en la que podrás encontrar una lista del progreso de todos los hábitos que seleccionaste. Si el fondo del hábito es color morado oscuro en vez de blanco, significa que no has interactuado con ese hábito aún. Tienes todo el día para hacerlo.</string>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="textColor" red="0.17254901960784313" green="0.16862745098039217" blue="0.23137254901960785" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="18" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wZS-yH-TT4">
