@@ -62,6 +62,8 @@ class ViewControllerMeditacion: UIViewController, UIPopoverPresentationControlle
         btnGuardar.layer.cornerRadius = 6
         btnIniciar.layer.cornerRadius = 6
 
+        //Link playlist
+        
         // Do any additional setup after loading the view.
         let app = UIApplication.shared
                 
@@ -84,6 +86,11 @@ class ViewControllerMeditacion: UIViewController, UIPopoverPresentationControlle
         formatter.locale = Locale(identifier: "en_gb")
         formatter.dateFormat = "HH:mm"
         tfMeditacion.text = formatter.string(from: sender.date)
+    }
+    
+    
+    @IBAction func btnPlaylist(_ sender: UIButton) {
+        UIApplication.shared.open(URL(string: "bit.do/meditacionyespiritualidad")! as URL, options: [:], completionHandler: nil)
     }
     
     @IBAction func btnStart(_ sender: UIButton) {
@@ -241,6 +248,7 @@ class ViewControllerMeditacion: UIViewController, UIPopoverPresentationControlle
         let vistaPopOver = segue.destination as! ViewControllerPopOver
         vistaPopOver.popoverPresentationController?.delegate = self
         vistaPopOver.texto = "Te ayuda a conocer tu mente, regular emociones, ser más resiliente, compasivo y ecuánime, además de la tranquilidad y calma que te otorga."
+        
     }
     
     // MARK: - Limitar orientación a portrait
