@@ -353,7 +353,7 @@ class ViewControllerPerfil: UIViewController,UITableViewDelegate, UITableViewDat
                 else {
                     cell.textLabel?.text = "Estatus: " + (ejercicioActual.check == "true" ? "Completado" : "No completado")
                 }
-                if (ejercicioActual.check == "false" && ejercicioActual.hora == "") {
+                if (ejercicioActual.check == "false") {
                     cell.backgroundColor = UIColor(red: 234/255, green: 222/255, blue: 252/255, alpha: 1)
                 }
                 else {
